@@ -7,7 +7,7 @@ import jagex.oldschool.Class43;
 import jagex.oldschool.util.Timestamp;
 import jagex.oldschool.Class99;
 import jagex.oldschool.Enum9;
-import jagex.oldschool.Ignore;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.Model;
 import jagex.oldschool.ModelBase;
 import jagex.oldschool.PlayerIdentity;

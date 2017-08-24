@@ -14,8 +14,8 @@ public class Class39 {
   public static int[] anIntArray16;
   public static int[] anIntArray17;
   public static int[] anIntArray18;
-  static int anInt91;
-  static int[] anIntArray19;
+  public static int anInt91;
+  public static int[] anIntArray19;
   static Buffer aBuffer2;
 
   static {

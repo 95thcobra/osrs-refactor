@@ -23,7 +23,7 @@ public final class AClass3_Sub1 extends AClass3 {
     anInt397 = int_3;
   }
 
-  public static void method725(final long long_0) {
+  public static void sleep(final long long_0) {
     if (long_0 > 0L) {
       if (long_0 % 10L == 0L) {
         final long long_1 = long_0 - 1L;

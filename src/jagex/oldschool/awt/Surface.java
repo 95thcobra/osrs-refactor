@@ -1,20 +1,22 @@
-package jagex.oldschool;
+package jagex.oldschool.awt;
 
+import jagex.oldschool.CacheableNode_Sub1;
+import jagex.oldschool.Class94;
 import jagex.oldschool.graphics.SpriteLoader;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.security.Isaac;
 
-public class Class102 {
+public class Surface {
 
   public int anInt199;
   public int anInt200;
 
-  Class102(final int int_0, final int int_1, final int int_2, final int int_3) {
+  Surface(final int int_0, final int int_1, final int width, final int height) {
     method517(int_0, int_1);
-    method518(int_2, int_3);
+    method518(width, height);
   }
 
-  public Class102(final int int_0, final int int_1) {
+  public Surface(final int int_0, final int int_1) {
     this(0, 0, int_0, int_1);
   }
 

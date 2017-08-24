@@ -472,7 +472,7 @@ public class Node_Sub5 extends Node {
     Class38.aCombatInfoList1.addLast(new AClass3_Sub1(model_0, int_0, int_1, int_2, int_3));
   }
 
-  static int method679(final Class108 class108_0) {
+  static int getMaximum(final FormatConfig class108_0) {
     if (class108_0 == null) {
       return 12;
     }

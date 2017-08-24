@@ -14,13 +14,13 @@ public class Class53 {
       final String string_1, final int int_1, final boolean bool_0) {
     final int int_2 = indexdatabase_0.getFile(string_0);
     final int int_3 = indexdatabase_0.getChild(int_2, string_1);
-    Class72.anInt168 = 1;
-    Class72.anIndexDataBase4 = indexdatabase_0;
+    AudioSystem.anInt168 = 1;
+    AudioSystem.anIndexDataBase4 = indexdatabase_0;
     Enum3.anInt339 = int_2;
-    RuntimeException_Sub1.anInt527 = int_3;
-    Class72.anInt170 = int_1;
+    NestedException.anInt527 = int_3;
+    AudioSystem.anInt170 = int_1;
     Class36.aBool8 = bool_0;
-    Class72.anInt169 = int_0;
+    AudioSystem.anInt169 = int_0;
   }
 
 }

@@ -4,7 +4,7 @@ import jagex.oldschool.script.PrimitiveType;
 import jagex.oldschool.ChatLineBuffer;
 import jagex.oldschool.Class10;
 import jagex.oldschool.util.Timestamp;
-import jagex.oldschool.Class85;
+import jagex.oldschool.Variables;
 import jagex.oldschool.Class90;
 import jagex.oldschool.Model;
 import jagex.oldschool.ModelBase;
@@ -110,7 +110,7 @@ public class NpcConfig extends Subnode {
     if (varpIndex != -1) {
       int_0 = PrimitiveType.method629(varpIndex);
     } else if (varp32Index != -1) {
-      int_0 = Class85.widgetSettings[varp32Index];
+      int_0 = Variables.widgetSettings[varp32Index];
     }
 
     int int_1;
@@ -458,7 +458,7 @@ public class NpcConfig extends Subnode {
     if (varpIndex != -1) {
       int_0 = PrimitiveType.method629(varpIndex);
     } else if (varp32Index != -1) {
-      int_0 = Class85.widgetSettings[varp32Index];
+      int_0 = Variables.widgetSettings[varp32Index];
     }
 
     return int_0 >= 0 && int_0 < configs.length ? configs[int_0] != -1

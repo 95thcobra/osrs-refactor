@@ -4,6 +4,7 @@ import jagex.oldschool.config.SpotAnimationConfig;
 import jagex.oldschool.graphics.DirectSprite;
 import jagex.oldschool.graphics.Rasterizer3d;
 import jagex.oldschool.io.Buffer;
+import jagex.oldschool.scene.Scene;
 import jagex.oldschool.script.Script;
 import jagex.oldschool.script.ScriptExecutor;
 import jagex.oldschool.ui.InterfaceComponent;
@@ -12,7 +13,7 @@ public class Class11 {
 
   static final Class11 aClass11_1;
   static final Class11 aClass11_2;
-  public static Region region;
+  public static Scene scene;
   static int anInt55;
 
   static {
@@ -125,7 +126,7 @@ public class Class11 {
     return 2;
   }
 
-  static int method163(final World world_0, final World world_1, final int int_0,
+  public static int method163(final World world_0, final World world_1, final int int_0,
       final boolean bool_0) {
     if (int_0 == 1) {
       int int_1 = world_0.playerCount;

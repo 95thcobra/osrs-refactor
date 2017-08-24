@@ -2,7 +2,7 @@ package jagex.oldschool.io;
 
 import jagex.oldschool.Class35;
 import jagex.oldschool.Class63;
-import jagex.oldschool.CollisionData;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.CombatInfo1;
 import jagex.oldschool.collections.Node;
 import jagex.oldschool.script.ScriptCall;

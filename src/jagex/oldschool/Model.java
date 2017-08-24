@@ -5,6 +5,7 @@ import jagex.oldschool.animation.Frame;
 import jagex.oldschool.animation.FrameBase;
 import jagex.oldschool.graphics.Materials;
 import jagex.oldschool.graphics.Rasterizer3d;
+import jagex.oldschool.scene.ItemLayer;
 import jagex.oldschool.scene.Renderable;
 import jagex.oldschool.script.Class34;
 
@@ -318,11 +319,11 @@ public class Model extends Renderable {
       if (int_9 >= 50) {
         int_13 = anIntArray124[int_9 - int_7] * (50 - int_7);
         anIntArray118[int_3] = int_1
-            + Rasterizer3d.anInt530 * (int_10 + ((yViewportBuffer[int_6] - int_10) * int_13
+            + Rasterizer3d.scaleFactor * (int_10 + ((yViewportBuffer[int_6] - int_10) * int_13
                 >> 16))
                 / 50;
         anIntArray122[int_3] = int_2
-            + (int_11 + ((anIntArray119[int_6] - int_11) * int_13 >> 16)) * Rasterizer3d.anInt530
+            + (int_11 + ((anIntArray119[int_6] - int_11) * int_13 >> 16)) * Rasterizer3d.scaleFactor
                 / 50;
         shsl[int_3++] = int_12 + ((hsl2[int_0] - int_12) * int_13 >> 16);
       }
@@ -330,11 +331,11 @@ public class Model extends Renderable {
       if (int_8 >= 50) {
         int_13 = anIntArray124[int_8 - int_7] * (50 - int_7);
         anIntArray118[int_3] = int_1
-            + Rasterizer3d.anInt530 * (int_10 + ((yViewportBuffer[int_5] - int_10) * int_13
+            + Rasterizer3d.scaleFactor * (int_10 + ((yViewportBuffer[int_5] - int_10) * int_13
                 >> 16))
                 / 50;
         anIntArray122[int_3] = int_2
-            + (int_11 + ((anIntArray119[int_5] - int_11) * int_13 >> 16)) * Rasterizer3d.anInt530
+            + (int_11 + ((anIntArray119[int_5] - int_11) * int_13 >> 16)) * Rasterizer3d.scaleFactor
                 / 50;
         shsl[int_3++] = int_12 + ((hsl1[int_0] - int_12) * int_13 >> 16);
       }
@@ -351,11 +352,11 @@ public class Model extends Renderable {
       if (int_7 >= 50) {
         int_13 = anIntArray124[int_7 - int_8] * (50 - int_8);
         anIntArray118[int_3] = int_1
-            + Rasterizer3d.anInt530 * (int_10 + ((yViewportBuffer[int_4] - int_10) * int_13
+            + Rasterizer3d.scaleFactor * (int_10 + ((yViewportBuffer[int_4] - int_10) * int_13
                 >> 16))
                 / 50;
         anIntArray122[int_3] = int_2
-            + Rasterizer3d.anInt530 * (int_11 + ((anIntArray119[int_4] - int_11) * int_13 >> 16))
+            + Rasterizer3d.scaleFactor * (int_11 + ((anIntArray119[int_4] - int_11) * int_13 >> 16))
                 / 50;
         shsl[int_3++] = int_12 + ((hsl0[int_0] - int_12) * int_13 >> 16);
       }
@@ -363,11 +364,11 @@ public class Model extends Renderable {
       if (int_9 >= 50) {
         int_13 = anIntArray124[int_9 - int_8] * (50 - int_8);
         anIntArray118[int_3] = int_1
-            + Rasterizer3d.anInt530 * (int_10 + ((yViewportBuffer[int_6] - int_10) * int_13
+            + Rasterizer3d.scaleFactor * (int_10 + ((yViewportBuffer[int_6] - int_10) * int_13
                 >> 16))
                 / 50;
         anIntArray122[int_3] = int_2
-            + (int_11 + ((anIntArray119[int_6] - int_11) * int_13 >> 16)) * Rasterizer3d.anInt530
+            + (int_11 + ((anIntArray119[int_6] - int_11) * int_13 >> 16)) * Rasterizer3d.scaleFactor
                 / 50;
         shsl[int_3++] = int_12 + ((hsl2[int_0] - int_12) * int_13 >> 16);
       }
@@ -384,11 +385,11 @@ public class Model extends Renderable {
       if (int_8 >= 50) {
         int_13 = anIntArray124[int_8 - int_9] * (50 - int_9);
         anIntArray118[int_3] = int_1
-            + Rasterizer3d.anInt530 * (int_10 + ((yViewportBuffer[int_5] - int_10) * int_13
+            + Rasterizer3d.scaleFactor * (int_10 + ((yViewportBuffer[int_5] - int_10) * int_13
                 >> 16))
                 / 50;
         anIntArray122[int_3] = int_2
-            + Rasterizer3d.anInt530 * (int_11 + ((anIntArray119[int_5] - int_11) * int_13 >> 16))
+            + Rasterizer3d.scaleFactor * (int_11 + ((anIntArray119[int_5] - int_11) * int_13 >> 16))
                 / 50;
         shsl[int_3++] = int_12 + ((hsl1[int_0] - int_12) * int_13 >> 16);
       }
@@ -397,10 +398,10 @@ public class Model extends Renderable {
         int_13 = anIntArray124[int_7 - int_9] * (50 - int_9);
         anIntArray118[int_3] = int_1
             + (int_10 + ((yViewportBuffer[int_4] - int_10) * int_13 >> 16))
-                * Rasterizer3d.anInt530
+                * Rasterizer3d.scaleFactor
                 / 50;
         anIntArray122[int_3] = int_2
-            + (int_11 + ((anIntArray119[int_4] - int_11) * int_13 >> 16)) * Rasterizer3d.anInt530
+            + (int_11 + ((anIntArray119[int_4] - int_11) * int_13 >> 16)) * Rasterizer3d.scaleFactor
                 / 50;
         shsl[int_3++] = int_12 + ((hsl0[int_0] - int_12) * int_13 >> 16);
       }
@@ -846,16 +847,16 @@ public class Model extends Renderable {
     if (int_12 > 50) {
       if (int_10 < 3500) {
         final int int_13 = int_7 * int_3 + int_4 * int_5 >> 16;
-        int int_14 = (int_13 - radius) * Rasterizer3d.anInt530;
+        int int_14 = (int_13 - radius) * Rasterizer3d.scaleFactor;
         if (int_14 / int_12 < Rasterizer3d.sux) {
-          int int_15 = (int_13 + radius) * Rasterizer3d.anInt530;
+          int int_15 = (int_13 + radius) * Rasterizer3d.scaleFactor;
           if (int_15 / int_12 > Rasterizer3d.slx) {
             final int int_16 = int_2 * int_6 - int_9 * int_1 >> 16;
             final int int_17 = int_1 * radius >> 16;
-            int int_18 = (int_16 + int_17) * Rasterizer3d.anInt530;
+            int int_18 = (int_16 + int_17) * Rasterizer3d.scaleFactor;
             if (int_18 / int_12 > Rasterizer3d.sly) {
               final int int_19 = (int_2 * super.minimumY >> 16) + int_17;
-              int int_20 = (int_16 - int_19) * Rasterizer3d.anInt530;
+              int int_20 = (int_16 - int_19) * Rasterizer3d.scaleFactor;
               if (int_20 / int_12 < Rasterizer3d.suy) {
                 final int int_21 = int_11 + (int_1 * super.minimumY >> 16);
                 boolean bool_0 = false;
@@ -869,7 +870,7 @@ public class Model extends Renderable {
                 final int int_23 = Class56.anInt141;
                 final boolean bool_3 = Materials.method557();
                 if (Class38.aBool10 && int_8 > 0) {
-                  if (Class69_Sub1.method610(this, int_5, int_6, int_7)) {
+                  if (Client.method610(this, int_5, int_6, int_7)) {
                     Node_Sub5.method678(this, int_5, int_6, int_7, -65281);
                   } else if (Class38.aClass40_1 == Class40.aClass40_3) {
                     Node_Sub5.method678(this, int_5, int_6, int_7, -16776961);
@@ -921,7 +922,7 @@ public class Model extends Renderable {
                 if (int_8 > 0 && bool_3) {
                   boolean bool_5 = false;
                   if (aBool67) {
-                    bool_5 = Class69_Sub1.method610(this, int_5, int_6, int_7);
+                    bool_5 = Client.method610(this, int_5, int_6, int_7);
                   } else {
                     int_26 = int_10 - int_11;
                     if (int_26 <= 50) {
@@ -991,8 +992,8 @@ public class Model extends Renderable {
                   int_32 = int_31 * int_1 + int_2 * int_32 >> 16;
                   anIntArray126[int_29] = int_32 - int_10;
                   if (int_32 >= 50) {
-                    sx[int_29] = int_25 + int_30 * Rasterizer3d.anInt530 / int_32;
-                    sy[int_29] = int_33 * Rasterizer3d.anInt530 / int_32 + int_26;
+                    sx[int_29] = int_25 + int_30 * Rasterizer3d.scaleFactor / int_32;
+                    sy[int_29] = int_33 * Rasterizer3d.scaleFactor / int_32 + int_26;
                   } else {
                     sx[int_29] = -5000;
                     bool_0 = true;
@@ -1607,8 +1608,8 @@ public class Model extends Renderable {
       int_22 = int_20 * int_16 - int_21 * int_15 >> 16;
       int_21 = int_20 * int_15 + int_21 * int_16 >> 16;
       anIntArray126[int_18] = int_21 - int_17;
-      sx[int_18] = int_7 + int_19 * Rasterizer3d.anInt530 / int_21;
-      sy[int_18] = int_8 + int_22 * Rasterizer3d.anInt530 / int_21;
+      sx[int_18] = int_7 + int_19 * Rasterizer3d.scaleFactor / int_21;
+      sy[int_18] = int_8 + int_22 * Rasterizer3d.scaleFactor / int_21;
       if (anInt548 > 0) {
         yViewportBuffer[int_18] = int_19;
         anIntArray119[int_18] = int_22;
@@ -1671,8 +1672,8 @@ public class Model extends Renderable {
       int_23 = int_21 * int_17 - int_22 * int_16 >> 16;
       int_22 = int_21 * int_16 + int_22 * int_17 >> 16;
       anIntArray126[int_19] = int_22 - int_18;
-      sx[int_19] = int_8 + int_20 * Rasterizer3d.anInt530 / int_7;
-      sy[int_19] = int_9 + int_23 * Rasterizer3d.anInt530 / int_7;
+      sx[int_19] = int_8 + int_20 * Rasterizer3d.scaleFactor / int_7;
+      sy[int_19] = int_9 + int_23 * Rasterizer3d.scaleFactor / int_7;
       if (anInt548 > 0) {
         yViewportBuffer[int_19] = int_20;
         anIntArray119[int_19] = int_23;

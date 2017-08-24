@@ -4,31 +4,31 @@ import jagex.oldschool.AClass3_Sub1;
 
 public class NanoRegulator extends Regulator {
 
-  long time;
+  long next;
 
   public NanoRegulator() {
-    time = System.nanoTime();
+    next = System.nanoTime();
   }
 
   @Override
-  public int sleep(final int min, final int delta) {
-    final long long_0 = delta * 1000000L;
-    long long_1 = time - System.nanoTime();
-    if (long_1 < long_0) {
-      long_1 = long_0;
+  public int sleep(final int delta, final int min) {
+    final long deltaNano = min * 1000000L;
+    long dt = next   - System.nanoTime();
+    if (dt < deltaNano) {
+      dt = deltaNano;
     }
 
-    AClass3_Sub1.method725(long_1 / 1000000L);
-    final long long_2 = System.nanoTime();
+    AClass3_Sub1.sleep(dt / 1000000L);
+    final long curr = System.nanoTime();
 
     int int_2;
-    for (int_2 = 0; int_2 < 10 && (int_2 < 1 || time < long_2);
-        time += 1000000L * min) {
+    for (int_2 = 0; int_2 < 10 && (int_2 < 1 || next < curr);
+        next += 1000000L * delta) {
       ++int_2;
     }
 
-    if (time < long_2) {
-      time = long_2;
+    if (next < curr) {
+      next = curr;
     }
 
     return int_2;
@@ -36,7 +36,7 @@ public class NanoRegulator extends Regulator {
 
   @Override
   public void reset() {
-    time = System.nanoTime();
+    next = System.nanoTime();
   }
 
 }

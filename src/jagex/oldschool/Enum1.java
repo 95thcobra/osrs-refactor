@@ -9,6 +9,7 @@ import jagex.oldschool.graphics.DirectSprite;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.FileCache;
 import jagex.oldschool.script.Script;
+import jagex.oldschool.social.Ignore;
 
 public enum Enum1 implements MappedEnum {
 
@@ -59,7 +60,7 @@ public enum Enum1 implements MappedEnum {
           final int int_9 = int_7 + int_0;
           final int int_10 = int_6 + int_1;
           if (int_9 > 0 && int_10 > 0 && int_9 < 103 && int_10 < 103) {
-            final ObjectConfig objectcomposition_0 = Class2.getObjectDefinition(int_2);
+            final ObjectConfig objectcomposition_0 = Class2.getObjectConfig(int_2);
             if (int_8 != 22 || !Client.lowMemory || objectcomposition_0.anInt454 != 0
                 || objectcomposition_0.interactType == 1 || objectcomposition_0.aBool56) {
               if (!objectcomposition_0.method821()) {
@@ -86,17 +87,17 @@ public enum Enum1 implements MappedEnum {
     if (string_0 == null) {
       return false;
     }
-    final String string_1 = FloorUnderlayDefinition.method869(string_0, AClass1_Sub2.aClass108_10);
+    final String string_1 = FloorUnderlayDefinition.format(string_0, AClass1_Sub2.aClass108_10);
 
     for (int int_0 = 0; int_0 < Client.ignoreCount; int_0++) {
       final Ignore ignore_0 = Client.ignores[int_0];
       if (string_1.equalsIgnoreCase(
-          FloorUnderlayDefinition.method869(ignore_0.name, AClass1_Sub2.aClass108_10))) {
+          FloorUnderlayDefinition.format(ignore_0.name, AClass1_Sub2.aClass108_10))) {
         return true;
       }
 
       if (string_1.equalsIgnoreCase(
-          FloorUnderlayDefinition.method869(ignore_0.previousName, AClass1_Sub2.aClass108_10))) {
+          FloorUnderlayDefinition.format(ignore_0.previousName, AClass1_Sub2.aClass108_10))) {
         return true;
       }
     }
@@ -127,14 +128,14 @@ public enum Enum1 implements MappedEnum {
     final int int_2 = varbit_1.mappedId;
     final int int_3 = varbit_1.lowBit;
     final int int_4 = varbit_1.highBit;
-    int int_5 = Class85.anIntArray45[int_4 - int_3];
+    int int_5 = Variables.MASKS[int_4 - int_3];
     if (int_1 < 0 || int_1 > int_5) {
       int_1 = 0;
     }
 
     int_5 <<= int_3;
-    Class85.widgetSettings[int_2] =
-        Class85.widgetSettings[int_2] & ~int_5 | int_1 << int_3 & int_5;
+    Variables.widgetSettings[int_2] =
+        Variables.widgetSettings[int_2] & ~int_5 | int_1 << int_3 & int_5;
   }
 
   static Script method604(final byte[] bytes_0) {

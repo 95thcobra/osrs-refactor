@@ -4,6 +4,8 @@ import jagex.oldschool.collections.IterableQueue;
 import jagex.oldschool.device.Keyboard;
 import jagex.oldschool.graphics.Rasterizer3d;
 import jagex.oldschool.io.Buffer;
+import jagex.oldschool.map.MapIcon;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.security.Isaac;
 import jagex.oldschool.ui.InterfaceComponent;
 
@@ -65,10 +67,10 @@ public class Class38 {
 
   static void method266(int int_0, int int_1, final int int_2) {
     if (int_0 >= 128 && int_1 >= 128 && int_0 <= 13056 && int_1 <= 13056) {
-      int int_3 = Class29.getTileHeight(int_0, int_1, Class12.plane) - int_2;
+      int int_3 = Client.getTileHeight(int_0, int_1, Class12.plane) - int_2;
       int_0 -= Isaac.cameraX;
       int_3 -= WorldMapData.cameraZ;
-      int_1 -= Class29.cameraY;
+      int_1 -= MapIcon.cameraY;
       final int int_4 = Rasterizer3d.SINE[Keyboard.cameraPitch];
       final int int_5 = Rasterizer3d.COSINE[Keyboard.cameraPitch];
       final int int_6 = Rasterizer3d.SINE[Boundry.cameraYaw];

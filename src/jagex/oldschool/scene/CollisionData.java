@@ -1,7 +1,9 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
+import jagex.oldschool.Class28;
+import jagex.oldschool.Client;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.asset.AbstractPackage;
-import jagex.oldschool.config.ObjectConfig;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.script.ScriptExecutor;
 import jagex.oldschool.ui.InterfaceComponent;
@@ -10,7 +12,7 @@ import jagex.oldschool.util.Time;
 
 public class CollisionData {
 
-  static AbstractPackage anIndexDataBase12;
+  public static AbstractPackage anIndexDataBase12;
   public int x;
   public int[][] flags;
   public int y;
@@ -35,7 +37,7 @@ public class CollisionData {
     return checksum;
   }
 
-  static void method572() {
+  public static void method572() {
     for (OpenedInterface widgetnode_0 = (OpenedInterface) Client.componentTable
         .method66(); widgetnode_0 != null;
         widgetnode_0 = (OpenedInterface) Client.componentTable.method67()) {
@@ -60,39 +62,6 @@ public class CollisionData {
           }
         }
       }
-    }
-
-  }
-
-  static void method573(final int int_0, final int int_1, final int int_2,
-      final ObjectConfig objectcomposition_0, final int int_3) {
-    final Node_Sub1 node_sub1_0 = new Node_Sub1();
-    node_sub1_0.anInt317 = int_0;
-    node_sub1_0.anInt314 = int_1 * 128;
-    node_sub1_0.anInt316 = int_2 * 128;
-    int int_4 = objectcomposition_0.sizeX;
-    int int_5 = objectcomposition_0.sizeY;
-    if (int_3 == 1 || int_3 == 3) {
-      int_4 = objectcomposition_0.sizeY;
-      int_5 = objectcomposition_0.sizeX;
-    }
-
-    node_sub1_0.anInt313 = (int_4 + int_1) * 128;
-    node_sub1_0.anInt315 = (int_5 + int_2) * 128;
-    node_sub1_0.anInt309 = objectcomposition_0.ambientSoundId;
-    node_sub1_0.anInt310 = objectcomposition_0.anInt456 * 128;
-    node_sub1_0.anInt311 = objectcomposition_0.anInt457;
-    node_sub1_0.anInt312 = objectcomposition_0.anInt458;
-    node_sub1_0.anIntArray77 = objectcomposition_0.anIntArray101;
-    if (objectcomposition_0.impostorIds != null) {
-      node_sub1_0.anObjectComposition1 = objectcomposition_0;
-      node_sub1_0.method627();
-    }
-
-    Node_Sub1.aDeque3.addLast(node_sub1_0);
-    if (node_sub1_0.anIntArray77 != null) {
-      node_sub1_0.anInt318 = node_sub1_0.anInt311
-          + (int) (Math.random() * (node_sub1_0.anInt312 - node_sub1_0.anInt311));
     }
 
   }

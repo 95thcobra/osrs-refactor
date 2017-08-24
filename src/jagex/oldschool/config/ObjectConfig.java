@@ -4,7 +4,7 @@ import jagex.oldschool.animation.AnimationSequence;
 import jagex.oldschool.ChatLineBuffer;
 import jagex.oldschool.Class10;
 import jagex.oldschool.Class2;
-import jagex.oldschool.Class85;
+import jagex.oldschool.Variables;
 import jagex.oldschool.Model;
 import jagex.oldschool.ModelBase;
 import jagex.oldschool.asset.RemoteRequest;
@@ -42,11 +42,11 @@ public class ObjectConfig extends Subnode {
   public int anInt455;
   public String name;
   public int id;
-  public int mapIconId;
+  public int iconId;
   public int[] anIntArray101;
-  public int sizeX;
+  public int width;
   public int interactType;
-  public int sizeY;
+  public int height;
   public String[] actions;
   public boolean aBool55;
   public int anInt456;
@@ -82,8 +82,8 @@ public class ObjectConfig extends Subnode {
 
   public ObjectConfig() {
     name = "null";
-    sizeX = 1;
-    sizeY = 1;
+    width = 1;
+    height = 1;
     interactType = 2;
     aBool55 = true;
     anInt454 = -1;
@@ -95,7 +95,7 @@ public class ObjectConfig extends Subnode {
     ambient = 0;
     contrast = 0;
     actions = new String[5];
-    mapIconId = -1;
+    iconId = -1;
     mapSceneId = -1;
     isRotated = false;
     clipped = true;
@@ -121,7 +121,7 @@ public class ObjectConfig extends Subnode {
     if (varpId != -1) {
       int_0 = PrimitiveType.method629(varpId);
     } else if (configId != -1) {
-      int_0 = Class85.widgetSettings[configId];
+      int_0 = Variables.widgetSettings[configId];
     }
 
     int int_1;
@@ -131,7 +131,7 @@ public class ObjectConfig extends Subnode {
       int_1 = impostorIds[impostorIds.length - 1];
     }
 
-    return int_1 != -1 ? Class2.getObjectDefinition(int_1) : null;
+    return int_1 != -1 ? Class2.getObjectConfig(int_1) : null;
   }
 
   void loadData(final Buffer buffer_0, final int int_0) {
@@ -181,12 +181,12 @@ public class ObjectConfig extends Subnode {
       }
 
       if (int_0 == 14) {
-        sizeX = buffer_0.getUnsignedByte();
+        width = buffer_0.getUnsignedByte();
         return;
       }
 
       if (int_0 == 15) {
-        sizeY = buffer_0.getUnsignedByte();
+        height = buffer_0.getUnsignedByte();
         return;
       }
 
@@ -405,7 +405,7 @@ public class ObjectConfig extends Subnode {
           }
 
           if (int_0 == 82) {
-            mapIconId = buffer_0.getUnsignedShort();
+            iconId = buffer_0.getUnsignedShort();
             return;
           }
 
@@ -668,7 +668,7 @@ public class ObjectConfig extends Subnode {
     for (int int_0 = 0; int_0 < impostorIds.length; int_0++) {
       if (impostorIds[int_0] != -1) {
         final ObjectConfig objectcomposition_1 = Class2
-            .getObjectDefinition(impostorIds[int_0]);
+            .getObjectConfig(impostorIds[int_0]);
         if (objectcomposition_1.ambientSoundId != -1 || objectcomposition_1.anIntArray101
             != null) {
           return true;

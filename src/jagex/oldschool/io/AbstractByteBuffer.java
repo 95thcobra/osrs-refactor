@@ -1,8 +1,8 @@
 package jagex.oldschool.io;
 
+import jagex.oldschool.Client;
 import jagex.oldschool.util.Time;
-import jagex.oldschool.Ignore;
-import jagex.oldschool.Occluder;
+import jagex.oldschool.social.Ignore;
 
 public abstract class AbstractByteBuffer {
 
@@ -17,7 +17,7 @@ public abstract class AbstractByteBuffer {
       final int int_4,
       final int int_5, final int int_6) {
     if (Ignore.loadWidget(int_0)) {
-      Occluder.method405(Time.widgets[int_0], -1, int_1, int_2, int_3, int_4, int_5, int_6);
+      Client.method405(Time.widgets[int_0], -1, int_1, int_2, int_3, int_4, int_5, int_6);
     }
   }
 

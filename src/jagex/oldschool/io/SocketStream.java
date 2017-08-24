@@ -1,7 +1,7 @@
 package jagex.oldschool.io;
 
 import jagex.oldschool.AClass3_Sub1;
-import jagex.oldschool.Class72;
+import jagex.oldschool.AudioSystem;
 import jagex.oldschool.task.TaskQueue;
 import jagex.oldschool.task.Task;
 import jagex.oldschool.config.ClientScriptVariable;
@@ -40,7 +40,7 @@ public final class SocketStream implements Runnable {
   }
 
   public static boolean method554() {
-    return Class72.anInt168 != 0 ? true : Class72.anAClass4_Sub3_1.method805();
+    return AudioSystem.anInt168 != 0 ? true : AudioSystem.anAClass4_Sub3_1.method805();
   }
 
   public static int method555(final int int_0, int int_1, final int int_2) {
@@ -73,7 +73,7 @@ public final class SocketStream implements Runnable {
 
       if (socketThread != null) {
         while (socketThread.status == 0) {
-          AClass3_Sub1.method725(1L);
+          AClass3_Sub1.sleep(1L);
         }
 
         if (socketThread.status == 1) {

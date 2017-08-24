@@ -1,5 +1,7 @@
 package jagex.oldschool;
 
+import jagex.oldschool.scene.CollisionData;
+
 public abstract class AClass2 {
 
   public static int anInt153;

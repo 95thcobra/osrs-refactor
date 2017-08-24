@@ -4,6 +4,7 @@ import jagex.oldschool.io.AbstractByteBuffer;
 import jagex.oldschool.io.HuffmanCodec;
 import jagex.oldschool.script.LongVariable;
 import jagex.oldschool.script.PrimitiveType;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.ui.InterfaceComponent;
 
 public class Class28 {
@@ -66,13 +67,13 @@ public class Class28 {
       Class84.anIntArray44 = null;
       Ignore.anIntArray60 = null;
       LoginScreen.anIntArray23 = null;
-      Class72.anInt168 = 1;
-      Class72.anIndexDataBase4 = null;
+      AudioSystem.anInt168 = 1;
+      AudioSystem.anIndexDataBase4 = null;
       Enum3.anInt339 = -1;
-      RuntimeException_Sub1.anInt527 = -1;
-      Class72.anInt170 = 0;
+      NestedException.anInt527 = -1;
+      AudioSystem.anInt170 = 0;
       Class36.aBool8 = false;
-      Class72.anInt169 = 2;
+      AudioSystem.anInt169 = 2;
       Class8.sendConInfo(true);
       LoginScreen.aBool15 = false;
     }

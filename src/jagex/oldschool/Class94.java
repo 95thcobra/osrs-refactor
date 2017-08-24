@@ -6,7 +6,7 @@ import jagex.oldschool.scene.Player;
 public class Class94 {
 
   public static int[] anIntArray48;
-  static HuffmanCodec aHuffman1;
+  public static HuffmanCodec aHuffman1;
 
   static void method514(final Class23 class23_0) {
     if (GrandExchangeOffer.localPlayer.x >> 7 == Client.destinationX
@@ -52,8 +52,8 @@ public class Class94 {
           if (player_0.model != null && Client.tick >= player_0.anInt579
               && Client.tick < player_0.anInt580) {
             player_0.aBool75 = false;
-            player_0.anInt583 = Class29.getTileHeight(player_0.x, player_0.y, Class12.plane);
-            Class11.region
+            player_0.anInt583 = Client.getTileHeight(player_0.x, player_0.y, Class12.plane);
+            Class11.scene
                 .method371(Class12.plane, player_0.x, player_0.y, player_0.anInt583, 60, player_0,
                     player_0.angle, int_3, player_0.anInt587, player_0.anInt588, player_0.anInt589,
                     player_0.anInt590);
@@ -66,8 +66,8 @@ public class Class94 {
               Client.anIntArrayArray21[int_4][int_5] = Client.anInt643;
             }
 
-            player_0.anInt583 = Class29.getTileHeight(player_0.x, player_0.y, Class12.plane);
-            Class11.region
+            player_0.anInt583 = Client.getTileHeight(player_0.x, player_0.y, Class12.plane);
+            Class11.scene
                 .method369(Class12.plane, player_0.x, player_0.y, player_0.anInt583, 60, player_0,
                     player_0.angle, int_3, player_0.aBool63);
           }

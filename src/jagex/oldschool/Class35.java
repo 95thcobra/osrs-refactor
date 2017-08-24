@@ -7,6 +7,8 @@ import jagex.oldschool.graphics.IndexedSprite;
 import jagex.oldschool.graphics.Materials;
 import jagex.oldschool.graphics.Rasterizer3d;
 import jagex.oldschool.io.FileOnDisk;
+import jagex.oldschool.scene.CollisionData;
+import jagex.oldschool.scene.Square;
 import jagex.oldschool.script.Script;
 import jagex.oldschool.script.ScriptExecutor;
 import jagex.oldschool.ui.InterfaceComponent;
@@ -117,7 +119,7 @@ public final class Class35 implements Comparator {
     Stub.method1049();
     final int int_1 = Class64.method406(int_0).configType;
     if (int_1 != 0) {
-      final int int_2 = Class85.widgetSettings[int_0];
+      final int int_2 = Variables.widgetSettings[int_0];
       if (int_1 == 1) {
         if (int_2 == 1) {
           Rasterizer3d.setBrightness(0.9D);
@@ -169,9 +171,9 @@ public final class Class35 implements Comparator {
             Class23.method212(CacheableNode_Sub4.indexTrack1, Client.anInt613, 0, short_0, false);
             Client.aBool81 = false;
           } else if (short_0 == 0) {
-            Class72.anAClass4_Sub3_1.method790();
-            Class72.anInt168 = 1;
-            Class72.anIndexDataBase4 = null;
+            AudioSystem.anAClass4_Sub3_1.method790();
+            AudioSystem.anInt168 = 1;
+            AudioSystem.anIndexDataBase4 = null;
             Client.aBool81 = false;
           } else {
             Enum6.method673(short_0);

@@ -1,14 +1,16 @@
-package jagex.oldschool;
+package jagex.oldschool.social;
 
+import jagex.oldschool.Class23;
+import jagex.oldschool.Overlay;
 import jagex.oldschool.util.Time;
 
 public class Friend {
 
-  static int anInt203;
+  public static int anInt203;
   public String name;
   public int world;
-  boolean aBool24;
-  boolean aBool25;
+  public boolean aBool24;
+  public boolean aBool25;
   public String previousName;
   public int rank;
 
@@ -16,7 +18,7 @@ public class Friend {
     Overlay.overlays.reset();
   }
 
-  static int method521(final int int_0, int int_1) {
+  public static int method521(final int int_0, int int_1) {
     if (int_0 == -2) {
       return 12345678;
     }
@@ -40,7 +42,7 @@ public class Friend {
     return (int_0 & 0xFF80) + int_1;
   }
 
-  static void method522(final int int_0, final int int_1) {
+  public static void method522(final int int_0, final int int_1) {
     if (Ignore.loadWidget(int_0)) {
       Class23.method213(Time.widgets[int_0], int_1);
     }

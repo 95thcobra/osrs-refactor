@@ -16,7 +16,7 @@ public enum Enum7 implements MappedEnum {
     anInt375 = int_2;
   }
 
-  static IndexedSprite[] method704() {
+  public static IndexedSprite[] method704() {
     final IndexedSprite[] indexedsprites_0 = new IndexedSprite[SpriteLoader.anInt205];
 
     for (int int_0 = 0; int_0 < SpriteLoader.anInt205; int_0++) {

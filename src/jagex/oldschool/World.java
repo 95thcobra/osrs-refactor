@@ -5,6 +5,7 @@ import jagex.oldschool.device.Mouse;
 import jagex.oldschool.graphics.FaceNormal;
 import jagex.oldschool.script.LongVariable;
 import jagex.oldschool.security.Isaac;
+import jagex.oldschool.social.LoginNotification;
 
 public class World {
 
@@ -41,9 +42,9 @@ public class World {
         if (!LongVariable.preferences.muted) {
           Class3.method122(CacheableNode_Sub4.indexTrack1, "scape main", "", 255, false);
         } else {
-          Class72.anAClass4_Sub3_1.method790();
-          Class72.anInt168 = 1;
-          Class72.anIndexDataBase4 = null;
+          AudioSystem.anAClass4_Sub3_1.method790();
+          AudioSystem.anInt168 = 1;
+          AudioSystem.anIndexDataBase4 = null;
         }
       }
 
@@ -61,7 +62,7 @@ public class World {
               if (Mouse.anInt253 >= int_0 && Mouse.anInt253 <= byte_0 + int_0
                   && Mouse.anInt254 >= short_0
                   && Mouse.anInt254 <= byte_1 + short_0) {
-                if (Ignore.loadWorlds()) {
+                if (Client.loadWorlds()) {
                   LoginScreen.selectWorld = true;
                   return;
                 }
@@ -70,7 +71,7 @@ public class World {
               }
             }
 
-            if (Class69_Sub1.listFetcher != null && Ignore.loadWorlds()) {
+            if (LoginNotification.listFetcher != null && Client.loadWorlds()) {
               LoginScreen.selectWorld = true;
             }
           }
@@ -190,7 +191,7 @@ public class World {
                 int_5 += 15;
                 short_2 = 361;
                 if (int_0 == 1 && int_4 >= short_2 - 15 && int_4 < short_2) {
-                  Class24.method218("Please enter your username.",
+                  UrlStreamWorker.method218("Please enter your username.",
                       "If you created your account after November",
                       "2010, this will be the creation email address.");
                   LoginScreen.loginIndex = 5;
@@ -201,11 +202,11 @@ public class World {
                       && int_4 >= short_3 - 20 && int_4 <= short_3 + 20) {
                     LoginScreen.username = LoginScreen.username.trim();
                     if (LoginScreen.username.length() == 0) {
-                      Class24.method218("", "Please enter your username/email address.", "");
+                      UrlStreamWorker.method218("", "Please enter your username/email address.", "");
                     } else if (LoginScreen.password.length() == 0) {
-                      Class24.method218("", "Please enter your password.", "");
+                      UrlStreamWorker.method218("", "Please enter your password.", "");
                     } else {
-                      Class24.method218("", "Connecting to server...", "");
+                      UrlStreamWorker.method218("", "Connecting to server...", "");
                       LoginScreen.anEnum3_1 = LongVariable.preferences.preferences.containsKey(
                           Integer.valueOf(FaceNormal.method553(LoginScreen.username)))
                           ? Enum3.anEnum3_2
@@ -231,7 +232,7 @@ public class World {
                         for (int int_2 = 0; int_2
                             < "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"£$%^&*()-_=+[{]};:\'@#~,<.>/?\\| "
                             .length(); int_2++) {
-                          if (Class89.aChar1
+                          if (LoginScreen.aChar1
                               == "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"£$%^&*()-_=+[{]};:\'@#~,<.>/?\\| "
                               .charAt(int_2)) {
                             bool_2 = true;
@@ -257,7 +258,7 @@ public class World {
                           }
 
                           if (bool_2 && LoginScreen.username.length() < 320) {
-                            LoginScreen.username = LoginScreen.username + Class89.aChar1;
+                            LoginScreen.username = LoginScreen.username + LoginScreen.aChar1;
                           }
                         } else if (LoginScreen.loginIndex2 == 1) {
                           if (Class3.anInt22 == 85 && LoginScreen.password.length() > 0) {
@@ -272,17 +273,17 @@ public class World {
                           if (Class3.anInt22 == 84) {
                             LoginScreen.username = LoginScreen.username.trim();
                             if (LoginScreen.username.length() == 0) {
-                              Class24.method218("",
+                              UrlStreamWorker.method218("",
                                   "Please enter your username/email address.", "");
                               return;
                             }
 
                             if (LoginScreen.password.length() == 0) {
-                              Class24.method218("", "Please enter your password.", "");
+                              UrlStreamWorker.method218("", "Please enter your password.", "");
                               return;
                             }
 
-                            Class24.method218("", "Connecting to server...", "");
+                            UrlStreamWorker.method218("", "Connecting to server...", "");
                             LoginScreen.anEnum3_1 = LongVariable.preferences.preferences.containsKey(
                                 Integer.valueOf(FaceNormal.method553(LoginScreen.username)))
                                 ? Enum3.anEnum3_2
@@ -292,7 +293,7 @@ public class World {
                           }
 
                           if (bool_2 && LoginScreen.password.length() < 20) {
-                            LoginScreen.password = LoginScreen.password + Class89.aChar1;
+                            LoginScreen.password = LoginScreen.password + LoginScreen.aChar1;
                           }
                         }
                       }
@@ -317,7 +318,7 @@ public class World {
                 short_1 = 326;
                 if (int_0 == 1 && int_3 >= int_5 - 75 && int_3 <= int_5 + 75
                     && int_4 >= short_1 - 20 && int_4 <= short_1 + 20) {
-                  Class24.method218("Please enter your username.",
+                  UrlStreamWorker.method218("Please enter your username.",
                       "If you created your account after November",
                       "2010, this will be the creation email address.");
                   LoginScreen.loginIndex = 5;
@@ -332,12 +333,12 @@ public class World {
                       && int_4 >= short_1 - 20 && int_4 <= short_1 + 20) {
                     Preferences.authCode.trim();
                     if (Preferences.authCode.length() != 6) {
-                      Class24.method218("", "Please enter a 6-digit PIN.", "");
+                      UrlStreamWorker.method218("", "Please enter a 6-digit PIN.", "");
                     } else {
                       ClassInfo.authCodeForLogin = Integer.parseInt(Preferences.authCode);
                       Preferences.authCode = "";
                       LoginScreen.anEnum3_1 = LoginScreen.aBool14 ? Enum3.anEnum3_3 : Enum3.anEnum3_5;
-                      Class24.method218("", "Connecting to server...", "");
+                      UrlStreamWorker.method218("", "Connecting to server...", "");
                       Mouse.setGameState(20);
                     }
                   } else {
@@ -368,7 +369,7 @@ public class World {
                       bool_0 = false;
 
                       for (int_1 = 0; int_1 < "1234567890".length(); int_1++) {
-                        if (Class89.aChar1 == "1234567890".charAt(int_1)) {
+                        if (LoginScreen.aChar1 == "1234567890".charAt(int_1)) {
                           bool_0 = true;
                           break;
                         }
@@ -389,7 +390,7 @@ public class World {
                         if (Class3.anInt22 == 84) {
                           Preferences.authCode.trim();
                           if (Preferences.authCode.length() != 6) {
-                            Class24.method218("", "Please enter a 6-digit PIN.", "");
+                            UrlStreamWorker.method218("", "Please enter a 6-digit PIN.", "");
                             return;
                           }
 
@@ -397,13 +398,13 @@ public class World {
                           Preferences.authCode = "";
                           LoginScreen.anEnum3_1 = LoginScreen.aBool14 ? Enum3.anEnum3_3
                               : Enum3.anEnum3_5;
-                          Class24.method218("", "Connecting to server...", "");
+                          UrlStreamWorker.method218("", "Connecting to server...", "");
                           Mouse.setGameState(20);
                           return;
                         }
 
                         if (bool_0 && Preferences.authCode.length() < 6) {
-                          Preferences.authCode = Preferences.authCode + Class89.aChar1;
+                          Preferences.authCode = Preferences.authCode + LoginScreen.aChar1;
                         }
                       }
                     }
@@ -433,7 +434,7 @@ public class World {
                       for (int_1 = 0; int_1
                           < "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"£$%^&*()-_=+[{]};:\'@#~,<.>/?\\| "
                           .length(); int_1++) {
-                        if (Class89.aChar1
+                        if (LoginScreen.aChar1
                             == "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"£$%^&*()-_=+[{]};:\'@#~,<.>/?\\| "
                             .charAt(int_1)) {
                           bool_0 = true;
@@ -460,7 +461,7 @@ public class World {
                         }
 
                         if (bool_0 && LoginScreen.username.length() < 320) {
-                          LoginScreen.username = LoginScreen.username + Class89.aChar1;
+                          LoginScreen.username = LoginScreen.username + LoginScreen.aChar1;
                         }
                       }
                     }

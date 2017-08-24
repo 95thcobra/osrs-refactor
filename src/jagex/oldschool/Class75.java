@@ -21,7 +21,7 @@ public class Class75 {
     return class69_0;
   }
 
-  public void method464(final Class69 class69_0) {
+  public void addLast(final Class69 class69_0) {
     if (class69_0.aClass69_1 != null) {
       class69_0.method422();
     }

@@ -2,7 +2,7 @@ package jagex.oldschool;
 
 import java.applet.Applet;
 
-public class RuntimeException_Sub1 extends RuntimeException {
+public class NestedException extends RuntimeException {
 
   public static int anInt527;
   public static Applet anApplet2;

@@ -5,20 +5,20 @@ import jagex.oldschool.asset.Package;
 import jagex.oldschool.script.Class34;
 import jagex.oldschool.script.Script;
 
-public class Class85 {
+public class Variables {
 
   public static int[] settings;
   public static int[] widgetSettings;
-  public static int[] anIntArray45;
+  public static int[] MASKS;
   static Package anIndexData2;
   public static short[] aShortArray3;
 
   static {
-    anIntArray45 = new int[32];
+    MASKS = new int[32];
     int int_0 = 2;
 
     for (int int_1 = 0; int_1 < 32; int_1++) {
-      anIntArray45[int_1] = int_0 - 1;
+      MASKS[int_1] = int_0 - 1;
       int_0 += int_0;
     }
 

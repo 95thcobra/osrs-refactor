@@ -1,5 +1,9 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
+import jagex.oldschool.AClass3;
+import jagex.oldschool.Class22;
+import jagex.oldschool.Class46;
+import jagex.oldschool.Client;
 import jagex.oldschool.asset.Package;
 import jagex.oldschool.collections.Node;
 import jagex.oldschool.io.Buffer;
@@ -7,8 +11,8 @@ import jagex.oldschool.util.Arrays;
 
 public final class Square extends Node {
 
-  static Package indexTextures;
-  SceneTilePaint paint;
+  public static Package indexTextures;
+  SolidSquare solid;
   ItemLayer itemLayer;
   DecorativeObject decorativeObject;
   WallObject wallObject;
@@ -16,14 +20,14 @@ public final class Square extends Node {
   GameObject[] objects;
   GroundObject groundObject;
   int physicalLevel;
-  SceneTileModel overlay;
+  ShapedSquare shaped;
   int[] entityFlags;
   Square bridge;
-  int flags;
+  int cullingFlags;
   int plane;
   boolean visible;
   int x;
-  int y;
+  int z;
   int renderLevel;
   boolean draw;
   int wallCullDirection;
@@ -32,25 +36,25 @@ public final class Square extends Node {
   int wallDrawFlags;
   int wallCullOppositeDirection;
 
-  Square(final int int_0, final int int_1, final int int_2) {
+  Square(final int int_0, final int x, final int z) {
     objects = new GameObject[5];
     entityFlags = new int[5];
-    flags = 0;
+    cullingFlags = 0;
     renderLevel = plane = int_0;
-    x = int_1;
-    y = int_2;
+    this.x = x;
+    this.z = z;
   }
 
-  public static String getColTags(final int int_0) {
+  public static String embedColor(final int int_0) {
     return "<col=" + Integer.toHexString(int_0) + ">";
   }
 
-  static boolean method659(final String string_0, final int int_0) {
+  public static boolean method659(final String string_0, final int int_0) {
     return AClass3.method620(string_0, int_0, "openjs");
   }
 
-  static void method660(final byte[] bytes_0, final int int_0, final int int_1,
-      final Region region_0,
+  public static void method660(final byte[] bytes_0, final int int_0, final int int_1,
+      final Scene region_0,
       final CollisionData[] collisiondatas_0) {
     final Buffer buffer_0 = new Buffer(bytes_0);
     int int_2 = -1;
@@ -97,12 +101,12 @@ public final class Square extends Node {
     }
   }
 
-  static void method661(final byte[] bytes_0, final int int_0) {
+  public static void method661(final byte[] bytes_0, final int int_0) {
     if (Client.aByteArray28 == null) {
       Client.aByteArray28 = new byte[24];
     }
 
-    Arrays.method430(bytes_0, int_0, Client.aByteArray28, 0, 24);
+    Arrays.copy(bytes_0, int_0, Client.aByteArray28, 0, 24);
   }
 
 }

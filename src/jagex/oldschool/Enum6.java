@@ -21,10 +21,10 @@ public enum Enum6 implements MappedEnum {
   }
 
   public static void method673(final int int_0) {
-    if (Class72.anInt168 != 0) {
-      Class72.anInt170 = int_0;
+    if (AudioSystem.anInt168 != 0) {
+      AudioSystem.anInt170 = int_0;
     } else {
-      Class72.anAClass4_Sub3_1.method809(int_0);
+      AudioSystem.anAClass4_Sub3_1.method809(int_0);
     }
   }
 

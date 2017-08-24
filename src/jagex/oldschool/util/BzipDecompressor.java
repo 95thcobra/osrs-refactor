@@ -1,6 +1,6 @@
 package jagex.oldschool.util;
 
-import jagex.oldschool.RuntimeException_Sub1;
+import jagex.oldschool.NestedException;
 import jagex.oldschool.asset.Package;
 
 public final class BzipDecompressor {
@@ -38,8 +38,8 @@ public final class BzipDecompressor {
     int[] ints_1 = null;
     int[] ints_2 = null;
     dstate_0.blockSize100k = 1;
-    if (RuntimeException_Sub1.tt == null) {
-      RuntimeException_Sub1.tt = new int[dstate_0.blockSize100k * 100000];
+    if (NestedException.tt == null) {
+      NestedException.tt = new int[dstate_0.blockSize100k * 100000];
     }
 
     boolean bool_18 = true;
@@ -284,7 +284,7 @@ public final class BzipDecompressor {
               }
 
               ++dstate_0.anIntArray25[dstate_0.seqToUnseq[byte_0 & 0xFF] & 0xFF];
-              RuntimeException_Sub1.tt[int_17] = dstate_0.seqToUnseq[byte_0 & 0xFF] & 0xFF;
+              NestedException.tt[int_17] = dstate_0.seqToUnseq[byte_0 & 0xFF] & 0xFF;
               ++int_17;
               if (int_15 == 0) {
                 ++int_14;
@@ -345,7 +345,7 @@ public final class BzipDecompressor {
               byte_0 = dstate_0.seqToUnseq[dstate_0.aByteArray5[dstate_0.anIntArray27[0]] & 0xFF];
 
               for (dstate_0.anIntArray25[byte_0 & 0xFF] += int_18; int_18 > 0; --int_18) {
-                RuntimeException_Sub1.tt[int_17] = byte_0 & 0xFF;
+                NestedException.tt[int_17] = byte_0 & 0xFF;
                 ++int_17;
               }
             }
@@ -364,14 +364,14 @@ public final class BzipDecompressor {
           }
 
           for (int_7 = 0; int_7 < int_17; int_7++) {
-            byte_0 = (byte) (RuntimeException_Sub1.tt[int_7] & 0xFF);
-            RuntimeException_Sub1.tt[dstate_0.anIntArray26[byte_0 & 0xFF]] |= int_7 << 8;
+            byte_0 = (byte) (NestedException.tt[int_7] & 0xFF);
+            NestedException.tt[dstate_0.anIntArray26[byte_0 & 0xFF]] |= int_7 << 8;
             ++dstate_0.anIntArray26[byte_0 & 0xFF];
           }
 
-          dstate_0.tPos = RuntimeException_Sub1.tt[dstate_0.anInt121] >> 8;
+          dstate_0.tPos = NestedException.tt[dstate_0.anInt121] >> 8;
           dstate_0.nblock_used = 0;
-          dstate_0.tPos = RuntimeException_Sub1.tt[dstate_0.tPos];
+          dstate_0.tPos = NestedException.tt[dstate_0.tPos];
           dstate_0.k0 = (byte) (dstate_0.tPos & 0xFF);
           dstate_0.tPos >>= 8;
           ++dstate_0.nblock_used;
@@ -478,7 +478,7 @@ public final class BzipDecompressor {
     int int_0 = dstate_0.out_len;
     int int_1 = dstate_0.nblock_used;
     int int_2 = dstate_0.k0;
-    final int[] ints_0 = RuntimeException_Sub1.tt;
+    final int[] ints_0 = NestedException.tt;
     int int_3 = dstate_0.tPos;
     final byte[] bytes_0 = dstate_0.out;
     int int_4 = dstate_0.next_out;
@@ -593,7 +593,7 @@ public final class BzipDecompressor {
     dstate_0.out_len = int_0;
     dstate_0.nblock_used = int_1;
     dstate_0.k0 = int_2;
-    RuntimeException_Sub1.tt = ints_0;
+    NestedException.tt = ints_0;
     dstate_0.tPos = int_3;
     dstate_0.out = bytes_0;
     dstate_0.next_out = int_4;

@@ -2,8 +2,7 @@ package jagex.oldschool.awt;
 
 import jagex.oldschool.AClass3_Sub1;
 import jagex.oldschool.audio.AbstractSourceLine;
-import jagex.oldschool.Area;
-import jagex.oldschool.Class102;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.graphics.FontType;
 import jagex.oldschool.JavaxSourceDataLineProvider;
 import jagex.oldschool.Class26;
@@ -14,8 +13,8 @@ import jagex.oldschool.Class57;
 import jagex.oldschool.Class7;
 import jagex.oldschool.IdentityConfig;
 import jagex.oldschool.Interface3;
-import jagex.oldschool.Node_Sub1;
-import jagex.oldschool.RuntimeException_Sub1;
+import jagex.oldschool.scene.AreaSound;
+import jagex.oldschool.NestedException;
 import jagex.oldschool.config.ClientScriptVariable;
 import jagex.oldschool.device.Keyboard;
 import jagex.oldschool.device.Mouse;
@@ -96,8 +95,8 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
   int anInt572;
   boolean aBool73;
   int anInt574;
-  int anInt575;
-  int anInt577;
+  int minimumWidth;
+  int minimumHeight;
   long aLong24;
   boolean aBool74;
 
@@ -121,8 +120,8 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
   }
 
   public static void method1049() {
-    for (Node_Sub1 node_sub1_0 = (Node_Sub1) Node_Sub1.aDeque3
-        .getFirst(); node_sub1_0 != null; node_sub1_0 = (Node_Sub1) Node_Sub1.aDeque3.getNext()) {
+    for (AreaSound node_sub1_0 = (AreaSound) AreaSound.aDeque3
+        .getFirst(); node_sub1_0 != null; node_sub1_0 = (AreaSound) AreaSound.aDeque3.getNext()) {
       if (node_sub1_0.anObjectComposition1 != null) {
         node_sub1_0.method627();
       }
@@ -157,7 +156,7 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
   public final void destroy() {
     if (this == shell && !aBool70) {
       aLong21 = Time.currentTimeMillis();
-      AClass3_Sub1.method725(5000L);
+      AClass3_Sub1.sleep(5000L);
       method1028();
     }
   }
@@ -179,17 +178,17 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
     }
   }
 
-  Class102 method1025() {
+  Surface method1025() {
     final Container container_0 = container();
-    int int_0 = Math.max(container_0.getWidth(), anInt575);
-    int int_1 = Math.max(container_0.getHeight(), anInt577);
+    int int_0 = Math.max(container_0.getWidth(), minimumWidth);
+    int int_1 = Math.max(container_0.getHeight(), minimumHeight);
     if (aFrame1 != null) {
       final Insets insets_0 = aFrame1.getInsets();
       int_0 -= insets_0.right + insets_0.left;
       int_1 -= insets_0.bottom + insets_0.top;
     }
 
-    return new Class102(int_0, int_1);
+    return new Surface(int_0, int_1);
   }
 
   Container container() {
@@ -220,8 +219,8 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
       container_0.remove(canvas);
     }
 
-    canvasWidth = Math.max(container_0.getWidth(), anInt575);
-    Class34.canvasHeight = Math.max(container_0.getHeight(), anInt577);
+    canvasWidth = Math.max(container_0.getWidth(), minimumWidth);
+    Class34.canvasHeight = Math.max(container_0.getHeight(), minimumHeight);
     Insets insets_0;
     if (aFrame1 != null) {
       insets_0 = aFrame1.getInsets();
@@ -244,12 +243,12 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
     canvas.addFocusListener(this);
     canvas.requestFocus();
     aBool73 = true;
-    if (FileCache.aBufferProvider1 != null && canvasWidth == FileCache.aBufferProvider1.width
-        && Class34.canvasHeight == FileCache.aBufferProvider1.height) {
-      ((ImageBuffer) FileCache.aBufferProvider1).method612(canvas);
-      FileCache.aBufferProvider1.draw(0, 0);
+    if (FileCache.rasterBuffer != null && canvasWidth == FileCache.rasterBuffer.width
+        && Class34.canvasHeight == FileCache.rasterBuffer.height) {
+      ((ImageBuffer) FileCache.rasterBuffer).method612(canvas);
+      FileCache.rasterBuffer.draw(0, 0);
     } else {
-      FileCache.aBufferProvider1 = new ImageBuffer(canvasWidth, Class34.canvasHeight,
+      FileCache.rasterBuffer = new ImageBuffer(canvasWidth, Class34.canvasHeight,
           canvas);
     }
 
@@ -296,9 +295,9 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
   final void method1031() {
     final Container container_0 = container();
     if (container_0 != null) {
-      final Class102 class102_0 = method1025();
-      anInt573 = Math.max(class102_0.anInt199, anInt575);
-      anInt576 = Math.max(class102_0.anInt200, anInt577);
+      final Surface class102_0 = method1025();
+      anInt573 = Math.max(class102_0.anInt199, minimumWidth);
+      anInt576 = Math.max(class102_0.anInt200, minimumHeight);
       if (anInt573 <= 0) {
         anInt573 = 1;
       }
@@ -312,7 +311,7 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
       anInt570 = (anInt573 - canvasWidth) / 2;
       anInt572 = 0;
       canvas.setSize(canvasWidth, Class34.canvasHeight);
-      FileCache.aBufferProvider1 = new ImageBuffer(canvasWidth, Class34.canvasHeight,
+      FileCache.rasterBuffer = new ImageBuffer(canvasWidth, Class34.canvasHeight,
           canvas);
       if (container_0 == aFrame1) {
         final Insets insets_0 = aFrame1.getInsets();
@@ -343,7 +342,7 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
     }
 
     synchronized (this) {
-      Area.aBool52 = focused;
+      MapIconConfig.aBool52 = focused;
     }
 
     update();
@@ -471,7 +470,7 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
   final void method1039(final Object object_0) {
     if (anEventQueue1 != null) {
       for (int int_0 = 0; int_0 < 50 && anEventQueue1.peekEvent() != null; int_0++) {
-        AClass3_Sub1.method725(1L);
+        AClass3_Sub1.sleep(1L);
       }
 
       if (object_0 != null) {
@@ -523,7 +522,7 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
   }
 
   final void method1044() {
-    final Class102 class102_0 = method1025();
+    final Surface class102_0 = method1025();
     if (anInt573 != class102_0.anInt199 || class102_0.anInt200 != anInt576 || aBool71) {
       method1031();
       aBool71 = false;
@@ -547,7 +546,7 @@ public abstract class Stub extends Applet implements Runnable, FocusListener, Wi
         canvasWidth = int_0;
         Class34.canvasHeight = int_1;
         Class26.revision = int_2;
-        RuntimeException_Sub1.anApplet2 = this;
+        NestedException.anApplet2 = this;
         if (taskManager == null) {
           taskManager = new TaskQueue();
         }

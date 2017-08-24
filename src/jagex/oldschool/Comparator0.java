@@ -3,9 +3,12 @@ package jagex.oldschool;
 import jagex.oldschool.audio.AudioWorker;
 import jagex.oldschool.collections.IntegerNode;
 import jagex.oldschool.config.ObjectConfig;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.scene.Renderable;
+import jagex.oldschool.scene.Scene;
 import jagex.oldschool.script.PrimitiveType;
 import jagex.oldschool.script.ScriptExecutor;
+import jagex.oldschool.social.Friend;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.ui.OpenedInterface;
 import jagex.oldschool.util.Time;
@@ -118,17 +121,17 @@ public final class Comparator0 implements Comparator {
 
   static void method306(final int int_0, final int int_1, final int int_2, final int int_3,
       final int int_4,
-      final int int_5, final int int_6, final Region region_0,
+      final int int_5, final int int_6, final Scene region_0,
       final CollisionData collisiondata_0) {
-    final ObjectConfig objectcomposition_0 = Class2.getObjectDefinition(int_4);
+    final ObjectConfig objectcomposition_0 = Class2.getObjectConfig(int_4);
     int int_7;
     int int_8;
     if (int_5 != 1 && int_5 != 3) {
-      int_7 = objectcomposition_0.sizeX;
-      int_8 = objectcomposition_0.sizeY;
+      int_7 = objectcomposition_0.width;
+      int_8 = objectcomposition_0.height;
     } else {
-      int_7 = objectcomposition_0.sizeY;
-      int_8 = objectcomposition_0.sizeX;
+      int_7 = objectcomposition_0.height;
+      int_8 = objectcomposition_0.width;
     }
 
     int int_9;
@@ -299,7 +302,7 @@ public final class Comparator0 implements Comparator {
             int_18 = 16;
             int_19 = region_0.method372(int_0, int_2, int_3);
             if (int_19 != 0) {
-              int_18 = Class2.getObjectDefinition(int_19 >> 14 & 0x7FFF).anInt459;
+              int_18 = Class2.getObjectConfig(int_19 >> 14 & 0x7FFF).anInt459;
             }
 
             if (objectcomposition_0.animationId == -1 && objectcomposition_0.impostorIds
@@ -318,7 +321,7 @@ public final class Comparator0 implements Comparator {
             int_18 = 8;
             int_19 = region_0.method372(int_0, int_2, int_3);
             if (int_19 != 0) {
-              int_18 = Class2.getObjectDefinition(int_19 >> 14 & 0x7FFF).anInt459 / 2;
+              int_18 = Class2.getObjectConfig(int_19 >> 14 & 0x7FFF).anInt459 / 2;
             }
 
             if (objectcomposition_0.animationId == -1 && objectcomposition_0.impostorIds
@@ -350,7 +353,7 @@ public final class Comparator0 implements Comparator {
             int_18 = 8;
             int_19 = region_0.method372(int_0, int_2, int_3);
             if (int_19 != 0) {
-              int_18 = Class2.getObjectDefinition(int_19 >> 14 & 0x7FFF).anInt459 / 2;
+              int_18 = Class2.getObjectConfig(int_19 >> 14 & 0x7FFF).anInt459 / 2;
             }
 
             final int int_20 = int_5 + 2 & 0x3;

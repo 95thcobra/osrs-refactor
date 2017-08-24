@@ -5,12 +5,12 @@ import jagex.oldschool.Class23;
 import jagex.oldschool.Class26;
 import jagex.oldschool.script.ScriptExecutor;
 import jagex.oldschool.Class36;
-import jagex.oldschool.Class72;
+import jagex.oldschool.AudioSystem;
 import jagex.oldschool.Class8;
 import jagex.oldschool.Client;
 import jagex.oldschool.Enum3;
 import jagex.oldschool.Node_Sub5;
-import jagex.oldschool.RuntimeException_Sub1;
+import jagex.oldschool.NestedException;
 import jagex.oldschool.asset.Package;
 import jagex.oldschool.device.Mouse;
 import jagex.oldschool.graphics.DirectSprite;
@@ -172,20 +172,20 @@ public final class CanvasWrapper extends Canvas {
     }
     int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
     if (int_1 == -1 && !Client.aBool81) {
-      Class72.anAClass4_Sub3_1.method790();
-      Class72.anInt168 = 1;
-      Class72.anIndexDataBase4 = null;
+      AudioSystem.anAClass4_Sub3_1.method790();
+      AudioSystem.anInt168 = 1;
+      AudioSystem.anIndexDataBase4 = null;
     } else if (int_1 != -1 && int_1 != Client.anInt613 && Client.anInt656 != 0
         && !Client.aBool81) {
       final Package indexdata_0 = CacheableNode_Sub4.indexTrack1;
       final int int_2 = Client.anInt656;
-      Class72.anInt168 = 1;
-      Class72.anIndexDataBase4 = indexdata_0;
+      AudioSystem.anInt168 = 1;
+      AudioSystem.anIndexDataBase4 = indexdata_0;
       Enum3.anInt339 = int_1;
-      RuntimeException_Sub1.anInt527 = 0;
-      Class72.anInt170 = int_2;
+      NestedException.anInt527 = 0;
+      AudioSystem.anInt170 = int_2;
       Class36.aBool8 = false;
-      Class72.anInt169 = 2;
+      AudioSystem.anInt169 = 2;
     }
 
     Client.anInt613 = int_1;

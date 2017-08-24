@@ -11,12 +11,12 @@ public final class Class31 implements Comparator {
 
   public static Script method244(final ScriptArguments class83_0, final int int_0, final int int_1) {
     final int int_2 = (int_0 << 8) + class83_0.anInt185;
-    Script script_0 = Class85.method490(int_2, class83_0);
+    Script script_0 = Variables.method490(int_2, class83_0);
     if (script_0 != null) {
       return script_0;
     }
     final int int_3 = (int_1 + 40000 << 8) + class83_0.anInt185;
-    script_0 = Class85.method490(int_3, class83_0);
+    script_0 = Variables.method490(int_3, class83_0);
     return script_0 != null ? script_0 : null;
   }
 

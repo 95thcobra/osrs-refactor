@@ -1,7 +1,7 @@
 package jagex.oldschool.util;
 
 import jagex.oldschool.LocalInstall;
-import jagex.oldschool.Square;
+import jagex.oldschool.scene.Square;
 import jagex.oldschool.config.NpcConfig;
 import jagex.oldschool.io.Buffer;
 import java.util.Calendar;
@@ -49,14 +49,14 @@ public class Timestamp {
     }
 
     return string_0.length() > 9
-        ? " " + Square.getColTags(65408) + string_0.substring(0, string_0.length() - 8) + "M" + " "
+        ? " " + Square.embedColor(65408) + string_0.substring(0, string_0.length() - 8) + "M" + " "
         + " ("
         + string_0 + ")" + "</col>"
         : string_0.length() > 6
-            ? " " + Square.getColTags(16777215) + string_0.substring(0, string_0.length() - 4) + "K"
+            ? " " + Square.embedColor(16777215) + string_0.substring(0, string_0.length() - 4) + "K"
             + " "
             + " (" + string_0 + ")" + "</col>"
-            : " " + Square.getColTags(16776960) + string_0 + "</col>";
+            : " " + Square.embedColor(16776960) + string_0 + "</col>";
   }
 
   public static String get(final long long_0) {

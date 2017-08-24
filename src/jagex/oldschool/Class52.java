@@ -2,8 +2,10 @@ package jagex.oldschool;
 
 import jagex.oldschool.device.Mouse;
 import jagex.oldschool.graphics.Rasterizer2d;
+import jagex.oldschool.scene.GroundObject;
 import jagex.oldschool.scene.Npc;
 import jagex.oldschool.scene.Player;
+import jagex.oldschool.scene.Scene;
 import java.util.Comparator;
 
 public final class Class52 implements Comparator {
@@ -75,100 +77,109 @@ public final class Class52 implements Comparator {
 
   static void method331(final int int_0) {
     if (int_0 == -3) {
-      Class24.method218("Connection timed out.", "Please try using a different world.", "");
+      UrlStreamWorker.method218("Connection timed out.", "Please try using a different world.", "");
     } else if (int_0 == -2) {
-      Class24.method218("", "Error connecting to server.", "");
+      UrlStreamWorker.method218("", "Error connecting to server.", "");
     } else if (int_0 == -1) {
-      Class24.method218("No response from server.", "Please try using a different world.", "");
+      UrlStreamWorker
+          .method218("No response from server.", "Please try using a different world.", "");
     } else if (int_0 == 3) {
       LoginScreen.loginIndex = 3;
     } else if (int_0 == 4) {
-      Class24.method218("Your account has been disabled.",
+      UrlStreamWorker.method218("Your account has been disabled.",
           "Please check your message-centre for details.", "");
     } else if (int_0 == 5) {
-      Class24.method218("Your account has not logged out from its last",
+      UrlStreamWorker.method218("Your account has not logged out from its last",
           "session or the server is too busy right now.", "Please try again in a few minutes.");
     } else if (int_0 == 6) {
-      Class24.method218("RuneScape has been updated!", "Please reload this page.", "");
+      UrlStreamWorker.method218("RuneScape has been updated!", "Please reload this page.", "");
     } else if (int_0 == 7) {
-      Class24.method218("This world is full.", "Please use a different world.", "");
+      UrlStreamWorker.method218("This world is full.", "Please use a different world.", "");
     } else if (int_0 == 8) {
-      Class24.method218("Unable to connect.", "Login server offline.", "");
+      UrlStreamWorker.method218("Unable to connect.", "Login server offline.", "");
     } else if (int_0 == 9) {
-      Class24.method218("Login limit exceeded.", "Too many connections from your address.", "");
+      UrlStreamWorker
+          .method218("Login limit exceeded.", "Too many connections from your address.", "");
     } else if (int_0 == 10) {
-      Class24.method218("Unable to connect.", "Bad session id.", "");
+      UrlStreamWorker.method218("Unable to connect.", "Bad session id.", "");
     } else if (int_0 == 11) {
-      Class24.method218("We suspect someone knows your password.",
+      UrlStreamWorker.method218("We suspect someone knows your password.",
           "Press \'change your password\' on front page.", "");
     } else if (int_0 == 12) {
-      Class24.method218("You need a members account to login to this world.",
+      UrlStreamWorker.method218("You need a members account to login to this world.",
           "Please subscribe, or use a different world.", "");
     } else if (int_0 == 13) {
-      Class24.method218("Could not complete login.", "Please try using a different world.", "");
+      UrlStreamWorker
+          .method218("Could not complete login.", "Please try using a different world.", "");
     } else if (int_0 == 14) {
-      Class24.method218("The server is being updated.", "Please wait 1 minute and try again.", "");
+      UrlStreamWorker
+          .method218("The server is being updated.", "Please wait 1 minute and try again.", "");
     } else if (int_0 == 16) {
-      Class24
+      UrlStreamWorker
           .method218("Too many login attempts.", "Please wait a few minutes before trying again.",
               "");
     } else if (int_0 == 17) {
-      Class24.method218("You are standing in a members-only area.",
+      UrlStreamWorker.method218("You are standing in a members-only area.",
           "To play on this world move to a free area first", "");
     } else if (int_0 == 18) {
-      Class24.method218("Account locked as we suspect it has been stolen.",
+      UrlStreamWorker.method218("Account locked as we suspect it has been stolen.",
           "Press \'recover a locked account\' on front page.", "");
     } else if (int_0 == 19) {
-      Class24.method218("This world is running a closed Beta.", "Sorry invited players only.",
+      UrlStreamWorker
+          .method218("This world is running a closed Beta.", "Sorry invited players only.",
           "Please use a different world.");
     } else if (int_0 == 20) {
-      Class24
+      UrlStreamWorker
           .method218("Invalid loginserver requested.", "Please try using a different world.", "");
     } else if (int_0 == 22) {
-      Class24.method218("Malformed login packet.", "Please try again.", "");
+      UrlStreamWorker.method218("Malformed login packet.", "Please try again.", "");
     } else if (int_0 == 23) {
-      Class24.method218("No reply from loginserver.", "Please wait 1 minute and try again.", "");
+      UrlStreamWorker
+          .method218("No reply from loginserver.", "Please wait 1 minute and try again.", "");
     } else if (int_0 == 24) {
-      Class24.method218("Error loading your profile.", "Please contact customer support.", "");
+      UrlStreamWorker
+          .method218("Error loading your profile.", "Please contact customer support.", "");
     } else if (int_0 == 25) {
-      Class24
+      UrlStreamWorker
           .method218("Unexpected loginserver response.", "Please try using a different world.", "");
     } else if (int_0 == 26) {
-      Class24.method218("This computers address has been blocked",
+      UrlStreamWorker.method218("This computers address has been blocked",
           "as it was used to break our rules.", "");
     } else if (int_0 == 27) {
-      Class24.method218("", "Service unavailable.", "");
+      UrlStreamWorker.method218("", "Service unavailable.", "");
     } else if (int_0 == 31) {
-      Class24.method218("Your account must have a displayname set",
+      UrlStreamWorker.method218("Your account must have a displayname set",
           "in order to play the game.  Please set it",
           "via the website, or the main game.");
     } else if (int_0 == 32) {
-      Class24.method218("Your attempt to log into your account was",
+      UrlStreamWorker.method218("Your attempt to log into your account was",
           "unsuccessful.  Don\'t worry, you can sort",
           "this out by visiting the billing system.");
     } else if (int_0 == 37) {
-      Class24.method218("Your account is currently inaccessible.",
+      UrlStreamWorker.method218("Your account is currently inaccessible.",
           "Please try again in a few minutes.", "");
     } else if (int_0 == 38) {
-      Class24.method218("You need to vote to play!", "Visit runescape.com and vote,",
+      UrlStreamWorker.method218("You need to vote to play!", "Visit runescape.com and vote,",
           "and then come back here!");
     } else if (int_0 == 55) {
-      Class24.method218("Sorry, but your account is not eligible to",
+      UrlStreamWorker.method218("Sorry, but your account is not eligible to",
           "play this version of the game.  Please try", "playing the main game instead!");
     } else {
       if (int_0 == 56) {
-        Class24.method218("Enter the 6-digit code generated by your", "authenticator app.", "");
+        UrlStreamWorker
+            .method218("Enter the 6-digit code generated by your", "authenticator app.", "");
         Mouse.setGameState(11);
         return;
       }
 
       if (int_0 == 57) {
-        Class24.method218("The code you entered was incorrect.", "Please try again.", "");
+        UrlStreamWorker.method218("The code you entered was incorrect.", "Please try again.", "");
         Mouse.setGameState(11);
         return;
       }
 
-      Class24.method218("Unexpected server response", "Please try using a different world.", "");
+      UrlStreamWorker
+          .method218("Unexpected server response", "Please try using a different world.", "");
     }
 
     Mouse.setGameState(10);
@@ -236,8 +247,8 @@ public final class Class52 implements Comparator {
   static void method332(final int int_0, final int int_1, final int int_2, final int int_3,
       final int int_4,
       final int int_5, final int int_6) {
-    final int[] ints_0 = Region.method390(int_0, int_1, int_2);
-    final int[] ints_1 = Region.method390(int_3, int_4, int_5);
+    final int[] ints_0 = Scene.method390(int_0, int_1, int_2);
+    final int[] ints_1 = Scene.method390(int_3, int_4, int_5);
     Rasterizer2d.drawLine(ints_0[0], ints_0[1], ints_1[0], ints_1[1], int_6);
   }
 

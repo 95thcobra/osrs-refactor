@@ -22,7 +22,7 @@ public class Class19 implements Runnable {
 
   @Override
   public void run() {
-    for (; aBool6; AClass3_Sub1.method725(50L)) {
+    for (; aBool6; AClass3_Sub1.sleep(50L)) {
       synchronized (anObject1) {
         if (anInt69 < 500) {
           anIntArray4[anInt69] = Mouse.anInt249;

@@ -24,7 +24,7 @@ public class ClanMember extends Node {
         return false;
       }
       Class3.anInt22 = Keyboard.anIntArray31[Keyboard.anInt126];
-      Class89.aChar1 = Keyboard.aCharArray1[Keyboard.anInt126];
+      LoginScreen.aChar1 = Keyboard.aCharArray1[Keyboard.anInt126];
       Keyboard.anInt126 = Keyboard.anInt126 + 1 & 0x7F;
       return true;
     }

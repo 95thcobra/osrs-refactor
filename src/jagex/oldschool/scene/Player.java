@@ -8,7 +8,7 @@ import jagex.oldschool.GrandExchangeOffer;
 import jagex.oldschool.Model;
 import jagex.oldschool.PendingSpawn;
 import jagex.oldschool.PlayerIdentity;
-import jagex.oldschool.RuntimeException_Sub1;
+import jagex.oldschool.NestedException;
 import jagex.oldschool.animation.AnimationSequence;
 import jagex.oldschool.audio.AudioWorker;
 import jagex.oldschool.io.Buffer;
@@ -252,7 +252,7 @@ public final class Player extends Mobile {
 
     name = buffer_0.getString();
     if (this == GrandExchangeOffer.localPlayer) {
-      RuntimeException_Sub1.aString31 = name;
+      NestedException.aString31 = name;
     }
 
     combatLevel = buffer_0.getUnsignedByte();

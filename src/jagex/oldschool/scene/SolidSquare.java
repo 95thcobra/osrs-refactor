@@ -1,27 +1,29 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
+import jagex.oldschool.Class93;
+import jagex.oldschool.Class94;
 import jagex.oldschool.asset.RemoteAssetRequestor;
 import jagex.oldschool.io.HuffmanCodec;
 
-public final class SceneTilePaint {
+public final class SolidSquare {
 
-  static Class93 aClass93_1;
+  public static Class93 aClass93_1;
   boolean flatShade;
-  int swColor;
+  int hsl0;
   int rgb;
-  int seColor;
+  int hsl1;
   int neColor;
-  int nwColor;
+  int hsl2;
   int texture;
 
-  SceneTilePaint(final int int_0, final int int_1, final int int_2, final int int_3,
+  SolidSquare(final int int_0, final int int_1, final int int_2, final int int_3,
       final int int_4, final int int_5,
       final boolean bool_0) {
     flatShade = true;
-    swColor = int_0;
-    seColor = int_1;
+    hsl0 = int_0;
+    hsl1 = int_1;
     neColor = int_2;
-    nwColor = int_3;
+    hsl2 = int_3;
     texture = int_4;
     rgb = int_5;
     flatShade = bool_0;

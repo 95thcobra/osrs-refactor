@@ -11,7 +11,7 @@ public class Class40 {
 
   public static final Class40 aClass40_2;
   public static final Class40 aClass40_3;
-  static Class24 aClass24_1;
+  static UrlStreamWorker aClass24_1;
   public static Class54 aClass54_1;
 
   static {

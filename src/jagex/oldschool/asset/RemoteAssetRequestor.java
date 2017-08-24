@@ -51,7 +51,7 @@ public class RemoteAssetRequestor {
     anInt192 = 0;
   }
 
-  public static void validateCacheRequests() {
+  public static void validateRequests() {
     while (true) {
       LocalRequest request;
       synchronized (CacheWorker.aDeque1) {

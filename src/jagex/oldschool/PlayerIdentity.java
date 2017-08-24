@@ -4,6 +4,7 @@ import jagex.oldschool.animation.AnimationSequence;
 import jagex.oldschool.audio.AudioWorker;
 import jagex.oldschool.collections.Cache;
 import jagex.oldschool.io.Buffer;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.util.Timestamp;
 
 public class PlayerIdentity {
@@ -47,7 +48,7 @@ public class PlayerIdentity {
 
       for (int int_1 = 0; int_1 < 7; int_1++) {
         for (int int_2 = 0; int_2 < IdentityConfig.anInt429; int_2++) {
-          final IdentityConfig kitdefinition_0 = Area.getKitDefinition(int_2);
+          final IdentityConfig kitdefinition_0 = MapIconConfig.getKitDefinition(int_2);
           if (kitdefinition_0 != null && !kitdefinition_0.nonSelectable
               && kitdefinition_0.bodyPartId == int_1 + (bool_0 ? 7 : 0)) {
             ints_0[anIntArray47[int_1]] = int_2 + 256;
@@ -137,7 +138,7 @@ public class PlayerIdentity {
       int int_4;
       for (int int_3 = 0; int_3 < 12; int_3++) {
         int_4 = ints_0[int_3];
-        if (int_4 >= 256 && int_4 < 512 && !Area.getKitDefinition(int_4 - 256).ready()) {
+        if (int_4 >= 256 && int_4 < 512 && !MapIconConfig.getKitDefinition(int_4 - 256).ready()) {
           bool_0 = true;
         }
 
@@ -165,7 +166,7 @@ public class PlayerIdentity {
           int_6 = ints_0[int_5];
           ModelBase modeldata_0;
           if (int_6 >= 256 && int_6 < 512) {
-            modeldata_0 = Area.getKitDefinition(int_6 - 256).getModelData();
+            modeldata_0 = MapIconConfig.getKitDefinition(int_6 - 256).getModelData();
             if (modeldata_0 != null) {
               modeldatas_0[int_4++] = modeldata_0;
             }
@@ -223,7 +224,7 @@ public class PlayerIdentity {
     int int_1;
     for (int int_0 = 0; int_0 < 12; int_0++) {
       int_1 = equipmentIds[int_0];
-      if (int_1 >= 256 && int_1 < 512 && !Area.getKitDefinition(int_1 - 256).method771()) {
+      if (int_1 >= 256 && int_1 < 512 && !MapIconConfig.getKitDefinition(int_1 - 256).method771()) {
         bool_0 = true;
       }
 
@@ -243,7 +244,7 @@ public class PlayerIdentity {
       int_3 = equipmentIds[int_2];
       ModelBase modeldata_0;
       if (int_3 >= 256 && int_3 < 512) {
-        modeldata_0 = Area.getKitDefinition(int_3 - 256).method772();
+        modeldata_0 = MapIconConfig.getKitDefinition(int_3 - 256).method772();
         if (modeldata_0 != null) {
           modeldatas_0[int_1++] = modeldata_0;
         }
@@ -300,7 +301,7 @@ public class PlayerIdentity {
             }
           }
 
-          kitdefinition_0 = Area.getKitDefinition(int_1);
+          kitdefinition_0 = MapIconConfig.getKitDefinition(int_1);
         } while (kitdefinition_0 == null || kitdefinition_0.nonSelectable
             || kitdefinition_0.bodyPartId != (isFemale ? 7 : 0) + int_0);
 

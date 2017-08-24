@@ -1,23 +1,25 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
+import jagex.oldschool.Class11;
+import jagex.oldschool.Model;
+import jagex.oldschool.PendingSpawn;
 import jagex.oldschool.animation.AnimationSequence;
 import jagex.oldschool.config.SpotAnimationConfig;
-import jagex.oldschool.scene.Renderable;
 
 public final class SpotAnimation extends Renderable {
 
   int id;
-  boolean finished;
+  public boolean finished;
   int anInt528;
   int anInt529;
   AnimationSequence aSequence1;
-  int level;
-  int x;
-  int y;
-  int height;
-  int startCycle;
+  public int level;
+  public int x;
+  public int y;
+  public int height;
+  public int startCycle;
 
-  SpotAnimation(final int int_0, final int int_1, final int int_2, final int int_3,
+  public SpotAnimation(final int int_0, final int int_1, final int int_2, final int int_3,
       final int int_4, final int int_5,
       final int int_6) {
     anInt529 = 0;
@@ -51,7 +53,7 @@ public final class SpotAnimation extends Renderable {
     return model_0 == null ? null : model_0;
   }
 
-  final void method915(final int int_0) {
+  public final void method915(final int int_0) {
     if (!finished) {
       anInt528 += int_0;
 

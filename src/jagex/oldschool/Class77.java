@@ -67,7 +67,7 @@ public class Class77 {
           }
 
           if (int_3 == 5) {
-            int_4 = Class85.widgetSettings[ints_0[int_2++]];
+            int_4 = Variables.widgetSettings[ints_0[int_2++]];
           }
 
           if (int_3 == 6) {
@@ -75,7 +75,7 @@ public class Class77 {
           }
 
           if (int_3 == 7) {
-            int_4 = Class85.widgetSettings[ints_0[int_2++]] * 100 / 46875;
+            int_4 = Variables.widgetSettings[ints_0[int_2++]] * 100 / 46875;
           }
 
           if (int_3 == 8) {
@@ -115,7 +115,7 @@ public class Class77 {
           }
 
           if (int_3 == 13) {
-            int_5 = Class85.widgetSettings[ints_0[int_2++]];
+            int_5 = Variables.widgetSettings[ints_0[int_2++]];
             final int int_8 = ints_0[int_2++];
             int_4 = (int_5 & 1 << int_8) != 0 ? 1 : 0;
           }

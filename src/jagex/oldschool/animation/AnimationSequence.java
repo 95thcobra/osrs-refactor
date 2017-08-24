@@ -1,7 +1,7 @@
 package jagex.oldschool.animation;
 
 import jagex.oldschool.CacheableNode_Sub1;
-import jagex.oldschool.Class102;
+import jagex.oldschool.awt.Surface;
 import jagex.oldschool.graphics.SpriteLoader;
 import jagex.oldschool.Class4;
 import jagex.oldschool.Class94;
@@ -17,13 +17,13 @@ public class AnimationSequence extends Subnode {
 
   public static AbstractPackage skin_ref;
   public static AbstractPackage config;
-  public static Cache skeletons;
+  public static Cache animations;
   public static Cache sequences;
   public static int menuY;
 
   static {
     sequences = new Cache(64);
-    skeletons = new Cache(100);
+    animations = new Cache(100);
   }
 
   public int precedenceAnimating;
@@ -59,7 +59,7 @@ public class AnimationSequence extends Subnode {
     if (bytes_0 == null) {
       bool_0 = false;
     } else {
-      Class102.decodeSprite(bytes_0);
+      Surface.decodeSprite(bytes_0);
       bool_0 = true;
     }
 
@@ -84,7 +84,7 @@ public class AnimationSequence extends Subnode {
     return indexedsprite_0;
   }
 
-  void method872(final Buffer buffer_0, final int int_0) {
+  void decode(final Buffer buffer_0, final int int_0) {
     int int_1;
     int int_2;
     if (int_0 == 1) {
@@ -191,7 +191,7 @@ public class AnimationSequence extends Subnode {
 
   public Model method873(final Model model_0, int int_0) {
     int_0 = frameIDs[int_0];
-    final Animation frames_0 = Class4.getFrames(int_0 >> 16);
+    final Animation frames_0 = Class4.getAnimation(int_0 >> 16);
     int_0 &= 0xFFFF;
     if (frames_0 == null) {
       return model_0.method972(true);
@@ -203,13 +203,13 @@ public class AnimationSequence extends Subnode {
 
   public Model method874(final Model model_0, int int_0, final AnimationSequence sequence_1, int int_1) {
     int_0 = frameIDs[int_0];
-    final Animation frames_0 = Class4.getFrames(int_0 >> 16);
+    final Animation frames_0 = Class4.getAnimation(int_0 >> 16);
     int_0 &= 0xFFFF;
     if (frames_0 == null) {
       return sequence_1.method873(model_0, int_1);
     }
     int_1 = sequence_1.frameIDs[int_1];
-    final Animation frames_1 = Class4.getFrames(int_1 >> 16);
+    final Animation frames_1 = Class4.getAnimation(int_1 >> 16);
     int_1 &= 0xFFFF;
     Model model_1;
     if (frames_1 == null) {
@@ -224,7 +224,7 @@ public class AnimationSequence extends Subnode {
 
   public Model method875(final Model model_0, int int_0, int int_1) {
     int_0 = frameIDs[int_0];
-    final Animation frames_0 = Class4.getFrames(int_0 >> 16);
+    final Animation frames_0 = Class4.getAnimation(int_0 >> 16);
     int_0 &= 0xFFFF;
     if (frames_0 == null) {
       return model_0.method972(true);
@@ -253,7 +253,7 @@ public class AnimationSequence extends Subnode {
 
   public Model method876(final Model model_0, int int_0) {
     int_0 = frameIDs[int_0];
-    final Animation frames_0 = Class4.getFrames(int_0 >> 16);
+    final Animation frames_0 = Class4.getAnimation(int_0 >> 16);
     int_0 &= 0xFFFF;
     if (frames_0 == null) {
       return model_0.method974(true);
@@ -265,7 +265,7 @@ public class AnimationSequence extends Subnode {
 
   public Model method877(final Model model_0, final int int_0) {
     int int_1 = frameIDs[int_0];
-    final Animation frames_0 = Class4.getFrames(int_1 >> 16);
+    final Animation frames_0 = Class4.getAnimation(int_1 >> 16);
     int_1 &= 0xFFFF;
     if (frames_0 == null) {
       return model_0.method972(true);
@@ -274,7 +274,7 @@ public class AnimationSequence extends Subnode {
     int int_2 = 0;
     if (anIntArray107 != null && int_0 < anIntArray107.length) {
       int_2 = anIntArray107[int_0];
-      frames_1 = Class4.getFrames(int_2 >> 16);
+      frames_1 = Class4.getAnimation(int_2 >> 16);
       int_2 &= 0xFFFF;
     }
 
@@ -317,7 +317,7 @@ public class AnimationSequence extends Subnode {
         return;
       }
 
-      method872(buffer_0, int_0);
+      decode(buffer_0, int_0);
     }
   }
 

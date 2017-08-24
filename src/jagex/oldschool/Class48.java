@@ -7,8 +7,10 @@ import jagex.oldschool.graphics.DirectSprite;
 import jagex.oldschool.graphics.Rasterizer2d;
 import jagex.oldschool.graphics.VertexNormal;
 import jagex.oldschool.io.Buffer;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.scene.Mobile;
 import jagex.oldschool.scene.Npc;
+import jagex.oldschool.scene.Occluder;
 import jagex.oldschool.scene.Player;
 
 public class Class48 {

@@ -6,12 +6,12 @@ import jagex.oldschool.Class22;
 import jagex.oldschool.Class46;
 import jagex.oldschool.ClassInfo;
 import jagex.oldschool.Client;
-import jagex.oldschool.CollisionData;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.Interface1;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.config.ObjectConfig;
 import jagex.oldschool.Preferences;
-import jagex.oldschool.Region;
+import jagex.oldschool.scene.Scene;
 import jagex.oldschool.io.Buffer;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -145,7 +145,7 @@ public final class IntegerVariable implements Interface1 {
 
   public static void method247(final byte[] bytes_0, final int int_0, final int int_1,
       final int int_2,
-      final int int_3, final int int_4, final int int_5, final int int_6, final Region region_0,
+      final int int_3, final int int_4, final int int_5, final int int_6, final Scene region_0,
       final CollisionData[] collisiondatas_0) {
     final Buffer buffer_0 = new Buffer(bytes_0);
     int int_7 = -1;
@@ -174,13 +174,13 @@ public final class IntegerVariable implements Interface1 {
         final int int_16 = int_14 & 0x3;
         if (int_13 == int_3 && int_12 >= int_4 && int_12 < int_4 + 8 && int_11 >= int_5
             && int_11 < int_5 + 8) {
-          final ObjectConfig objectcomposition_0 = Class2.getObjectDefinition(int_7);
+          final ObjectConfig objectcomposition_0 = Class2.getObjectConfig(int_7);
           final int int_17 = int_1 + Preferences.method426(int_12 & 0x7, int_11 & 0x7, int_6,
-              objectcomposition_0.sizeX, objectcomposition_0.sizeY, int_16);
+              objectcomposition_0.width, objectcomposition_0.height, int_16);
           final int int_18 = int_12 & 0x7;
           final int int_19 = int_11 & 0x7;
-          int int_21 = objectcomposition_0.sizeX;
-          int int_22 = objectcomposition_0.sizeY;
+          int int_21 = objectcomposition_0.width;
+          int int_22 = objectcomposition_0.height;
           int int_23;
           if ((int_16 & 0x1) == 1) {
             int_23 = int_21;

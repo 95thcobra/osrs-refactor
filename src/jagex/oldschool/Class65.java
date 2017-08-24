@@ -1,6 +1,7 @@
 package jagex.oldschool;
 
 import jagex.oldschool.scene.Player;
+import jagex.oldschool.scene.Square;
 import java.io.File;
 import java.util.Hashtable;
 
@@ -34,12 +35,12 @@ public class Class65 {
         int int_3;
         if (Client.itemSelectionState == 1) {
           DynamicObject.addMenuEntry("Use",
-              Client.aString33 + " " + "->" + " " + Square.getColTags(16777215) + string_0, 14, int_0,
+              Client.aString33 + " " + "->" + " " + Square.embedColor(16777215) + string_0, 14, int_0,
               int_1, int_2);
         } else if (Client.spellSelected) {
           if ((JavaxSourceDataLineProvider.anInt62 & 0x8) == 8) {
             DynamicObject.addMenuEntry(Client.aString34,
-                Client.aString35 + " " + "->" + " " + Square.getColTags(16777215) + string_0, 15,
+                Client.aString35 + " " + "->" + " " + Square.embedColor(16777215) + string_0, 15,
                 int_0,
                 int_1, int_2);
           }
@@ -70,14 +71,14 @@ public class Class65 {
 
               final int int_4 = Client.playerMenuTypes[int_3] + short_0;
               DynamicObject.addMenuEntry(Client.playerOptions[int_3],
-                  Square.getColTags(16777215) + string_0, int_4, int_0, int_1, int_2);
+                  Square.embedColor(16777215) + string_0, int_4, int_0, int_1, int_2);
             }
           }
         }
 
         for (int_3 = 0; int_3 < Client.menuOptionCount; int_3++) {
           if (Client.menuTypes[int_3] == 23) {
-            Client.menuTargets[int_3] = Square.getColTags(16777215) + string_0;
+            Client.menuTargets[int_3] = Square.embedColor(16777215) + string_0;
             break;
           }
         }

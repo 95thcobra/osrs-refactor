@@ -1,6 +1,7 @@
 package jagex.oldschool;
 
 import jagex.oldschool.collections.Node;
+import jagex.oldschool.map.MapIcon;
 import jagex.oldschool.scene.Npc;
 import jagex.oldschool.scene.Player;
 import jagex.oldschool.scene.Projectile;
@@ -30,7 +31,7 @@ public class ClassInfo extends Node {
             if (npc_0 != null && npc_0.x >= 0 && npc_0.x < 13312 && npc_0.y >= 0
                 && npc_0.y < 13312) {
               projectile_0.method965(npc_0.x, npc_0.y,
-                  Class29.getTileHeight(npc_0.x, npc_0.y, projectile_0.floor)
+                  Client.getTileHeight(npc_0.x, npc_0.y, projectile_0.floor)
                       - projectile_0.endHeight,
                   Client.tick);
             }
@@ -48,14 +49,14 @@ public class ClassInfo extends Node {
             if (player_0 != null && player_0.x >= 0 && player_0.x < 13312 && player_0.y >= 0
                 && player_0.y < 13312) {
               projectile_0.method965(player_0.x, player_0.y,
-                  Class29.getTileHeight(player_0.x, player_0.y, projectile_0.floor)
+                  Client.getTileHeight(player_0.x, player_0.y, projectile_0.floor)
                       - projectile_0.endHeight,
                   Client.tick);
             }
           }
 
           projectile_0.method964(Client.anInt610);
-          Class11.region
+          Class11.scene
               .method369(Class12.plane, (int) projectile_0.x, (int) projectile_0.velocityZ,
                   (int) projectile_0.z, 60, projectile_0, projectile_0.rotationX, -1, false);
         }

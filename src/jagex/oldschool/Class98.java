@@ -6,11 +6,11 @@ import jagex.oldschool.scene.Npc;
 
 public class Class98 {
 
-  public static final char[] aCharArray3;
+  public static final char[] SIMILAR_CHARS;
   public static final char[] aCharArray4;
 
   static {
-    aCharArray3 = new char[] {
+    SIMILAR_CHARS = new char[] {
         ' ', ' ', '_', '-', 'à', 'á', 'â', 'ä', 'ã', 'À', 'Á', 'Â', 'Ä', 'Ã', 'è', 'é', 'ê',
         'ë', 'È', 'É', 'Ê', 'Ë', 'í', 'î', 'ï', 'Í', 'Î', 'Ï', 'ò', 'ó', 'ô', 'ö', 'õ', 'Ò', 'Ó',
         'Ô', 'Ö', 'Õ',

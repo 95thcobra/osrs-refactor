@@ -1,15 +1,15 @@
 package jagex.oldschool.script;
 
-import jagex.oldschool.Area;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.Boundry;
 import jagex.oldschool.Class19;
 import jagex.oldschool.Class26;
 import jagex.oldschool.Class31;
 import jagex.oldschool.Class35;
-import jagex.oldschool.Class85;
-import jagex.oldschool.DecorativeObject;
+import jagex.oldschool.Variables;
+import jagex.oldschool.scene.DecorativeObject;
 import jagex.oldschool.Enum1;
-import jagex.oldschool.Ignore;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.LocalInstall;
 import jagex.oldschool.Preferences;
 import jagex.oldschool.ScriptArguments;
@@ -159,7 +159,7 @@ public class ScriptExecutor {
     int int_1;
     if (bool_0) {
       AudioWorker.aClass9_1 = (Boundry) objects_0[0];
-      final Area area_0 = Area.anAreaArray1[AudioWorker.aClass9_1.anInt49];
+      final MapIconConfig area_0 = MapIconConfig.icons[AudioWorker.aClass9_1.anInt49];
       script_0 = Class31.method244(scriptevent_0.aClass83_11, area_0.anInt432, area_0.anInt438);
     } else {
       int_1 = ((Integer) objects_0[0]).intValue();
@@ -663,7 +663,7 @@ public class ScriptExecutor {
                                                                     }
                                                                   } else {
                                                                     int_5 = ints_1[int_1];
-                                                                    Class85.widgetSettings[int_5] = intStack[--intStackSize];
+                                                                    Variables.widgetSettings[int_5] = intStack[--intStackSize];
                                                                     Class35.method255(
                                                                         int_5);
                                                                   }
@@ -671,7 +671,7 @@ public class ScriptExecutor {
                                                                   int_5 = ints_1[int_1];
                                                                   intStack[
                                                                       ++intStackSize
-                                                                          - 1] = Class85.widgetSettings[int_5];
+                                                                          - 1] = Variables.widgetSettings[int_5];
                                                                 }
                                                               } else {
                                                                 intStack[

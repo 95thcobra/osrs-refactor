@@ -16,7 +16,7 @@ import jagex.oldschool.asset.LocalRequest;
 import jagex.oldschool.GrandExchangeOffer;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.ui.Inventory;
-import jagex.oldschool.Node_Sub1;
+import jagex.oldschool.scene.AreaSound;
 import jagex.oldschool.scene.Npc;
 import jagex.oldschool.asset.Package;
 import jagex.oldschool.scene.Player;
@@ -150,7 +150,7 @@ public final class Keyboard implements KeyListener, FocusListener {
         final int int_3 = Client.mapAngle & 0x7FF;
         final int int_4 = GrandExchangeOffer.localPlayer.x / 32 + 48;
         final int int_5 = 464 - GrandExchangeOffer.localPlayer.y / 32;
-        ItemConfig.aSpritePixels5.method950(int_0, int_1, cacheablenode_sub1_0.anInt460,
+        ItemConfig.map.method950(int_0, int_1, cacheablenode_sub1_0.anInt460,
             cacheablenode_sub1_0.anInt461, int_4, int_5, int_3, 256,
             cacheablenode_sub1_0.anIntArray102,
             cacheablenode_sub1_0.anIntArray103);
@@ -158,10 +158,10 @@ public final class Keyboard implements KeyListener, FocusListener {
         int int_6;
         int int_7;
         int int_8;
-        for (int_6 = 0; int_6 < Client.anInt661; int_6++) {
-          int_7 = Client.anIntArray149[int_6] * 4 + 2 - GrandExchangeOffer.localPlayer.x / 32;
-          int_8 = Client.anIntArray151[int_6] * 4 + 2 - GrandExchangeOffer.localPlayer.y / 32;
-          WorldMapData_Sub1.drawDot(int_0, int_1, int_7, int_8, Client.aSpritePixelsArray4[int_6],
+        for (int_6 = 0; int_6 < Client.iconCount; int_6++) {
+          int_7 = Client.iconX[int_6] * 4 + 2 - GrandExchangeOffer.localPlayer.x / 32;
+          int_8 = Client.iconY[int_6] * 4 + 2 - GrandExchangeOffer.localPlayer.y / 32;
+          WorldMapData_Sub1.drawDot(int_0, int_1, int_7, int_8, Client.iconSprites[int_6],
               cacheablenode_sub1_0);
         }
 
@@ -213,7 +213,7 @@ public final class Keyboard implements KeyListener, FocusListener {
 
             boolean bool_1 = false;
 
-            for (int int_12 = 0; int_12 < Node_Sub1.clanChatCount; int_12++) {
+            for (int int_12 = 0; int_12 < AreaSound.clanChatCount; int_12++) {
               if (player_0.name.equals(AClass1.clanMembers[int_12].username)) {
                 bool_1 = true;
                 break;

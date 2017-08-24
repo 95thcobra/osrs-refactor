@@ -1,9 +1,10 @@
 package jagex.oldschool;
 
 import jagex.oldschool.config.ClientScriptVariable;
-import jagex.oldschool.graphics.FontType;
 import jagex.oldschool.io.GameBuffer;
+import jagex.oldschool.scene.AreaSound;
 import jagex.oldschool.scene.Player;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.task.Task;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -13,14 +14,14 @@ import java.net.URLConnection;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Class24 implements Runnable {
+public class UrlStreamWorker implements Runnable {
 
   static Task aTask1;
   final Thread aThread1;
   boolean aBool7;
   Queue aQueue1;
 
-  Class24() {
+  UrlStreamWorker() {
     aQueue1 = new LinkedList();
     aThread1 = new Thread(this);
     aThread1.setPriority(1);
@@ -37,7 +38,7 @@ public class Class24 implements Runnable {
     final int int_1 = packetbuffer_0.offset;
     Class39.anInt91 = 0;
     method220(packetbuffer_0);
-    Node_Sub1.method628(packetbuffer_0);
+    AreaSound.method628(packetbuffer_0);
     if (packetbuffer_0.offset - int_1 != int_0) {
       throw new RuntimeException((packetbuffer_0.offset - int_1) + " " + int_0);
     }
@@ -179,8 +180,8 @@ public class Class24 implements Runnable {
     }
   }
 
-  Class37 method217(final URL url_0) {
-    final Class37 class37_0 = new Class37(url_0);
+  UrlStreamRequest method217(final URL url_0) {
+    final UrlStreamRequest class37_0 = new UrlStreamRequest(url_0);
     synchronized (this) {
       aQueue1.add(class37_0);
       notify();
@@ -192,9 +193,9 @@ public class Class24 implements Runnable {
   public void run() {
     while (!aBool7) {
       try {
-        Class37 class37_0;
+        UrlStreamRequest class37_0;
         synchronized (this) {
-          class37_0 = (Class37) aQueue1.poll();
+          class37_0 = (UrlStreamRequest) aQueue1.poll();
           if (class37_0 == null) {
             try {
               this.wait();

@@ -68,7 +68,7 @@ public class Class63 {
           }
 
           filerequest_0 = new RemoteRequest();
-          filerequest_0.index = indexdata_0;
+          filerequest_0.pack = indexdata_0;
           filerequest_0.checksum = checksum;
           filerequest_0.padding = padding;
           if (bool_0) {

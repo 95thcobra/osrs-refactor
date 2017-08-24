@@ -17,7 +17,7 @@ public abstract class AClass3 extends Node {
     InterfaceComponent.aNodeCache5.reset();
   }
 
-  static boolean method620(final String string_0, final int int_0, final String string_1) {
+  public static boolean method620(final String string_0, final int int_0, final String string_1) {
     if (int_0 == 0) {
       try {
         if (!Class25.aString5.startsWith("win")) {
@@ -42,7 +42,7 @@ public abstract class AClass3 extends Node {
     }
     if (int_0 == 1) {
       try {
-        final Object object_0 = Class21.method205(Class25.anApplet1, string_1,
+        final Object object_0 = Javascript.method205(Class25.anApplet1, string_1,
             new Object[] {new URL(Class25.anApplet1.getCodeBase(), string_0).toString()});
         return object_0 != null;
       } catch (final Throwable throwable_1) {
@@ -61,7 +61,7 @@ public abstract class AClass3 extends Node {
     }
     if (int_0 == 3) {
       try {
-        Class21.method206(Class25.anApplet1, "loggedout");
+        Javascript.method206(Class25.anApplet1, "loggedout");
       } catch (final Throwable throwable_2) {
       }
 

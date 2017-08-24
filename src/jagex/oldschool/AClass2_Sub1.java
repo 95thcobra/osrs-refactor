@@ -4,6 +4,7 @@ import jagex.oldschool.device.Keyboard;
 import jagex.oldschool.device.Mouse;
 import jagex.oldschool.graphics.Rasterizer3d;
 import jagex.oldschool.io.FileCache;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.scene.Player;
 import jagex.oldschool.ui.InterfaceComponent;
 

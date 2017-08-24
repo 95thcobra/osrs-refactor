@@ -1,12 +1,12 @@
 package jagex.oldschool.asset;
 
 import jagex.oldschool.CacheableNode_Sub3;
-import jagex.oldschool.Class37;
+import jagex.oldschool.UrlStreamRequest;
 import jagex.oldschool.Class55;
 import jagex.oldschool.map.MapAsset;
 import jagex.oldschool.Class63;
 import jagex.oldschool.io.CacheWorker;
-import jagex.oldschool.DecorativeObject;
+import jagex.oldschool.scene.DecorativeObject;
 import jagex.oldschool.Enum5;
 import jagex.oldschool.device.Keyboard;
 import jagex.oldschool.graphics.DirectSprite;
@@ -194,7 +194,7 @@ public class Package extends AbstractPackage {
 
       aBoolArray5[int_0] = true;
       if (bool_0) {
-        super.packedArchives[int_0] = Class37.wrap(bytes_0);
+        super.packedArchives[int_0] = UrlStreamRequest.wrap(bytes_0);
         return;
       }
     }
@@ -297,7 +297,7 @@ public class Package extends AbstractPackage {
       }
 
       if (bool_1) {
-        super.packedArchives[int_0] = Class37.wrap(bytes_0);
+        super.packedArchives[int_0] = UrlStreamRequest.wrap(bytes_0);
       }
 
     }

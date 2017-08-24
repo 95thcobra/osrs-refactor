@@ -13,14 +13,14 @@ public abstract class AClass1 {
   int anInt40;
   int anInt41;
   short[][][] aShortArrayArrayArray1;
-  int anInt42;
+  int upperPlane;
   short[][][] aShortArrayArrayArray2;
   Class13[][][][] aClass13ArrayArrayArrayArray1;
-  int anInt43;
+  int plane;
   byte[][][] aByteArrayArrayArray1;
-  int anInt44;
+  int x;
   byte[][][] aByteArrayArrayArray2;
-  int anInt45;
+  int z;
 
   AClass1() {
     new LinkedList();

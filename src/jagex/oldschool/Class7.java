@@ -281,8 +281,8 @@ public final class Class7 {
 
       while (iterator_0.hasNext()) {
         final AClass1_Sub2 aclass1_sub2_0 = (AClass1_Sub2) iterator_0.next();
-        final int int_4 = aclass1_sub2_0.anInt44;
-        final int int_5 = aclass1_sub2_0.anInt45;
+        final int int_4 = aclass1_sub2_0.x;
+        final int int_5 = aclass1_sub2_0.z;
         final int int_6 = int_4 - aWorldMapData_Sub1_1.method311();
         final int int_7 = int_5 - aWorldMapData_Sub1_1.method312();
         aClass1ArrayArray1[int_6][int_7] = new Class1(int_4, int_5,
@@ -333,9 +333,9 @@ public final class Class7 {
       for (int int_14 = class10_0.anInt53; int_14 < class10_0.anInt54 + class10_0.anInt53;
           int_14++) {
         final List list_0 = aClass1ArrayArray1[int_13][int_14].method110(
-            int_4 + int_10 * (aClass1ArrayArray1[int_13][int_14].anInt16 * 64 - int_11) / 64,
+            int_4 + int_10 * (aClass1ArrayArray1[int_13][int_14].chunkX * 64 - int_11) / 64,
             int_7 + int_5
-                - int_10 * (64 + aClass1ArrayArray1[int_13][int_14].anInt19 * 64 - int_12)
+                - int_10 * (64 + aClass1ArrayArray1[int_13][int_14].chunkY * 64 - int_12)
                 / 64,
             int_10, int_8, int_9);
         if (!list_0.isEmpty()) {
@@ -416,8 +416,8 @@ public final class Class7 {
       for (int int_15 = class10_0.anInt53; int_15 < class10_0.anInt53 + class10_0.anInt54;
           int_15++) {
         aClass1ArrayArray1[int_14][int_15].method113(
-            (aClass1ArrayArray1[int_14][int_15].anInt16 * 64 - int_12) * int_11 / 64 + int_4,
-            int_7 - int_11 * (aClass1ArrayArray1[int_14][int_15].anInt19 * 64 - int_13 + 64)
+            (aClass1ArrayArray1[int_14][int_15].chunkX * 64 - int_12) * int_11 / 64 + int_4,
+            int_7 - int_11 * (aClass1ArrayArray1[int_14][int_15].chunkY * 64 - int_13 + 64)
                 / 64,
             int_11);
       }
@@ -445,8 +445,8 @@ public final class Class7 {
         }
 
         aClass1ArrayArray1[int_13][int_14].method109(
-            int_4 + (aClass1ArrayArray1[int_13][int_14].anInt16 * 64 - int_11) * int_10 / 64,
-            int_7 - (aClass1ArrayArray1[int_13][int_14].anInt19 * 64 - int_12 + 64) * int_10
+            int_4 + (aClass1ArrayArray1[int_13][int_14].chunkX * 64 - int_11) * int_10 / 64,
+            int_7 - (aClass1ArrayArray1[int_13][int_14].chunkY * 64 - int_12 + 64) * int_10
                 / 64,
             int_10, hashset_0);
       }

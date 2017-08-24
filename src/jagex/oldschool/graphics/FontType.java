@@ -1,7 +1,7 @@
 package jagex.oldschool.graphics;
 
 import jagex.oldschool.Class106;
-import jagex.oldschool.SourceLineProvider;
+import jagex.oldschool.audio.SourceLineProvider;
 import jagex.oldschool.asset.Package;
 import jagex.oldschool.io.SocketStream;
 

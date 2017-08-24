@@ -8,47 +8,46 @@ public class Animation extends Subnode {
 
   public Frame[] frames;
 
-  public Animation(final AbstractPackage indexdatabase_0, final AbstractPackage indexdatabase_1,
-      final int int_0,
-      final boolean bool_0) {
-    final Deque deque_0 = new Deque();
-    final int int_1 = indexdatabase_0.fileCount(int_0);
-    frames = new Frame[int_1];
-    final int[] ints_0 = indexdatabase_0.getChilds(int_0);
+  public Animation(final AbstractPackage frames, final AbstractPackage bases,
+      final int parent,
+      final boolean useParent) {
+    final Deque deque = new Deque();
+    final int count = frames.fileCount(parent);
+    this.frames = new Frame[count];
+    final int[] ids = frames.getChilds(parent);
 
-    for (int int_2 = 0; int_2 < ints_0.length; int_2++) {
-      final byte[] bytes_0 = indexdatabase_0.get(int_0, ints_0[int_2]);
-      FrameBase framemap_0 = null;
-      final int int_3 = (bytes_0[0] & 0xFF) << 8 | bytes_0[1] & 0xFF;
+    for (int i = 0; i < ids.length; i++) {
+      final byte[] frameSrc = frames.get(parent, ids[i]);
+      FrameBase base = null;
+      final int id = (frameSrc[0] & 0xFF) << 8 | frameSrc[1] & 0xFF;
 
-      for (FrameBase framemap_1 = (FrameBase) deque_0
-          .getFirst(); framemap_1 != null; framemap_1 = (FrameBase) deque_0.getNext()) {
-        if (int_3 == framemap_1.id) {
-          framemap_0 = framemap_1;
+      for (FrameBase b = (FrameBase) deque.getFirst(); b != null; b = (FrameBase) deque.getNext()) {
+        if (id == b.id) {
+          base = b;
           break;
         }
       }
 
-      if (framemap_0 == null) {
-        byte[] bytes_1;
-        if (bool_0) {
-          bytes_1 = indexdatabase_1.getChild(0, int_3);
+      if (base == null) {
+        byte[] baseSrc;
+        if (useParent) {
+          baseSrc = bases.getChild(0, id);
         } else {
-          bytes_1 = indexdatabase_1.getChild(int_3, 0);
+          baseSrc = bases.getChild(id, 0);
         }
 
-        framemap_0 = new FrameBase(int_3, bytes_1);
-        deque_0.addLast(framemap_0);
+        base = new FrameBase(id, baseSrc);
+        deque.addLast(base);
       }
 
-      frames[ints_0[int_2]] = new Frame(bytes_0, framemap_0);
+      this.frames[ids[i]] = new Frame(frameSrc, base);
     }
 
   }
 
   public static void method849() {
     AnimationSequence.sequences.reset();
-    AnimationSequence.skeletons.reset();
+    AnimationSequence.animations.reset();
   }
 
   public boolean method848(final int int_0) {

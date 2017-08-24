@@ -18,8 +18,8 @@ final class Class27 implements Comparator {
 
   static String method234(Throwable throwable_0) throws IOException {
     String string_0;
-    if (throwable_0 instanceof RuntimeException_Sub1) {
-      final RuntimeException_Sub1 runtimeexception_sub1_0 = (RuntimeException_Sub1) throwable_0;
+    if (throwable_0 instanceof NestedException) {
+      final NestedException runtimeexception_sub1_0 = (NestedException) throwable_0;
       string_0 = runtimeexception_sub1_0.aString32 + " | ";
       throwable_0 = runtimeexception_sub1_0.aThrowable1;
     } else {

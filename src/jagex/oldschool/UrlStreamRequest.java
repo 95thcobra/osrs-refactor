@@ -6,17 +6,18 @@ import jagex.oldschool.config.ItemConfig;
 import jagex.oldschool.io.AbstractByteBuffer;
 import jagex.oldschool.io.DirectByteBuffer;
 import jagex.oldschool.io.FileCache;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.script.ScriptState;
 import java.net.URL;
 
-public class Class37 {
+public class UrlStreamRequest {
 
   static Package anIndexData1;
   final URL anURL1;
   byte[] aByteArray2;
   boolean aBool9;
 
-  Class37(final URL url_0) {
+  UrlStreamRequest(final URL url_0) {
     anURL1 = url_0;
   }
 
@@ -40,78 +41,80 @@ public class Class37 {
   public static boolean method261(final AbstractPackage indexdatabase_0,
       final AbstractPackage indexdatabase_1,
       final AbstractPackage indexdatabase_2, final AClass4_Sub3 aclass4_sub3_0) {
-    Class72.anIndexDataBase7 = indexdatabase_0;
-    Class72.anIndexDataBase6 = indexdatabase_1;
-    Class72.anIndexDataBase5 = indexdatabase_2;
-    Class72.anAClass4_Sub3_1 = aclass4_sub3_0;
+    AudioSystem.anIndexDataBase7 = indexdatabase_0;
+    AudioSystem.anIndexDataBase6 = indexdatabase_1;
+    AudioSystem.anIndexDataBase5 = indexdatabase_2;
+    AudioSystem.anAClass4_Sub3_1 = aclass4_sub3_0;
     return true;
   }
 
-  static void method262(final int int_0) {
-    final int[] ints_0 = ItemConfig.aSpritePixels5.buffer;
-    final int int_1 = ints_0.length;
+  static void updateMap(final int plane) {
+    final int[] dest = ItemConfig.map.buffer;
+    final int len = dest.length;
 
     int int_2;
-    for (int_2 = 0; int_2 < int_1; int_2++) {
-      ints_0[int_2] = 0;
+    for (int i = 0; i < len; i++) {
+      dest[i] = 0;
     }
 
     int int_3;
     int int_4;
-    for (int_2 = 1; int_2 < 103; int_2++) {
-      int_3 = (103 - int_2) * 2048 + 24628;
+    for (int z = 1; z < 103; z++) {
+      int step = (103 - z) * 2048 + 24628;
 
-      for (int_4 = 1; int_4 < 103; int_4++) {
-        if ((Class22.flags[int_0][int_4][int_2] & 0x18) == 0) {
-          Class11.region.method370(ints_0, int_3, 512, int_0, int_4, int_2);
+      for (int x = 1; x < 103; x++) {
+        if ((Class22.flags[plane][x][z] & 0x18) == 0) {
+          Class11.scene.method370(dest, step, 512, plane, x, z);
         }
 
-        if (int_0 < 3 && (Class22.flags[int_0 + 1][int_4][int_2] & 0x8) != 0) {
-          Class11.region.method370(ints_0, int_3, 512, int_0 + 1, int_4, int_2);
+        if (plane < 3 && (Class22.flags[plane + 1][x][z] & 0x8) != 0) {
+          Class11.scene.method370(dest, step, 512, plane + 1, x, z);
         }
 
-        int_3 += 4;
+        step += 4;
       }
     }
 
     int_2 = (238 + (int) (Math.random() * 20.0D) - 10 << 16)
-        + (238 + (int) (Math.random() * 20.0D) - 10 << 8) + 238 + (int) (Math.random() * 20.0D)
-        - 10;
+        + (238 + (int) (Math.random() * 20.0D) - 10 << 8) + 238
+        + (int) (Math.random() * 20.0D) - 10;
     int_3 = 238 + (int) (Math.random() * 20.0D) - 10 << 16;
-    ItemConfig.aSpritePixels5.method943();
+    ItemConfig.map.init();
 
     int int_5;
     for (int_4 = 1; int_4 < 103; int_4++) {
       for (int_5 = 1; int_5 < 103; int_5++) {
-        if ((Class22.flags[int_0][int_5][int_4] & 0x18) == 0) {
-          ScriptState.method559(int_0, int_5, int_4, int_2, int_3);
+        if ((Class22.flags[plane][int_5][int_4] & 0x18) == 0) {
+          ScriptState.method559(plane, int_5, int_4, int_2, int_3);
         }
 
-        if (int_0 < 3 && (Class22.flags[int_0 + 1][int_5][int_4] & 0x8) != 0) {
-          ScriptState.method559(int_0 + 1, int_5, int_4, int_2, int_3);
-        }
-      }
-    }
-
-    Client.anInt661 = 0;
-
-    for (int_4 = 0; int_4 < 104; int_4++) {
-      for (int_5 = 0; int_5 < 104; int_5++) {
-        int int_6 = Class11.region.method375(Class12.plane, int_4, int_5);
-        if (int_6 != 0) {
-          int_6 = int_6 >> 14 & 0x7FFF;
-          final int int_7 = Class2.getObjectDefinition(int_6).mapIconId;
-          if (int_7 >= 0) {
-            Client.aSpritePixelsArray4[Client.anInt661] = Area.anAreaArray1[int_7].method774(false);
-            Client.anIntArray149[Client.anInt661] = int_4;
-            Client.anIntArray151[Client.anInt661] = int_5;
-            ++Client.anInt661;
-          }
+        if (plane < 3 && (Class22.flags[plane + 1][int_5][int_4] & 0x8) != 0) {
+          ScriptState.method559(plane + 1, int_5, int_4, int_2, int_3);
         }
       }
     }
 
-    FileCache.aBufferProvider1.init();
+    Client.iconCount = 0;
+
+    for (int x = 0; x < 104; x++) {
+      for (int z = 0; z < 104; z++) {
+        int hash = Class11.scene.method375(Class12.plane, x, z);
+        if (hash == 0) {
+          continue;
+        }
+        int configId = hash >> 14 & 0x7FFF;
+        final int iconId = Class2.getObjectConfig(configId).iconId;
+        if (iconId < 0) {
+          continue;
+        }
+        Client.iconSprites[Client.iconCount] = MapIconConfig.icons[iconId].getSprite(false);
+        Client.iconX[Client.iconCount] = x;
+        Client.iconY[Client.iconCount] = z;
+        ++Client.iconCount;
+      }
+    }
+
+    FileCache.rasterBuffer.init();
   }
 
   static void method263(final int int_0, final int int_1, final int int_2) {

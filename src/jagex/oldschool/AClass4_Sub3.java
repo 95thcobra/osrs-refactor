@@ -5,6 +5,7 @@ import jagex.oldschool.audio.AbstractSourceLine;
 import jagex.oldschool.collections.HashTable;
 import jagex.oldschool.script.ScriptCall;
 import jagex.oldschool.script.ScriptExecutor;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.util.Time;
 
@@ -355,7 +356,7 @@ public class AClass4_Sub3 extends AClass4 {
     return int_1 < 1 ? 1 : int_1;
   }
 
-  public synchronized boolean method799(final Track1 track1_0, final AbstractPackage indexdatabase_0,
+  public synchronized boolean method799(final MidiFile track1_0, final AbstractPackage indexdatabase_0,
       final Class55 class55_0, final int int_0) {
     track1_0.method708();
     boolean bool_0 = true;
@@ -773,7 +774,7 @@ public class AClass4_Sub3 extends AClass4 {
     anIntArray93[int_0] = (int) (2097152.0D * Math.pow(2.0D, int_1 * 5.4931640625E-4D) + 0.5D);
   }
 
-  public synchronized void method811(final Track1 track1_0, final boolean bool_0) {
+  public synchronized void method811(final MidiFile track1_0, final boolean bool_0) {
     method790();
     aClass74_1.method434(track1_0.aByteArray17);
     aBool53 = bool_0;

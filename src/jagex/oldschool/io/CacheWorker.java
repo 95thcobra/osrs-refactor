@@ -53,7 +53,7 @@ public class CacheWorker implements Runnable {
             anInt189 = 600;
           }
         } else {
-          AClass3_Sub1.method725(100L);
+          AClass3_Sub1.sleep(100L);
           synchronized (anObject2) {
             if (anInt189 <= 1) {
               anInt189 = 0;

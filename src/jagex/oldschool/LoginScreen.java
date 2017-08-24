@@ -1,9 +1,11 @@
 package jagex.oldschool;
 
 import jagex.oldschool.graphics.IndexedSprite;
+import jagex.oldschool.scene.Scene;
 
 public class LoginScreen {
 
+  public static char aChar1;
   static int anInt98;
   static int loginWindowX;
   static int[] anIntArray20;
@@ -64,7 +66,7 @@ public class LoginScreen {
   }
 
   static void method300() {
-    Region.lowMemory = false;
+    Scene.lowMemory = false;
     Client.lowMemory = false;
   }
 

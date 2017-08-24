@@ -5,6 +5,7 @@ import jagex.oldschool.graphics.IndexedSprite;
 import jagex.oldschool.graphics.Rasterizer3d;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.GameBuffer;
+import jagex.oldschool.map.MapIcon;
 import jagex.oldschool.scene.Position;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -207,7 +208,7 @@ public class WorldMapData_Sub1 extends WorldMapData {
       final Position coordinates_0 = new Position(buffer_0.getInt());
       final boolean bool_1 = buffer_0.getUnsignedByte() == 1;
       if (bool_0 || !bool_1) {
-        aList4.add(new Class29(int_2, coordinates_0));
+        aList4.add(new MapIcon(int_2, coordinates_0));
       }
     }
 
@@ -237,7 +238,7 @@ public class WorldMapData_Sub1 extends WorldMapData {
     aHashSet8 = new HashSet(int_2);
 
     for (int int_3 = 0; int_3 < int_2; int_3++) {
-      final AClass1_Sub1 aclass1_sub1_0 = new AClass1_Sub1();
+      final Chunk aclass1_sub1_0 = new Chunk();
 
       try {
         aclass1_sub1_0.method592(buffer_1, buffer_2);

@@ -14,7 +14,7 @@ import jagex.oldschool.Class16;
 import jagex.oldschool.Class2;
 import jagex.oldschool.Class22;
 import jagex.oldschool.Class23;
-import jagex.oldschool.Class24;
+import jagex.oldschool.UrlStreamWorker;
 import jagex.oldschool.Class26;
 import jagex.oldschool.Class28;
 import jagex.oldschool.script.ScriptExecutor;
@@ -27,25 +27,25 @@ import jagex.oldschool.Class46;
 import jagex.oldschool.Class47;
 import jagex.oldschool.Class57;
 import jagex.oldschool.Class64;
-import jagex.oldschool.Class69_Sub1;
+import jagex.oldschool.social.LoginNotification;
 import jagex.oldschool.util.Timestamp;
 import jagex.oldschool.Class8;
 import jagex.oldschool.Class82;
-import jagex.oldschool.Class85;
+import jagex.oldschool.Variables;
 import jagex.oldschool.Class86;
 import jagex.oldschool.Boundry;
 import jagex.oldschool.Client;
 import jagex.oldschool.CombatInfo1;
-import jagex.oldschool.DecorativeObject;
+import jagex.oldschool.scene.DecorativeObject;
 import jagex.oldschool.Enum;
 import jagex.oldschool.Enum1;
 import jagex.oldschool.Enum6;
 import jagex.oldschool.FloorUnderlayDefinition;
-import jagex.oldschool.Friend;
+import jagex.oldschool.social.Friend;
 import jagex.oldschool.GrandExchangeOffer;
 import jagex.oldschool.GroundItem;
-import jagex.oldschool.Ignore;
-import jagex.oldschool.Node_Sub1;
+import jagex.oldschool.social.Ignore;
+import jagex.oldschool.scene.AreaSound;
 import jagex.oldschool.Node_Sub5;
 import jagex.oldschool.RemoteEnvironment;
 import jagex.oldschool.UserGroup;
@@ -878,7 +878,7 @@ public class PlayerVariable extends Subnode {
       } else if (int_0 == 3604) {
         string_4 = ScriptExecutor.scriptStringStack[--Class26.scriptStringStackSize];
         int_8 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-        Class24.method221(string_4, int_8);
+        UrlStreamWorker.method221(string_4, int_8);
         byte_0 = 1;
       } else {
         Friend friend_0;
@@ -889,7 +889,7 @@ public class PlayerVariable extends Subnode {
           if (string_4 != null) {
             if ((Client.friendCount < 200 || Client.anInt663 == 1)
                 && Client.friendCount < 400) {
-              string_5 = FloorUnderlayDefinition.method869(string_4,
+              string_5 = FloorUnderlayDefinition.format(string_4,
                   AClass1_Sub2.aClass108_10);
               if (string_5 != null) {
                 int_2 = 0;
@@ -899,7 +899,7 @@ public class PlayerVariable extends Subnode {
                   if (int_2 >= Client.friendCount) {
                     for (int_2 = 0; int_2 < Client.ignoreCount; int_2++) {
                       ignore_0 = Client.ignores[int_2];
-                      string_2 = FloorUnderlayDefinition.method869(ignore_0.name,
+                      string_2 = FloorUnderlayDefinition.format(ignore_0.name,
                           AClass1_Sub2.aClass108_10);
                       if (string_2 != null && string_2.equals(string_5)) {
                         Npc.sendGameMessage(30, "", "Please remove " + string_4
@@ -908,7 +908,7 @@ public class PlayerVariable extends Subnode {
                       }
 
                       if (ignore_0.previousName != null) {
-                        string_0 = FloorUnderlayDefinition.method869(
+                        string_0 = FloorUnderlayDefinition.format(
                             ignore_0.previousName,
                             AClass1_Sub2.aClass108_10);
                         if (string_0 != null && string_0.equals(string_5)) {
@@ -921,7 +921,7 @@ public class PlayerVariable extends Subnode {
                     }
 
                     if (FloorUnderlayDefinition
-                        .method869(GrandExchangeOffer.localPlayer.name,
+                        .format(GrandExchangeOffer.localPlayer.name,
                             AClass1_Sub2.aClass108_10)
                         .equals(string_5)) {
                       Npc.sendGameMessage(30, "",
@@ -936,7 +936,7 @@ public class PlayerVariable extends Subnode {
                   }
 
                   friend_0 = Client.friends[int_2];
-                  string_2 = FloorUnderlayDefinition.method869(friend_0.name,
+                  string_2 = FloorUnderlayDefinition.format(friend_0.name,
                       AClass1_Sub2.aClass108_10);
                   if (string_2 != null && string_2.equals(string_5)) {
                     Npc.sendGameMessage(30, "",
@@ -945,7 +945,7 @@ public class PlayerVariable extends Subnode {
                   }
 
                   if (friend_0.previousName != null) {
-                    string_0 = FloorUnderlayDefinition.method869(
+                    string_0 = FloorUnderlayDefinition.format(
                         friend_0.previousName, AClass1_Sub2.aClass108_10);
                     if (string_0 != null && string_0.equals(string_5)) {
                       Npc.sendGameMessage(30, "",
@@ -969,13 +969,13 @@ public class PlayerVariable extends Subnode {
           if (int_0 == 3606) {
             string_4 = ScriptExecutor.scriptStringStack[--Class26.scriptStringStackSize];
             if (string_4 != null) {
-              string_5 = FloorUnderlayDefinition.method869(string_4,
+              string_5 = FloorUnderlayDefinition.format(string_4,
                   AClass1_Sub2.aClass108_10);
               if (string_5 != null) {
                 for (int_2 = 0; int_2 < Client.friendCount; int_2++) {
                   friend_0 = Client.friends[int_2];
                   string_2 = friend_0.name;
-                  string_0 = FloorUnderlayDefinition.method869(string_2,
+                  string_0 = FloorUnderlayDefinition.format(string_2,
                       AClass1_Sub2.aClass108_10);
                   if (string_4 != null && string_2 != null) {
                     if (!string_4.startsWith("#") && !string_2.startsWith("#")) {
@@ -1010,7 +1010,7 @@ public class PlayerVariable extends Subnode {
             if (string_4 != null) {
               if ((Client.ignoreCount < 100 || Client.anInt663 == 1)
                   && Client.ignoreCount < 400) {
-                string_5 = FloorUnderlayDefinition.method869(string_4,
+                string_5 = FloorUnderlayDefinition.format(string_4,
                     AClass1_Sub2.aClass108_10);
                 if (string_5 != null) {
                   int_2 = 0;
@@ -1020,7 +1020,7 @@ public class PlayerVariable extends Subnode {
                     if (int_2 >= Client.ignoreCount) {
                       for (int_2 = 0; int_2 < Client.friendCount; int_2++) {
                         friend_0 = Client.friends[int_2];
-                        string_2 = FloorUnderlayDefinition.method869(
+                        string_2 = FloorUnderlayDefinition.format(
                             friend_0.name, AClass1_Sub2.aClass108_10);
                         if (string_2 != null && string_2.equals(string_5)) {
                           Npc.sendGameMessage(31, "",
@@ -1030,7 +1030,7 @@ public class PlayerVariable extends Subnode {
                         }
 
                         if (friend_0.previousName != null) {
-                          string_0 = FloorUnderlayDefinition.method869(
+                          string_0 = FloorUnderlayDefinition.format(
                               friend_0.previousName,
                               AClass1_Sub2.aClass108_10);
                           if (string_0 != null
@@ -1044,7 +1044,7 @@ public class PlayerVariable extends Subnode {
                       }
 
                       if (FloorUnderlayDefinition
-                          .method869(GrandExchangeOffer.localPlayer.name,
+                          .format(GrandExchangeOffer.localPlayer.name,
                               AClass1_Sub2.aClass108_10)
                           .equals(string_5)) {
                         Npc.sendGameMessage(31, "",
@@ -1059,7 +1059,7 @@ public class PlayerVariable extends Subnode {
                     }
 
                     ignore_0 = Client.ignores[int_2];
-                    string_2 = FloorUnderlayDefinition.method869(ignore_0.name,
+                    string_2 = FloorUnderlayDefinition.format(ignore_0.name,
                         AClass1_Sub2.aClass108_10);
                     if (string_2 != null && string_2.equals(string_5)) {
                       Npc.sendGameMessage(31, "",
@@ -1068,7 +1068,7 @@ public class PlayerVariable extends Subnode {
                     }
 
                     if (ignore_0.previousName != null) {
-                      string_0 = FloorUnderlayDefinition.method869(
+                      string_0 = FloorUnderlayDefinition.format(
                           ignore_0.previousName, AClass1_Sub2.aClass108_10);
                       if (string_0 != null && string_0.equals(string_5)) {
                         Npc.sendGameMessage(31, "",
@@ -1090,13 +1090,13 @@ public class PlayerVariable extends Subnode {
           } else if (int_0 == 3608) {
             string_4 = ScriptExecutor.scriptStringStack[--Class26.scriptStringStackSize];
             if (string_4 != null) {
-              string_5 = FloorUnderlayDefinition.method869(string_4,
+              string_5 = FloorUnderlayDefinition.format(string_4,
                   AClass1_Sub2.aClass108_10);
               if (string_5 != null) {
                 for (int_2 = 0; int_2 < Client.ignoreCount; int_2++) {
                   ignore_0 = Client.ignores[int_2];
                   string_2 = ignore_0.name;
-                  string_0 = FloorUnderlayDefinition.method869(string_2,
+                  string_0 = FloorUnderlayDefinition.format(string_2,
                       AClass1_Sub2.aClass108_10);
                   if (string_4 != null && string_2 != null) {
                     if (!string_4.startsWith("#") && !string_2.startsWith("#")) {
@@ -1198,7 +1198,7 @@ public class PlayerVariable extends Subnode {
               byte_0 = 1;
             } else if (int_0 == 3612) {
               if (Client.clanChatOwner != null) {
-                ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = Node_Sub1.clanChatCount;
+                ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = AreaSound.clanChatCount;
               } else {
                 ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = 0;
               }
@@ -1206,7 +1206,7 @@ public class PlayerVariable extends Subnode {
               byte_0 = 1;
             } else if (int_0 == 3613) {
               int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-              if (Client.clanChatOwner != null && int_1 < Node_Sub1.clanChatCount) {
+              if (Client.clanChatOwner != null && int_1 < AreaSound.clanChatCount) {
                 ScriptExecutor.scriptStringStack[++Class26.scriptStringStackSize
                     - 1] = AClass1.clanMembers[int_1].username;
               } else {
@@ -1216,7 +1216,7 @@ public class PlayerVariable extends Subnode {
               byte_0 = 1;
             } else if (int_0 == 3614) {
               int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-              if (Client.clanChatOwner != null && int_1 < Node_Sub1.clanChatCount) {
+              if (Client.clanChatOwner != null && int_1 < AreaSound.clanChatCount) {
                 ScriptExecutor.intStack[++ScriptExecutor.intStackSize
                     - 1] = AClass1.clanMembers[int_1].world;
               } else {
@@ -1226,7 +1226,7 @@ public class PlayerVariable extends Subnode {
               byte_0 = 1;
             } else if (int_0 == 3615) {
               int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-              if (Client.clanChatOwner != null && int_1 < Node_Sub1.clanChatCount) {
+              if (Client.clanChatOwner != null && int_1 < AreaSound.clanChatCount) {
                 ScriptExecutor.intStack[++ScriptExecutor.intStackSize
                     - 1] = AClass1.clanMembers[int_1].rank;
               } else {
@@ -1295,7 +1295,7 @@ public class PlayerVariable extends Subnode {
               byte_0 = 1;
             } else if (int_0 == 3624) {
               int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-              if (AClass1.clanMembers != null && int_1 < Node_Sub1.clanChatCount
+              if (AClass1.clanMembers != null && int_1 < AreaSound.clanChatCount
                   && AClass1.clanMembers[int_1].username
                   .equalsIgnoreCase(GrandExchangeOffer.localPlayer.name)) {
                 ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = 1;
@@ -1792,10 +1792,10 @@ public class PlayerVariable extends Subnode {
             ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = AClass1_Sub2.anInt306;
             byte_0 = 1;
           } else if (int_0 == 4211) {
-            if (Class85.aShortArray3 != null
+            if (Variables.aShortArray3 != null
                 && Class64.anInt165 < AClass1_Sub2.anInt306) {
               ScriptExecutor.intStack[++ScriptExecutor.intStackSize
-                  - 1] = Class85.aShortArray3[++Class64.anInt165 - 1] & 0xFFFF;
+                  - 1] = Variables.aShortArray3[++Class64.anInt165 - 1] & 0xFFFF;
             } else {
               ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = -1;
             }
@@ -1911,7 +1911,7 @@ public class PlayerVariable extends Subnode {
         byte_0 = 1;
       } else if (int_0 == 6203) {
         if (Client.aWidget11 != null) {
-          Class69_Sub1.method611(0, 0, Client.aWidget11.width, Client.aWidget11.height,
+          LoginNotification.method611(0, 0, Client.aWidget11.width, Client.aWidget11.height,
               false);
           ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = Client.viewportHeight;
           ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = Client.viewportWidth;
@@ -1939,7 +1939,7 @@ public class PlayerVariable extends Subnode {
       return int_0 < 6700 ? Class82.method487(int_0, script_0, bool_0) : 2;
     }
     if (int_0 == 6500) {
-      ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = Ignore.loadWorlds() ? 1 : 0;
+      ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = Client.loadWorlds() ? 1 : 0;
       byte_0 = 1;
     } else {
       World world_1;
@@ -2085,11 +2085,11 @@ public class PlayerVariable extends Subnode {
           cacheablenode_sub3_0 = RemoteEnvironment.method524(int_8);
           if (cacheablenode_sub3_0.method845()) {
             ScriptExecutor.scriptStringStack[++Class26.scriptStringStackSize - 1] = Class2
-                .getObjectDefinition(int_1)
+                .getObjectConfig(int_1)
                 .method826(int_8, cacheablenode_sub3_0.aString30);
           } else {
             ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = Class2
-                .getObjectDefinition(int_1)
+                .getObjectConfig(int_1)
                 .method825(int_8, cacheablenode_sub3_0.anInt476);
           }
 

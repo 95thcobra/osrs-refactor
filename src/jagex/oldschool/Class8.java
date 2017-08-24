@@ -3,6 +3,8 @@ package jagex.oldschool;
 import jagex.oldschool.asset.RemoteAssetRequestor;
 import jagex.oldschool.config.NpcConfig;
 import jagex.oldschool.io.Buffer;
+import jagex.oldschool.map.MapIconConfig;
+import jagex.oldschool.scene.Square;
 import jagex.oldschool.ui.InterfaceComponent;
 import java.io.IOException;
 
@@ -45,7 +47,7 @@ public class Class8 {
   }
 
   public static void method153() {
-    Area.skeletonsIndex.reset();
+    MapIconConfig.sprites.reset();
   }
 
   static void method154(final PendingSpawn pendingspawn_0) {
@@ -54,23 +56,23 @@ public class Class8 {
     int int_2 = 0;
     int int_3 = 0;
     if (pendingspawn_0.type == 0) {
-      int_0 = Class11.region.method372(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
+      int_0 = Class11.scene.method372(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
     }
 
     if (pendingspawn_0.type == 1) {
-      int_0 = Class11.region.method374(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
+      int_0 = Class11.scene.method374(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
     }
 
     if (pendingspawn_0.type == 2) {
-      int_0 = Class11.region.method377(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
+      int_0 = Class11.scene.method377(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
     }
 
     if (pendingspawn_0.type == 3) {
-      int_0 = Class11.region.method375(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
+      int_0 = Class11.scene.method375(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y);
     }
 
     if (int_0 != 0) {
-      final int int_4 = Class11.region
+      final int int_4 = Class11.scene
           .method376(pendingspawn_0.level, pendingspawn_0.x, pendingspawn_0.y, int_0);
       int_1 = int_0 >> 14 & 0x7FFF;
       int_2 = int_4 & 0x1F;
@@ -102,18 +104,18 @@ public class Class8 {
 
             if (npccomposition_0.aBool61 && Client.aBool92) {
               DynamicObject
-                  .addMenuEntry("Examine", Square.getColTags(16776960) + string_0, 1003, int_0,
+                  .addMenuEntry("Examine", Square.embedColor(16776960) + string_0, 1003, int_0,
                       int_1, int_2);
             }
 
             if (Client.itemSelectionState == 1) {
               DynamicObject.addMenuEntry("Use",
-                  Client.aString33 + " " + "->" + " " + Square.getColTags(16776960) + string_0, 7,
+                  Client.aString33 + " " + "->" + " " + Square.embedColor(16776960) + string_0, 7,
                   int_0, int_1, int_2);
             } else if (Client.spellSelected) {
               if ((JavaxSourceDataLineProvider.anInt62 & 0x2) == 2) {
                 DynamicObject.addMenuEntry(Client.aString34,
-                    Client.aString35 + " " + "->" + " " + Square.getColTags(16776960) + string_0, 8,
+                    Client.aString35 + " " + "->" + " " + Square.embedColor(16776960) + string_0, 8,
                     int_0, int_1, int_2);
                 return;
               }
@@ -151,7 +153,7 @@ public class Class8 {
                     }
 
                     DynamicObject.addMenuEntry(strings_0[int_4],
-                        Square.getColTags(16776960) + string_0, int_5, int_0, int_1, int_2);
+                        Square.embedColor(16776960) + string_0, int_5, int_0, int_1, int_2);
                   }
                 }
               }
@@ -190,7 +192,7 @@ public class Class8 {
                       }
 
                       DynamicObject.addMenuEntry(strings_0[int_4],
-                          Square.getColTags(16776960) + string_0, int_5, int_0, int_1, int_2);
+                          Square.embedColor(16776960) + string_0, int_5, int_0, int_1, int_2);
                     }
                   }
                 }
@@ -198,7 +200,7 @@ public class Class8 {
 
               if (!npccomposition_0.aBool61 || !Client.aBool92) {
                 DynamicObject
-                    .addMenuEntry("Examine", Square.getColTags(16776960) + string_0, 1003, int_0,
+                    .addMenuEntry("Examine", Square.embedColor(16776960) + string_0, 1003, int_0,
                         int_1, int_2);
                 return;
               }

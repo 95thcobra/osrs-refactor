@@ -7,6 +7,7 @@ import jagex.oldschool.graphics.IndexedSprite;
 import jagex.oldschool.graphics.Rasterizer2d;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.map.MapAsset;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.scene.Position;
 import jagex.oldschool.script.ScriptCall;
 import java.util.HashMap;
@@ -465,7 +466,7 @@ public class RenderOverview {
           }
 
           final Class16 class16_0 = (Class16) iterator_0.next();
-          final Area area_0 = Area.anAreaArray1[class16_0.anInt64];
+          final MapIconConfig area_0 = MapIconConfig.icons[class16_0.anInt64];
           bool_0 = false;
 
           for (int int_8 = anIntArray1.length - 1; int_8 >= 0; --int_8) {
@@ -602,9 +603,9 @@ public class RenderOverview {
     anInt11 = 0;
     anInt12 = 0;
 
-    for (int int_1 = 0; int_1 < Area.anAreaArray1.length; int_1++) {
-      if (Area.anAreaArray1[int_1] != null && Area.anAreaArray1[int_1].anInt438 == int_0) {
-        aHashSet4.add(Integer.valueOf(Area.anAreaArray1[int_1].anInt432));
+    for (int int_1 = 0; int_1 < MapIconConfig.icons.length; int_1++) {
+      if (MapIconConfig.icons[int_1] != null && MapIconConfig.icons[int_1].anInt438 == int_0) {
+        aHashSet4.add(Integer.valueOf(MapIconConfig.icons[int_1].anInt432));
       }
     }
 
@@ -659,9 +660,9 @@ public class RenderOverview {
       aHashSet1.remove(Integer.valueOf(int_0));
     }
 
-    for (int int_1 = 0; int_1 < Area.anAreaArray1.length; int_1++) {
-      if (Area.anAreaArray1[int_1] != null && Area.anAreaArray1[int_1].anInt438 == int_0) {
-        final int int_2 = Area.anAreaArray1[int_1].anInt432;
+    for (int int_1 = 0; int_1 < MapIconConfig.icons.length; int_1++) {
+      if (MapIconConfig.icons[int_1] != null && MapIconConfig.icons[int_1].anInt438 == int_0) {
+        final int int_2 = MapIconConfig.icons[int_1].anInt432;
         if (!bool_0) {
           aHashSet5.add(Integer.valueOf(int_2));
         } else {

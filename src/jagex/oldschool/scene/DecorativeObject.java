@@ -1,5 +1,6 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
+import jagex.oldschool.Enum5;
 import jagex.oldschool.asset.LocalRequest;
 import jagex.oldschool.asset.Package;
 import jagex.oldschool.io.CacheWorker;

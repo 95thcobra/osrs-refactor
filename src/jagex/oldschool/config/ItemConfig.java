@@ -20,7 +20,7 @@ public class ItemConfig extends Subnode {
   public static Cache itemSpriteCache;
   public static boolean isMembersWorld;
   public static int anInt491;
-  public static DirectSprite aSpritePixels5;
+  public static DirectSprite map;
 
   static {
     items = new Cache(64);

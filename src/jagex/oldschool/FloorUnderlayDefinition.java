@@ -25,124 +25,124 @@ public class FloorUnderlayDefinition extends Subnode {
     rgbColor = 0;
   }
 
-  public static String method869(final CharSequence charsequence_0, final Class108 class108_0) {
+  public static String format(final CharSequence charsequence_0, final FormatConfig class108_0) {
     if (charsequence_0 == null) {
       return null;
     }
-    int int_0 = 0;
+    int start = 0;
 
-    int int_1;
-    for (int_1 = charsequence_0.length(); int_0 < int_1
-        && AbstractPackage.method462(charsequence_0.charAt(int_0)); int_0++) {
+    int end;
+    for (end = charsequence_0.length(); start < end
+        && AbstractPackage.isDelimiter(charsequence_0.charAt(start)); start++) {
     }
 
-    while (int_1 > int_0 && AbstractPackage.method462(charsequence_0.charAt(int_1 - 1))) {
-      --int_1;
+    while (end > start && AbstractPackage.isDelimiter(charsequence_0.charAt(end - 1))) {
+      --end;
     }
 
-    final int int_2 = int_1 - int_0;
-    if (int_2 >= 1 && int_2 <= Node_Sub5.method679(class108_0)) {
-      final StringBuilder stringbuilder_0 = new StringBuilder(int_2);
+    final int len = end - start;
+    if (len < 1 || len > Node_Sub5.getMaximum(class108_0)) {
+      return null;
+    }
+    final StringBuilder stringbuilder_0 = new StringBuilder(len);
 
-      for (int int_3 = int_0; int_3 < int_1; int_3++) {
-        final char char_0 = charsequence_0.charAt(int_3);
-        if (Isaac.method484(char_0)) {
-          char char_1;
-          switch (char_0) {
-            case ' ':
-            case '-':
-            case '_':
-            case ' ':
-              char_1 = 95;
-              break;
-            case '#':
-            case '[':
-            case ']':
-              char_1 = char_0;
-              break;
-            case 'À':
-            case 'Á':
-            case 'Â':
-            case 'Ã':
-            case 'Ä':
-            case 'à':
-            case 'á':
-            case 'â':
-            case 'ã':
-            case 'ä':
-              char_1 = 97;
-              break;
-            case 'Ç':
-            case 'ç':
-              char_1 = 99;
-              break;
-            case 'È':
-            case 'É':
-            case 'Ê':
-            case 'Ë':
-            case 'è':
-            case 'é':
-            case 'ê':
-            case 'ë':
-              char_1 = 101;
-              break;
-            case 'Í':
-            case 'Î':
-            case 'Ï':
-            case 'í':
-            case 'î':
-            case 'ï':
-              char_1 = 105;
-              break;
-            case 'Ñ':
-            case 'ñ':
-              char_1 = 110;
-              break;
-            case 'Ò':
-            case 'Ó':
-            case 'Ô':
-            case 'Õ':
-            case 'Ö':
-            case 'ò':
-            case 'ó':
-            case 'ô':
-            case 'õ':
-            case 'ö':
-              char_1 = 111;
-              break;
-            case 'Ù':
-            case 'Ú':
-            case 'Û':
-            case 'Ü':
-            case 'ù':
-            case 'ú':
-            case 'û':
-            case 'ü':
-              char_1 = 117;
-              break;
-            case 'ß':
-              char_1 = 98;
-              break;
-            case 'ÿ':
-            case 'Ÿ':
-              char_1 = 121;
-              break;
-            default:
-              char_1 = Character.toLowerCase(char_0);
-          }
+    for (int int_3 = start; int_3 < end; int_3++) {
+      final char char_0 = charsequence_0.charAt(int_3);
+      if (Isaac.method484(char_0)) {
+        char char_1;
+        switch (char_0) {
+          case ' ':
+          case '-':
+          case '_':
+          case ' ':
+            char_1 = 95;
+            break;
+          case '#':
+          case '[':
+          case ']':
+            char_1 = char_0;
+            break;
+          case 'À':
+          case 'Á':
+          case 'Â':
+          case 'Ã':
+          case 'Ä':
+          case 'à':
+          case 'á':
+          case 'â':
+          case 'ã':
+          case 'ä':
+            char_1 = 97;
+            break;
+          case 'Ç':
+          case 'ç':
+            char_1 = 99;
+            break;
+          case 'È':
+          case 'É':
+          case 'Ê':
+          case 'Ë':
+          case 'è':
+          case 'é':
+          case 'ê':
+          case 'ë':
+            char_1 = 101;
+            break;
+          case 'Í':
+          case 'Î':
+          case 'Ï':
+          case 'í':
+          case 'î':
+          case 'ï':
+            char_1 = 105;
+            break;
+          case 'Ñ':
+          case 'ñ':
+            char_1 = 110;
+            break;
+          case 'Ò':
+          case 'Ó':
+          case 'Ô':
+          case 'Õ':
+          case 'Ö':
+          case 'ò':
+          case 'ó':
+          case 'ô':
+          case 'õ':
+          case 'ö':
+            char_1 = 111;
+            break;
+          case 'Ù':
+          case 'Ú':
+          case 'Û':
+          case 'Ü':
+          case 'ù':
+          case 'ú':
+          case 'û':
+          case 'ü':
+            char_1 = 117;
+            break;
+          case 'ß':
+            char_1 = 98;
+            break;
+          case 'ÿ':
+          case 'Ÿ':
+            char_1 = 121;
+            break;
+          default:
+            char_1 = Character.toLowerCase(char_0);
+        }
 
-          if (char_1 != 0) {
-            stringbuilder_0.append(char_1);
-          }
+        if (char_1 != 0) {
+          stringbuilder_0.append(char_1);
         }
       }
-
-      if (stringbuilder_0.length() == 0) {
-        return null;
-      }
-      return stringbuilder_0.toString();
     }
-    return null;
+
+    if (stringbuilder_0.length() == 0) {
+      return null;
+    }
+    return stringbuilder_0.toString();
   }
 
   void setHSL(final int int_0) {

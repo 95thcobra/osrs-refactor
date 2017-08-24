@@ -11,9 +11,12 @@ import jagex.oldschool.graphics.SpriteLoader;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.FileOnDisk;
 import jagex.oldschool.io.HuffmanCodec;
+import jagex.oldschool.scene.GroundObject;
 import jagex.oldschool.scene.Player;
+import jagex.oldschool.scene.Square;
 import jagex.oldschool.script.IntegerVariable;
 import jagex.oldschool.security.Isaac;
+import jagex.oldschool.social.Ignore;
 
 public class CacheableNode_Sub3 extends Subnode {
 
@@ -121,7 +124,7 @@ public class CacheableNode_Sub3 extends Subnode {
         Class77.method468();
         Client.method516();
         Class77.method468();
-        Class11.region.reset();
+        Class11.scene.reset();
         Class77.method468();
         System.gc();
 
@@ -187,7 +190,7 @@ public class CacheableNode_Sub3 extends Subnode {
               int_2 = (Class57.mapRegions[int_3] >> 8) * 64 - Boundry.baseX;
               int_4 = (Class57.mapRegions[int_3] & 0xFF) * 64 - WorldMapData_Sub1.baseY;
               Class77.method468();
-              Square.method660(bytes_2, int_2, int_4, Class11.region, Client.collisionMaps);
+              Square.method660(bytes_2, int_2, int_4, Class11.scene, Client.collisionMaps);
             }
           }
         }
@@ -226,7 +229,7 @@ public class CacheableNode_Sub3 extends Subnode {
                 }
 
                 if (!bool_1) {
-                  Class37.method263(int_3, int_1 * 8, int_2 * 8);
+                  UrlStreamRequest.method263(int_3, int_1 * 8, int_2 * 8);
                 }
               }
             }
@@ -261,7 +264,7 @@ public class CacheableNode_Sub3 extends Subnode {
                         && Class10.aByteArrayArray1[int_10] != null) {
                       IntegerVariable.method247(Class10.aByteArrayArray1[int_10], int_3, int_1 * 8,
                           int_2 * 8, int_5, (int_7 & 0x7) * 8, (int_8 & 0x7) * 8, int_6,
-                          Class11.region, Client.collisionMaps);
+                          Class11.scene, Client.collisionMaps);
                       break;
                     }
                   }
@@ -274,7 +277,7 @@ public class CacheableNode_Sub3 extends Subnode {
         WorldMapType2.flush(true);
         Client.method516();
         Class77.method468();
-        PendingSpawn.method652(Class11.region, Client.collisionMaps);
+        PendingSpawn.method652(Class11.scene, Client.collisionMaps);
         WorldMapType2.flush(true);
         int_3 = Class22.anInt70;
         if (int_3 > Class12.plane) {
@@ -286,9 +289,9 @@ public class CacheableNode_Sub3 extends Subnode {
         }
 
         if (Client.lowMemory) {
-          Class11.region.setup(Class22.anInt70);
+          Class11.scene.setup(Class22.anInt70);
         } else {
-          Class11.region.setup(0);
+          Class11.scene.setup(0);
         }
 
         for (int_1 = 0; int_1 < 104; int_1++) {

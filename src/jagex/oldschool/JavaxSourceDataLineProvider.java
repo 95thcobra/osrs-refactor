@@ -3,6 +3,8 @@ package jagex.oldschool;
 import jagex.oldschool.audio.AbstractSourceLine;
 import jagex.oldschool.audio.AudioWorker;
 import jagex.oldschool.audio.JavaxSourceLine;
+import jagex.oldschool.audio.SourceLineProvider;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.task.TaskQueue;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.ui.OpenedInterface;
@@ -12,7 +14,7 @@ import java.io.RandomAccessFile;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class JavaxSourceDataLineProvider implements SourceLineProvider  {
+public class JavaxSourceDataLineProvider implements SourceLineProvider {
 
   static int[] anIntArray3;
   static int anInt62;

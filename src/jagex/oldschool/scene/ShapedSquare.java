@@ -1,18 +1,18 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
-public final class SceneTileModel {
+public final class ShapedSquare {
 
   static final int[][] anIntArrayArray12;
   static final int[][] anIntArrayArray13;
-  static int[] tmpScreenX;
-  static int[] tmpScreenY;
+  static int[] sx;
+  static int[] sy;
   static int[] vertexSceneX;
   static int[] vertexSceneY;
   static int[] vertexSceneZ;
 
   static {
-    tmpScreenX = new int[6];
-    tmpScreenY = new int[6];
+    sx = new int[6];
+    sy = new int[6];
     vertexSceneX = new int[6];
     vertexSceneY = new int[6];
     vertexSceneZ = new int[6];
@@ -34,23 +34,23 @@ public final class SceneTileModel {
     };
   }
 
-  int[] vertexX;
+  int[] vx;
   boolean flatShade;
-  int[] anIntArray64;
-  int[] vertexY;
-  int shape;
-  int rotation;
-  int[] anIntArray65;
+  int[] v0;
+  int[] vy;
+  int configuration;
+  int orientation;
+  int[] v1;
   int underlay;
-  int[] vertexZ;
-  int[] anIntArray66;
+  int[] vz;
+  int[] v2;
   int overlay;
   int[] triangleTextureId;
   int[] triangleColorA;
   int[] triangleColorB;
   int[] triangleColorC;
 
-  SceneTileModel(final int int_0, final int int_1, final int int_2, final int int_3,
+  ShapedSquare(final int int_0, final int int_1, final int int_2, final int int_3,
       final int int_4, final int int_5,
       final int int_6, final int int_7, final int int_8, final int int_9, final int int_10,
       final int int_11,
@@ -62,8 +62,8 @@ public final class SceneTileModel {
       flatShade = false;
     }
 
-    shape = int_0;
-    rotation = int_1;
+    configuration = int_0;
+    orientation = int_1;
     underlay = int_17;
     overlay = int_18;
     final short short_0 = 128;
@@ -72,9 +72,9 @@ public final class SceneTileModel {
     final int int_21 = short_0 * 3 / 4;
     final int[] ints_0 = anIntArrayArray12[int_0];
     final int int_22 = ints_0.length;
-    vertexX = new int[int_22];
-    vertexY = new int[int_22];
-    vertexZ = new int[int_22];
+    vx = new int[int_22];
+    vy = new int[int_22];
+    vz = new int[int_22];
     final int[] ints_1 = new int[int_22];
     final int[] ints_2 = new int[int_22];
     final int int_23 = short_0 * int_3;
@@ -198,18 +198,18 @@ public final class SceneTileModel {
         int_31 = int_16;
       }
 
-      vertexX[int_25] = int_27;
-      vertexY[int_25] = int_29;
-      vertexZ[int_25] = int_28;
+      vx[int_25] = int_27;
+      vy[int_25] = int_29;
+      vz[int_25] = int_28;
       ints_1[int_25] = int_30;
       ints_2[int_25] = int_31;
     }
 
     final int[] ints_3 = anIntArrayArray13[int_0];
     int_26 = ints_3.length / 4;
-    anIntArray64 = new int[int_26];
-    anIntArray65 = new int[int_26];
-    anIntArray66 = new int[int_26];
+    v0 = new int[int_26];
+    v1 = new int[int_26];
+    v2 = new int[int_26];
     triangleColorA = new int[int_26];
     triangleColorB = new int[int_26];
     triangleColorC = new int[int_26];
@@ -237,9 +237,9 @@ public final class SceneTileModel {
         int_32 = int_32 - int_1 & 0x3;
       }
 
-      anIntArray64[int_28] = int_30;
-      anIntArray65[int_28] = int_31;
-      anIntArray66[int_28] = int_32;
+      v0[int_28] = int_30;
+      v1[int_28] = int_31;
+      v2[int_28] = int_32;
       if (int_29 == 0) {
         triangleColorA[int_28] = ints_1[int_30];
         triangleColorB[int_28] = ints_1[int_31];

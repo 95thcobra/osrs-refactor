@@ -1,9 +1,9 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
+import jagex.oldschool.Class56;
+import jagex.oldschool.Class99;
 import jagex.oldschool.asset.AbstractPackage;
 import jagex.oldschool.audio.AudioWorker;
-import jagex.oldschool.scene.Npc;
-import jagex.oldschool.scene.Renderable;
 import jagex.oldschool.script.PrimitiveType;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.util.Time;
@@ -19,7 +19,8 @@ public final class ItemLayer {
   Renderable top;
   int height;
 
-  static boolean method528(final int int_0, final int int_1, final int int_2, final int int_3,
+  public static boolean method528(final int int_0, final int int_1, final int int_2,
+      final int int_3,
       final int int_4,
       final int int_5, final int int_6) {
     int int_7 = Class56.anInt141 + int_6;

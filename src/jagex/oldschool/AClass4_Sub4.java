@@ -12,10 +12,14 @@ import jagex.oldschool.graphics.BitmapFont;
 import jagex.oldschool.graphics.IndexedSprite;
 import jagex.oldschool.graphics.Rasterizer2d;
 import jagex.oldschool.io.FileCache;
+import jagex.oldschool.map.MapIcon;
 import jagex.oldschool.scene.Projectile;
+import jagex.oldschool.scene.Square;
 import jagex.oldschool.script.LongVariable;
 import jagex.oldschool.script.PrimitiveType;
 import jagex.oldschool.security.Isaac;
+import jagex.oldschool.social.Ignore;
+import jagex.oldschool.social.LoginNotification;
 import jagex.oldschool.util.Time;
 
 public class AClass4_Sub4 extends AClass4 {
@@ -55,15 +59,15 @@ public class AClass4_Sub4 extends AClass4 {
       }
 
       if (LoginScreen.anIndexedSpriteArray5 == null) {
-        LoginScreen.anIndexedSpriteArray5 = Class29.method239(Time.indexSprites, "sl_flags", "");
+        LoginScreen.anIndexedSpriteArray5 = MapIcon.method239(Time.indexSprites, "sl_flags", "");
       }
 
       if (Class16.anIndexedSpriteArray3 == null) {
-        Class16.anIndexedSpriteArray3 = Class29.method239(Time.indexSprites, "sl_arrows", "");
+        Class16.anIndexedSpriteArray3 = MapIcon.method239(Time.indexSprites, "sl_arrows", "");
       }
 
       if (CombatInfoListHolder.anIndexedSpriteArray8 == null) {
-        CombatInfoListHolder.anIndexedSpriteArray8 = Class29
+        CombatInfoListHolder.anIndexedSpriteArray8 = MapIcon
             .method239(Time.indexSprites, "sl_stars", "");
       }
 
@@ -262,7 +266,7 @@ public class AClass4_Sub4 extends AClass4 {
         }
       }
 
-      FileCache.aBufferProvider1.draw(0, 0);
+      FileCache.rasterBuffer.draw(0, 0);
     } else {
       if (bool_0) {
         CacheableNode_Sub6.aSpritePixels4.method942(LoginScreen.anInt98, 0);
@@ -389,7 +393,7 @@ public class AClass4_Sub4 extends AClass4 {
 
           font_0.method999(AbstractFont.appendTags(string_0)
                   + (LoginScreen.loginIndex2 == 0 & Client.tick % 40 < 20
-                  ? Square.getColTags(16776960) + "|"
+                  ? Square.embedColor(16776960) + "|"
                   : ""),
               LoginScreen.loginWindowX + 180 - 70, int_10, 16777215, 0);
           int_10 += 15;
@@ -405,7 +409,7 @@ public class AClass4_Sub4 extends AClass4 {
           string_3 = new String(chars_0);
           font_0.method999(string_1 + string_3
                   + (LoginScreen.loginIndex2 == 1 & Client.tick % 40 < 20
-                  ? Square.getColTags(16776960) + "|"
+                  ? Square.embedColor(16776960) + "|"
                   : ""),
               LoginScreen.loginWindowX + 180 - 108, int_10, 16777215, 0);
           int_10 += 15;
@@ -459,7 +463,7 @@ public class AClass4_Sub4 extends AClass4 {
 
           final String string_4 = new String(chars_1);
           font_0.method999(
-              string_0 + string_4 + (Client.tick % 40 < 20 ? Square.getColTags(16776960) + "|"
+              string_0 + string_4 + (Client.tick % 40 < 20 ? Square.embedColor(16776960) + "|"
                   : ""),
               LoginScreen.loginWindowX + 180 - 108, int_10, 16777215, 0);
           int_10 -= 8;
@@ -511,7 +515,7 @@ public class AClass4_Sub4 extends AClass4 {
 
           font_0.method999(
               AbstractFont.appendTags(string_0)
-                  + (Client.tick % 40 < 20 ? Square.getColTags(16776960) + "|" : ""),
+                  + (Client.tick % 40 < 20 ? Square.embedColor(16776960) + "|" : ""),
               LoginScreen.loginWindowX + 180 - 34, int_10, 16777215, 0);
           int_10 += 15;
           int_1 = LoginScreen.loginWindowX + 180 - 80;
@@ -576,7 +580,7 @@ public class AClass4_Sub4 extends AClass4 {
       CacheableNode_Sub6.aSpritePixels4.method942(LoginScreen.anInt98, 0);
       Rasterizer2d.resetClip();
       int_0 = 0;
-      int_11 = FileCache.aBufferProvider1.width * 9 + LoginScreen.anInt98;
+      int_11 = FileCache.rasterBuffer.width * 9 + LoginScreen.anInt98;
 
       for (int_1 = 1; int_1 < short_3 - 1; int_1++) {
         int_12 = LoginScreen.anIntArray20[int_1] * (short_3 - int_1) / short_3;
@@ -593,8 +597,8 @@ public class AClass4_Sub4 extends AClass4 {
             int_2 = int_6;
             int_13 = 256 - int_6;
             int_6 = PrimitiveType.anIntArray78[int_6];
-            int_3 = FileCache.aBufferProvider1.buffer[int_11];
-            FileCache.aBufferProvider1.buffer[int_11++] = ((int_3 & 0xFF00FF) * int_13
+            int_3 = FileCache.rasterBuffer.buffer[int_11];
+            FileCache.rasterBuffer.buffer[int_11++] = ((int_3 & 0xFF00FF) * int_13
                 + (int_6 & 0xFF00FF) * int_2 & 0xFF00FF00)
                 + (int_2 * (int_6 & 0xFF00) + int_13 * (int_3 & 0xFF00) & 0xFF0000) >> 8;
           } else {
@@ -602,7 +606,7 @@ public class AClass4_Sub4 extends AClass4 {
           }
         }
 
-        int_11 += int_4 + FileCache.aBufferProvider1.width - 128;
+        int_11 += int_4 + FileCache.rasterBuffer.width - 128;
       }
 
       Rasterizer2d
@@ -610,7 +614,7 @@ public class AClass4_Sub4 extends AClass4 {
       Enum2.aSpritePixels3.method942(LoginScreen.anInt98 + 382, 0);
       Rasterizer2d.resetClip();
       int_0 = 0;
-      int_11 = FileCache.aBufferProvider1.width * 9 + LoginScreen.anInt98 + 637 + 24;
+      int_11 = FileCache.rasterBuffer.width * 9 + LoginScreen.anInt98 + 637 + 24;
 
       for (int_1 = 1; int_1 < short_3 - 1; int_1++) {
         int_12 = LoginScreen.anIntArray20[int_1] * (short_3 - int_1) / short_3;
@@ -623,8 +627,8 @@ public class AClass4_Sub4 extends AClass4 {
             int_2 = int_6;
             int_13 = 256 - int_6;
             int_6 = PrimitiveType.anIntArray78[int_6];
-            int_3 = FileCache.aBufferProvider1.buffer[int_11];
-            FileCache.aBufferProvider1.buffer[int_11++] = (int_13 * (int_3 & 0xFF00)
+            int_3 = FileCache.rasterBuffer.buffer[int_11];
+            FileCache.rasterBuffer.buffer[int_11++] = (int_13 * (int_3 & 0xFF00)
                 + int_2 * (int_6 & 0xFF00) & 0xFF0000)
                 + ((int_6 & 0xFF00FF) * int_2 + (int_3 & 0xFF00FF) * int_13 & 0xFF00FF00)
                 >> 8;
@@ -634,7 +638,7 @@ public class AClass4_Sub4 extends AClass4 {
         }
 
         int_0 += 128 - int_4;
-        int_11 += FileCache.aBufferProvider1.width - int_4 - int_12;
+        int_11 += FileCache.rasterBuffer.width - int_4 - int_12;
       }
 
       Game.titlemuteSprite[LongVariable.preferences.muted ? 1 : 0]
@@ -654,7 +658,7 @@ public class AClass4_Sub4 extends AClass4 {
         font_0.method998("jagex.osrs.World" + " " + Client.world, byte_3 / 2 + int_10,
             byte_2 / 2 + short_4 - 2,
             16777215, 0);
-        if (Class69_Sub1.listFetcher == null) {
+        if (LoginNotification.listFetcher == null) {
           font_1.method998("Click to switch", byte_3 / 2 + int_10, byte_2 / 2 + short_4 + 12,
               16777215,
               0);
@@ -682,7 +686,7 @@ public class AClass4_Sub4 extends AClass4 {
   static void groundItemSpawned(final int int_0, final int int_1) {
     final Deque deque_0 = Client.groundItemDeque[Class12.plane][int_0][int_1];
     if (deque_0 == null) {
-      Class11.region.method373(Class12.plane, int_0, int_1);
+      Class11.scene.method373(Class12.plane, int_0, int_1);
     } else {
       long long_0 = -99999999L;
       GroundItem item_0 = null;
@@ -702,7 +706,7 @@ public class AClass4_Sub4 extends AClass4 {
       }
 
       if (item_0 == null) {
-        Class11.region.method373(Class12.plane, int_0, int_1);
+        Class11.scene.method373(Class12.plane, int_0, int_1);
       } else {
         deque_0.addFirst(item_0);
         GroundItem item_3 = null;
@@ -722,8 +726,8 @@ public class AClass4_Sub4 extends AClass4 {
         }
 
         final int int_2 = int_0 + (int_1 << 7) + 1610612736;
-        Class11.region.addItemPile(Class12.plane, int_0, int_1,
-            Class29.getTileHeight(int_0 * 128 + 64, int_1 * 128 + 64, Class12.plane), item_0,
+        Class11.scene.addItemPile(Class12.plane, int_0, int_1,
+            Client.getTileHeight(int_0 * 128 + 64, int_1 * 128 + 64, Class12.plane), item_0,
             int_2,
             item_3, item_2);
       }

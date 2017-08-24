@@ -24,6 +24,13 @@ import jagex.oldschool.graphics.VertexNormal;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.HuffmanCodec;
 import jagex.oldschool.map.MapAsset;
+import jagex.oldschool.map.MapIcon;
+import jagex.oldschool.map.MapIconConfig;
+import jagex.oldschool.scene.CollisionData;
+import jagex.oldschool.scene.ItemLayer;
+import jagex.oldschool.scene.Scene;
+import jagex.oldschool.scene.SolidSquare;
+import jagex.oldschool.scene.Square;
 import jagex.oldschool.script.PrimitiveType;
 import jagex.oldschool.script.ScriptExecutor;
 import jagex.oldschool.script.ScriptState;
@@ -75,13 +82,13 @@ public class Class41 {
   static void loadEngine() {
     int int_0;
     if (Client.loadingStage == 0) {
-      Class11.region = new Region(4, 104, 104, Class22.heightmap);
+      Class11.scene = new Scene(4, 104, 104, Class22.heightmap);
 
       for (int_0 = 0; int_0 < 4; int_0++) {
         Client.collisionMaps[int_0] = new CollisionData(104, 104);
       }
 
-      ItemConfig.aSpritePixels5 = new DirectSprite(512, 512);
+      ItemConfig.map = new DirectSprite(512, 512);
       LoginScreen.loadingText = "Starting game engine...";
       LoginScreen.loadingPercent = 5;
       Client.loadingStage = 20;
@@ -100,7 +107,7 @@ public class Class41 {
           ints_0[int_1] = int_4 * int_3 >> 16;
         }
 
-        Region.method391(ints_0, 500, 800, 512, 334);
+        Scene.method391(ints_0, 500, 800, 512, 334);
         LoginScreen.loadingText = "Prepared visibility map";
         LoginScreen.loadingPercent = 10;
         Client.loadingStage = 30;
@@ -108,7 +115,7 @@ public class Class41 {
         Class4.indexInterfaces = AClass4_Sub4.openCacheIndex(0, false, true, true);
         ScriptState.indexSoundEffects = AClass4_Sub4.openCacheIndex(1, false, true, true);
         AClass1.configsIndex = AClass4_Sub4.openCacheIndex(2, true, false, true);
-        Class37.anIndexData1 = AClass4_Sub4.openCacheIndex(3, false, true, true);
+        UrlStreamRequest.anIndexData1 = AClass4_Sub4.openCacheIndex(3, false, true, true);
         Client.anIndexData5 = AClass4_Sub4.openCacheIndex(4, false, true, true);
         Class44.maps = AClass4_Sub4.openCacheIndex(5, true, true, true);
         CacheableNode_Sub4.indexTrack1 = AClass4_Sub4.openCacheIndex(6, true, true, false);
@@ -120,7 +127,7 @@ public class Class41 {
         FrameBase.indexScripts = AClass4_Sub4.openCacheIndex(12, false, true, true);
         FontType.anIndexData3 = AClass4_Sub4.openCacheIndex(13, true, false, true);
         Enum.vorbisIndex = AClass4_Sub4.openCacheIndex(14, false, true, false);
-        Class85.anIndexData2 = AClass4_Sub4.openCacheIndex(15, false, true, true);
+        Variables.anIndexData2 = AClass4_Sub4.openCacheIndex(15, false, true, true);
         VertexNormal.indexWorldMap = AClass4_Sub4.openCacheIndex(16, false, true, false);
         LoginScreen.loadingText = "Connecting to update server";
         LoginScreen.loadingPercent = 20;
@@ -130,7 +137,7 @@ public class Class41 {
         int_0 = byte_0 + Class4.indexInterfaces.getLoadedPercent() * 4 / 100;
         int_0 += ScriptState.indexSoundEffects.getLoadedPercent() * 4 / 100;
         int_0 += AClass1.configsIndex.getLoadedPercent() * 2 / 100;
-        int_0 += Class37.anIndexData1.getLoadedPercent() * 2 / 100;
+        int_0 += UrlStreamRequest.anIndexData1.getLoadedPercent() * 2 / 100;
         int_0 += Client.anIndexData5.getLoadedPercent() * 6 / 100;
         int_0 += Class44.maps.getLoadedPercent() * 4 / 100;
         int_0 += CacheableNode_Sub4.indexTrack1.getLoadedPercent() * 2 / 100;
@@ -142,7 +149,7 @@ public class Class41 {
         int_0 += FrameBase.indexScripts.getLoadedPercent() * 2 / 100;
         int_0 += FontType.anIndexData3.getLoadedPercent() * 2 / 100;
         int_0 += Enum.vorbisIndex.getLoadedPercent() * 2 / 100;
-        int_0 += Class85.anIndexData2.getLoadedPercent() * 2 / 100;
+        int_0 += Variables.anIndexData2.getLoadedPercent() * 2 / 100;
         int_0 += VertexNormal.indexWorldMap.getLoadedPercent() * 2 / 100;
         if (int_0 != 100) {
           if (int_0 != 0) {
@@ -162,8 +169,8 @@ public class Class41 {
         ScriptExecutor.soundSystem0 = JavaxSourceDataLineProvider
             .method191(Stub.taskManager, 0, 22050);
         ScriptExecutor.soundSystem0.method362(aclass4_sub3_0);
-        Class37
-            .method261(Class85.anIndexData2, Enum.vorbisIndex, Client.anIndexData5, aclass4_sub3_0);
+        UrlStreamRequest
+            .method261(Variables.anIndexData2, Enum.vorbisIndex, Client.anIndexData5, aclass4_sub3_0);
         WorldMapType1.soundSystem1 = JavaxSourceDataLineProvider.method191(Stub.taskManager, 1, 2048);
         Class25.anAClass4_Sub1_1 = new AClass4_Sub1();
         WorldMapType1.soundSystem1.method362(Class25.anAClass4_Sub1_1);
@@ -171,14 +178,14 @@ public class Class41 {
         LoginScreen.loadingText = "Prepared sound engine";
         LoginScreen.loadingPercent = 35;
         Client.loadingStage = 50;
-        SceneTilePaint.aClass93_1 = new Class93(Time.indexSprites, FontType.anIndexData3);
+        SolidSquare.aClass93_1 = new Class93(Time.indexSprites, FontType.anIndexData3);
       } else if (Client.loadingStage == 50) {
         final FontType[] class105s_0 = new FontType[] {
             FontType.aClass105_5, FontType.aClass105_4,
             FontType.aClass105_7, FontType.aClass105_9, FontType.aClass105_6, FontType.aClass105_8
         };
         int_1 = class105s_0.length;
-        final Class93 class93_0 = SceneTilePaint.aClass93_1;
+        final Class93 class93_0 = SolidSquare.aClass93_1;
         final FontType[] class105s_1 = new FontType[] {
             FontType.aClass105_5, FontType.aClass105_4,
             FontType.aClass105_7, FontType.aClass105_9, FontType.aClass105_6, FontType.aClass105_8
@@ -199,7 +206,7 @@ public class Class41 {
         }
       } else if (Client.loadingStage == 60) {
         int_0 = StringVariable.method248(Mouse.anIndexData4, Time.indexSprites);
-        int_1 = AClass1_Sub1.method595();
+        int_1 = Chunk.method595();
         if (int_0 < int_1) {
           LoginScreen.loadingText = "Loading title screen - " + int_0 * 100 / int_1 + "%";
           LoginScreen.loadingPercent = 50;
@@ -248,7 +255,7 @@ public class Class41 {
           final Package indexdata_11 = AClass1.configsIndex;
           BitVariableConfig.configPackage = indexdata_11;
           Class44.method284(AClass1.configsIndex);
-          ItemLayer.method529(Class37.anIndexData1, Boundry.indexModels, Time.indexSprites,
+          ItemLayer.method529(UrlStreamRequest.anIndexData1, Boundry.indexModels, Time.indexSprites,
               FontType.anIndexData3);
           AClass1.method150(AClass1.configsIndex);
           Enum3.method654(AClass1.configsIndex);
@@ -264,17 +271,17 @@ public class Class41 {
           CombatInfo2.anIndexDataBase20 = indexdata_14;
           final Package indexdata_15 = AClass1.configsIndex;
           final Package indexdata_16 = Time.indexSprites;
-          Area.anIndexDataBase18 = indexdata_16;
+          MapIconConfig.anIndexDataBase18 = indexdata_16;
           if (indexdata_15.method458()) {
-            Area.anInt431 = indexdata_15.fileCount(35);
-            Area.anAreaArray1 = new Area[Area.anInt431];
+            MapIconConfig.anInt431 = indexdata_15.fileCount(35);
+            MapIconConfig.icons = new MapIconConfig[MapIconConfig.anInt431];
 
-            for (int int_5 = 0; int_5 < Area.anInt431; int_5++) {
+            for (int int_5 = 0; int_5 < MapIconConfig.anInt431; int_5++) {
               final byte[] bytes_0 = indexdata_15.get(35, int_5);
               if (bytes_0 != null) {
-                Area.anAreaArray1[int_5] = new Area(int_5);
-                Area.anAreaArray1[int_5].method778(new Buffer(bytes_0));
-                Area.anAreaArray1[int_5].method779();
+                MapIconConfig.icons[int_5] = new MapIconConfig(int_5);
+                MapIconConfig.icons[int_5].method778(new Buffer(bytes_0));
+                MapIconConfig.icons[int_5].method779();
               }
             }
           }
@@ -298,7 +305,7 @@ public class Class41 {
         }
 
         if (Client.anIndexedSpriteArray9 == null) {
-          Client.anIndexedSpriteArray9 = Class29.method239(Time.indexSprites, "mapscene", "");
+          Client.anIndexedSpriteArray9 = MapIcon.method239(Time.indexSprites, "mapscene", "");
         } else {
           ++int_0;
         }
@@ -340,13 +347,13 @@ public class Class41 {
         }
 
         if (Class20.anIndexedSpriteArray4 == null) {
-          Class20.anIndexedSpriteArray4 = Class29.method239(Time.indexSprites, "scrollbar", "");
+          Class20.anIndexedSpriteArray4 = MapIcon.method239(Time.indexSprites, "scrollbar", "");
         } else {
           ++int_0;
         }
 
         if (PrimitiveType.anIndexedSpriteArray7 == null) {
-          PrimitiveType.anIndexedSpriteArray7 = Class29
+          PrimitiveType.anIndexedSpriteArray7 = MapIcon
               .method239(Time.indexSprites, "mod_icons", "");
         } else {
           ++int_0;
@@ -392,15 +399,15 @@ public class Class41 {
           LoginScreen.loadingPercent = 96;
         } else {
           final HuffmanCodec huffman_0 = new HuffmanCodec(Mouse.anIndexData4.method457("huffman", ""));
-          SceneTilePaint.method345(huffman_0);
+          SolidSquare.method345(huffman_0);
           LoginScreen.loadingText = "Loaded wordpack";
           LoginScreen.loadingPercent = 96;
           Client.loadingStage = 130;
         }
       } else if (Client.loadingStage == 130) {
-        if (!Class37.anIndexData1.method458()) {
+        if (!UrlStreamRequest.anIndexData1.method458()) {
           LoginScreen.loadingText =
-              "Loading interfaces - " + Class37.anIndexData1.method607() * 4 / 5 + "%";
+              "Loading interfaces - " + UrlStreamRequest.anIndexData1.method607() * 4 / 5 + "%";
           LoginScreen.loadingPercent = 100;
         } else if (!FrameBase.indexScripts.method458()) {
           LoginScreen.loadingText =

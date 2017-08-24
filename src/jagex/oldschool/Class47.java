@@ -3,6 +3,7 @@ package jagex.oldschool;
 import jagex.oldschool.asset.AbstractPackage;
 import jagex.oldschool.device.Mouse;
 import jagex.oldschool.io.Buffer;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.script.Script;
 import jagex.oldschool.script.ScriptExecutor;
 import jagex.oldschool.ui.InterfaceComponent;

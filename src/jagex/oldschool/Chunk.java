@@ -3,10 +3,10 @@ package jagex.oldschool;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.scene.Npc;
 
-public class AClass1_Sub1 extends AClass1 {
+public class Chunk extends AClass1 {
 
-  int anInt294;
-  int anInt295;
+  int bz;
+  int bx;
   int anInt296;
   int anInt297;
 
@@ -35,8 +35,8 @@ public class AClass1_Sub1 extends AClass1 {
             int_1 -= Integer.MIN_VALUE;
           }
 
-          Class11.region.method369(Class12.plane, npc_0.x, npc_0.y,
-              Class29.getTileHeight(npc_0.x + npc_0.anInt499 * 64 - 64,
+          Class11.scene.method369(Class12.plane, npc_0.x, npc_0.y,
+              Client.getTileHeight(npc_0.x + npc_0.anInt499 * 64 - 64,
                   npc_0.y + npc_0.anInt499 * 64 - 64, Class12.plane),
               npc_0.anInt499 * 64 - 64 + 60, npc_0, npc_0.angle, int_1, npc_0.aBool63);
         }
@@ -64,22 +64,22 @@ public class AClass1_Sub1 extends AClass1 {
     if (int_0 != Class11.aClass11_1.anInt56) {
       throw new IllegalStateException("");
     }
-    anInt43 = buffer_1.getUnsignedByte();
-    anInt42 = buffer_1.getUnsignedByte();
-    anInt44 = buffer_1.getUnsignedShort();
-    anInt45 = buffer_1.getUnsignedShort();
-    anInt295 = buffer_1.getUnsignedByte();
-    anInt294 = buffer_1.getUnsignedByte();
+    plane = buffer_1.getUnsignedByte();
+    upperPlane = buffer_1.getUnsignedByte();
+    x = buffer_1.getUnsignedShort();
+    z = buffer_1.getUnsignedShort();
+    bx = buffer_1.getUnsignedByte();
+    bz = buffer_1.getUnsignedByte();
     anInt41 = buffer_1.getUnsignedShort();
     anInt40 = buffer_1.getUnsignedShort();
     anInt297 = buffer_1.getUnsignedByte();
     anInt296 = buffer_1.getUnsignedByte();
-    anInt42 = Math.min(anInt42, 4);
+    upperPlane = Math.min(upperPlane, 4);
     aShortArrayArrayArray1 = new short[1][64][64];
-    aShortArrayArrayArray2 = new short[anInt42][64][64];
-    aByteArrayArrayArray1 = new byte[anInt42][64][64];
-    aByteArrayArrayArray2 = new byte[anInt42][64][64];
-    aClass13ArrayArrayArrayArray1 = new Class13[anInt42][64][64][];
+    aShortArrayArrayArray2 = new short[upperPlane][64][64];
+    aByteArrayArrayArray1 = new byte[upperPlane][64][64];
+    aByteArrayArrayArray2 = new byte[upperPlane][64][64];
+    aClass13ArrayArrayArrayArray1 = new Class13[upperPlane][64][64][];
     int_0 = buffer_0.getUnsignedByte();
     if (int_0 != Class12.aClass12_2.anInt57) {
       throw new IllegalStateException("");
@@ -100,20 +100,20 @@ public class AClass1_Sub1 extends AClass1 {
     }
   }
 
-  int method593() {
-    return anInt295;
+  int getBlockX() {
+    return bx;
   }
 
-  int method594() {
-    return anInt294;
+  int getBlockZ() {
+    return bz;
   }
 
   @Override
   public boolean equals(final Object object_0) {
-    if (!(object_0 instanceof AClass1_Sub1)) {
+    if (!(object_0 instanceof Chunk)) {
       return false;
     }
-    final AClass1_Sub1 aclass1_sub1_1 = (AClass1_Sub1) object_0;
+    final Chunk aclass1_sub1_1 = (Chunk) object_0;
     return anInt41 == aclass1_sub1_1.anInt41 && anInt40 == aclass1_sub1_1.anInt40
         ? anInt297 == aclass1_sub1_1.anInt297 && aclass1_sub1_1.anInt296 == anInt296
         : false;

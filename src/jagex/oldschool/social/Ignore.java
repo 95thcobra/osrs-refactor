@@ -1,19 +1,19 @@
-package jagex.oldschool;
+package jagex.oldschool.social;
 
+import jagex.oldschool.Class11;
+import jagex.oldschool.World;
 import jagex.oldschool.audio.AudioWorker;
 import jagex.oldschool.config.PlayerVariable;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.GameBuffer;
 import jagex.oldschool.script.PrimitiveType;
-import jagex.oldschool.script.ScriptCall;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.util.Time;
-import java.net.URL;
 
 public class Ignore {
 
-  static int[] anIntArray59;
-  static int[] anIntArray60;
+  public static int[] anIntArray59;
+  public static int[] anIntArray60;
   public String name;
   public String previousName;
 
@@ -56,42 +56,7 @@ public class Ignore {
     PlayerVariable.varplayers.reset();
   }
 
-  public static boolean loadWorlds() {
-    try {
-      if (Class69_Sub1.listFetcher == null) {
-        Class69_Sub1.listFetcher = Class40.aClass24_1.method217(new URL(Class22.aString3));
-      } else if (Class69_Sub1.listFetcher.method258()) {
-        final byte[] bytes_0 = Class69_Sub1.listFetcher.method259();
-        final Buffer buffer_0 = new Buffer(bytes_0);
-        buffer_0.getInt();
-        World.worldCount = buffer_0.getUnsignedShort();
-        World.worldList = new World[World.worldCount];
-
-        World world_0;
-        for (int int_0 = 0; int_0 < World.worldCount; world_0.index = int_0++) {
-          world_0 = World.worldList[int_0] = new World();
-          world_0.id = buffer_0.getUnsignedShort();
-          world_0.mask = buffer_0.getInt();
-          world_0.address = buffer_0.getString();
-          world_0.activity = buffer_0.getString();
-          world_0.location = buffer_0.getUnsignedByte();
-          world_0.playerCount = buffer_0.getShort();
-        }
-
-        ScriptCall.method707(World.worldList, 0, World.worldList.length - 1, World.anIntArray63,
-            World.anIntArray62);
-        Class69_Sub1.listFetcher = null;
-        return true;
-      }
-    } catch (final Exception exception_0) {
-      exception_0.printStackTrace();
-      Class69_Sub1.listFetcher = null;
-    }
-
-    return false;
-  }
-
-  static int method536(final GameBuffer packetbuffer_0) {
+  public static int method536(final GameBuffer packetbuffer_0) {
     final int int_0 = packetbuffer_0.getBits(2);
     int int_1;
     if (int_0 == 0) {
@@ -107,7 +72,8 @@ public class Ignore {
     return int_1;
   }
 
-  static void method537(final int int_0, final int int_1, final int int_2, final boolean bool_0,
+  public static void method537(final int int_0, final int int_1, final int int_2,
+      final boolean bool_0,
       final int int_3,
       final boolean bool_1) {
     if (int_0 < int_1) {

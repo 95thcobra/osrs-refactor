@@ -2,6 +2,7 @@ package jagex.oldschool;
 
 import jagex.oldschool.audio.AudioWorker;
 import jagex.oldschool.device.Mouse;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.scene.Position;
 import jagex.oldschool.script.Script;
 import jagex.oldschool.script.ScriptExecutor;
@@ -356,10 +357,10 @@ public class Class82 {
 
       return 1;
     }
-    Area area_0;
+    MapIconConfig area_0;
     if (int_0 == 6693) {
       int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-      area_0 = Area.anAreaArray1[int_1];
+      area_0 = MapIconConfig.icons[int_1];
       if (area_0.name == null) {
         ScriptExecutor.scriptStringStack[++Class26.scriptStringStackSize - 1] = "";
       } else {
@@ -371,13 +372,13 @@ public class Class82 {
     }
     if (int_0 == 6694) {
       int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-      area_0 = Area.anAreaArray1[int_1];
+      area_0 = MapIconConfig.icons[int_1];
       ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = area_0.anInt436;
       return 1;
     }
     if (int_0 == 6695) {
       int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-      area_0 = Area.anAreaArray1[int_1];
+      area_0 = MapIconConfig.icons[int_1];
       if (area_0 == null) {
         ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = -1;
       } else {
@@ -388,7 +389,7 @@ public class Class82 {
     }
     if (int_0 == 6696) {
       int_1 = ScriptExecutor.intStack[--ScriptExecutor.intStackSize];
-      area_0 = Area.anAreaArray1[int_1];
+      area_0 = MapIconConfig.icons[int_1];
       if (area_0 == null) {
         ScriptExecutor.intStack[++ScriptExecutor.intStackSize - 1] = -1;
       } else {

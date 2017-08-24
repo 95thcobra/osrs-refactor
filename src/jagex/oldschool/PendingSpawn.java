@@ -7,6 +7,9 @@ import jagex.oldschool.graphics.Rasterizer3d;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.HuffmanCodec;
 import jagex.oldschool.io.SocketStream;
+import jagex.oldschool.scene.CollisionData;
+import jagex.oldschool.scene.Scene;
+import jagex.oldschool.social.Ignore;
 
 public final class PendingSpawn extends Node {
 
@@ -170,7 +173,7 @@ public final class PendingSpawn extends Node {
 
   }
 
-  static void method652(final Region region_0, final CollisionData[] collisiondatas_0) {
+  static void method652(final Scene region_0, final CollisionData[] collisiondatas_0) {
     int int_0;
     int int_1;
     int int_2;
@@ -524,7 +527,7 @@ public final class PendingSpawn extends Node {
                 short_0 = 240;
                 int_10 = Class22.heightmap[int_7][int_18][int_4] - short_0;
                 int_11 = Class22.heightmap[int_6][int_18][int_4];
-                Region.addOcclude(int_3, 1, int_18 * 128, int_18 * 128, int_4 * 128,
+                Scene.addOcclude(int_3, 1, int_18 * 128, int_18 * 128, int_4 * 128,
                     int_5 * 128 + 128, int_10, int_11);
 
                 for (int_12 = int_6; int_12 <= int_7; int_12++) {
@@ -577,7 +580,7 @@ public final class PendingSpawn extends Node {
                 short_0 = 240;
                 int_10 = Class22.heightmap[int_7][int_4][int_17] - short_0;
                 int_11 = Class22.heightmap[int_6][int_4][int_17];
-                Region.addOcclude(int_3, 2, int_4 * 128, 128 + int_5 * 128, int_17 * 128,
+                Scene.addOcclude(int_3, 2, int_4 * 128, 128 + int_5 * 128, int_17 * 128,
                     int_17 * 128, int_10, int_11);
 
                 for (int_12 = int_6; int_12 <= int_7; int_12++) {
@@ -627,7 +630,7 @@ public final class PendingSpawn extends Node {
 
               if ((int_7 - int_6 + 1) * (int_5 - int_4 + 1) >= 4) {
                 int_8 = Class22.heightmap[int_16][int_4][int_6];
-                Region.addOcclude(int_3, 4, int_4 * 128, int_5 * 128 + 128, int_6 * 128,
+                Scene.addOcclude(int_3, 4, int_4 * 128, int_5 * 128 + 128, int_6 * 128,
                     int_7 * 128 + 128, int_8, int_8);
 
                 for (int_9 = int_4; int_9 <= int_5; int_9++) {

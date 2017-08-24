@@ -8,7 +8,11 @@ import jagex.oldschool.graphics.DirectSprite;
 import jagex.oldschool.graphics.IndexedSprite;
 import jagex.oldschool.graphics.Rasterizer2d;
 import jagex.oldschool.graphics.Rasterizer3d;
+import jagex.oldschool.map.MapIcon;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.scene.Position;
+import jagex.oldschool.scene.Square;
+import jagex.oldschool.social.Friend;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -33,14 +37,14 @@ public class Class1 {
   LinkedList aLinkedList1;
   HashMap aHashMap3;
   AClass1_Sub2 anAClass1_Sub2_1;
-  int anInt16;
+  int chunkX;
   int anInt17;
   int anInt18;
-  int anInt19;
+  int chunkY;
 
   Class1(final int int_0, final int int_1, final int int_2, final HashMap hashmap_0) {
-    anInt16 = int_0;
-    anInt19 = int_1;
+    chunkX = int_0;
+    chunkY = int_1;
     aLinkedList1 = new LinkedList();
     aList2 = new LinkedList();
     aHashMap3 = new HashMap();
@@ -70,15 +74,15 @@ public class Class1 {
 
   static String method117(final int int_0, final int int_1) {
     final int int_2 = int_1 - int_0;
-    return int_2 < -9 ? Square.getColTags(16711680)
-        : int_2 < -6 ? Square.getColTags(16723968)
-            : int_2 < -3 ? Square.getColTags(16740352)
-                : int_2 < 0 ? Square.getColTags(16756736)
-                    : int_2 > 9 ? Square.getColTags(65280)
-                        : int_2 > 6 ? Square.getColTags(4259584)
-                            : int_2 > 3 ? Square.getColTags(8453888)
-                                : int_2 > 0 ? Square.getColTags(12648192)
-                                    : Square.getColTags(16776960);
+    return int_2 < -9 ? Square.embedColor(16711680)
+        : int_2 < -6 ? Square.embedColor(16723968)
+            : int_2 < -3 ? Square.embedColor(16740352)
+                : int_2 < 0 ? Square.embedColor(16756736)
+                    : int_2 > 9 ? Square.embedColor(65280)
+                        : int_2 > 6 ? Square.embedColor(4259584)
+                            : int_2 > 3 ? Square.embedColor(8453888)
+                                : int_2 > 0 ? Square.embedColor(12648192)
+                                    : Square.embedColor(16776960);
   }
 
   boolean method76(final int int_0) {
@@ -91,7 +95,7 @@ public class Class1 {
   }
 
   void method77(final int int_0, final int int_1, final AClass1 aclass1_0) {
-    for (int int_2 = 0; int_2 < aclass1_0.anInt42; int_2++) {
+    for (int int_2 = 0; int_2 < aclass1_0.upperPlane; int_2++) {
       final Class13[] class13s_0 = aclass1_0.aClass13ArrayArrayArrayArray1[int_2][int_0][int_1];
       if (class13s_0 != null && class13s_0.length != 0) {
         final Class13[] class13s_1 = class13s_0;
@@ -100,7 +104,7 @@ public class Class1 {
           final Class13 class13_0 = class13s_1[int_3];
           if (Node_Sub5.method677(class13_0.anInt59)) {
             final ObjectConfig objectcomposition_0 = Class2
-                .getObjectDefinition(class13_0.anInt58);
+                .getObjectConfig(class13_0.iconId);
             final int int_4 = objectcomposition_0.anInt454 != 0 ? -3407872 : -3355444;
             if (class13_0.anInt59 == Enum6.anEnum6_1.anInt364) {
               method108(int_0, int_1, class13_0.anInt60, int_4);
@@ -169,7 +173,7 @@ public class Class1 {
       if (class16_0 != null) {
         class16_0.anInt65 = int_3;
         class16_0.anInt67 = int_4;
-        final Area area_0 = Area.anAreaArray1[class16_0.anInt64];
+        final MapIconConfig area_0 = MapIconConfig.icons[class16_0.anInt64];
         if (!hashset_0.contains(Integer.valueOf(area_0.method777()))) {
           method106(class16_0, int_3, int_4, float_0);
         }
@@ -178,7 +182,7 @@ public class Class1 {
 
   }
 
-  Class4 method79(final Area area_0) {
+  Class4 method79(final MapIconConfig area_0) {
     if (area_0.name != null && aHashMap4 != null && aHashMap4.get(Class41.aClass41_2)
         != null) {
       final Class41 class41_0 = Class41.method277(area_0.anInt436);
@@ -211,7 +215,7 @@ public class Class1 {
 
   void method80(final int int_0, final int int_1, final AClass1 aclass1_0,
       final IndexedSprite[] indexedsprites_0) {
-    for (int int_2 = 0; int_2 < aclass1_0.anInt42; int_2++) {
+    for (int int_2 = 0; int_2 < aclass1_0.upperPlane; int_2++) {
       final Class13[] class13s_0 = aclass1_0.aClass13ArrayArrayArrayArray1[int_2][int_0][int_1];
       if (class13s_0 != null && class13s_0.length != 0) {
         final Class13[] class13s_1 = class13s_0;
@@ -227,7 +231,7 @@ public class Class1 {
           }
 
           final ObjectConfig objectcomposition_0 = Class2
-              .getObjectDefinition(class13_0.anInt58);
+              .getObjectConfig(class13_0.iconId);
           if (objectcomposition_0.mapSceneId != -1) {
             if (objectcomposition_0.mapSceneId != 46 && objectcomposition_0.mapSceneId != 52) {
               indexedsprites_0[objectcomposition_0.mapSceneId].method934(anInt17 * int_0,
@@ -243,8 +247,8 @@ public class Class1 {
 
   }
 
-  void method81(final Area area_0, final int int_0, final int int_1) {
-    final DirectSprite spritepixels_0 = area_0.method774(false);
+  void method81(final MapIconConfig area_0, final int int_0, final int int_1) {
+    final DirectSprite spritepixels_0 = area_0.getSprite(false);
     if (spritepixels_0 != null) {
       final int int_2 = method84(spritepixels_0, area_0.anEnum7_4);
       final int int_3 = method94(spritepixels_0, area_0.anEnum8_4);
@@ -347,7 +351,7 @@ public class Class1 {
     }
   }
 
-  void method85(final Class16 class16_0, final Area area_0, final int int_0, final int int_1,
+  void method85(final Class16 class16_0, final MapIconConfig area_0, final int int_0, final int int_1,
       final float float_0) {
     if (class16_0.aClass4_1 != null) {
       if (class16_0.aClass4_1.aClass41_1.method275(float_0)) {
@@ -375,7 +379,7 @@ public class Class1 {
       final Iterator iterator_0 = aLinkedList1.iterator();
 
       while (iterator_0.hasNext()) {
-        final AClass1_Sub1 aclass1_sub1_0 = (AClass1_Sub1) iterator_0.next();
+        final Chunk aclass1_sub1_0 = (Chunk) iterator_0.next();
         if (aclass1_sub1_0.method590(int_0, int_1)) {
           return aclass1_sub1_0.method144(int_0, int_1);
         }
@@ -390,7 +394,7 @@ public class Class1 {
 
     while (iterator_0.hasNext()) {
       final Class16 class16_0 = (Class16) iterator_0.next();
-      final Area area_0 = Area.anAreaArray1[class16_0.anInt64];
+      final MapIconConfig area_0 = MapIconConfig.icons[class16_0.anInt64];
       if (area_0 != null && hashset_0.contains(Integer.valueOf(area_0.method777()))) {
         method103(area_0, class16_0.anInt65, class16_0.anInt67, int_0, int_1);
       }
@@ -400,39 +404,40 @@ public class Class1 {
 
   void method89(final int int_0, final int int_1, final int int_2, final int int_3,
       final AClass1 aclass1_0) {
-    for (int int_4 = int_0; int_4 < int_2 + int_0; int_4++) {
+    for (int x = int_0; x < int_2 + int_0; x++) {
       label57:
-      for (int int_5 = int_1; int_5 < int_1 + int_3; int_5++) {
-        final Position coordinates_0 = new Position(0, int_4, int_5);
+      for (int z = int_1; z < int_1 + int_3; z++) {
+        final Position ground = new Position(0, x, z);
 
-        for (int int_6 = 0; int_6 < aclass1_0.anInt42; int_6++) {
-          final Class13[] class13s_0 = aclass1_0.aClass13ArrayArrayArrayArray1[int_6][int_4][int_5];
+        for (int p = 0; p < aclass1_0.upperPlane; p++) {
+          final Class13[] class13s_0 = aclass1_0.aClass13ArrayArrayArrayArray1[p][x][z];
           if (class13s_0 != null && class13s_0.length != 0) {
             final Class13[] class13s_1 = class13s_0;
 
             for (int int_7 = 0; int_7 < class13s_1.length; int_7++) {
               final Class13 class13_0 = class13s_1[int_7];
-              final Area area_0 = method98(class13_0.anInt58);
-              if (area_0 != null) {
-                final Position coordinates_1 = new Position(int_6, anInt16 * 64 + int_4,
-                    int_5 + anInt19 * 64);
-                Position coordinates_2 = null;
-                if (anAClass1_Sub2_1 != null) {
-                  coordinates_2 = new Position(anAClass1_Sub2_1.anInt43 + int_6,
-                      int_4 + anAClass1_Sub2_1.anInt44 * 64,
-                      int_5 + anAClass1_Sub2_1.anInt45 * 64);
-                } else {
-                  final AClass1_Sub1 aclass1_sub1_0 = (AClass1_Sub1) aclass1_0;
-                  coordinates_2 = new Position(int_6 + aclass1_sub1_0.anInt43,
-                      int_4 + aclass1_sub1_0.anInt44 * 64 + aclass1_sub1_0.method593() * 8,
-                      aclass1_sub1_0.anInt45 * 64 + int_5 + aclass1_sub1_0.method594() * 8);
-                }
-
-                final Class16 class16_0 = new Class16(area_0.anInt432, coordinates_2, coordinates_1,
-                    method79(area_0));
-                aHashMap3.put(coordinates_0, class16_0);
-                continue label57;
+              final MapIconConfig icon = method98(class13_0.iconId);
+              if (icon == null) {
+                continue;
               }
+              final Position coordinates_1 = new Position(p, chunkX * 64 + x,
+                  z + chunkY * 64);
+              Position coordinates_2 = null;
+              if (anAClass1_Sub2_1 != null) {
+                coordinates_2 = new Position(anAClass1_Sub2_1.plane + p,
+                    x + anAClass1_Sub2_1.x * 64,
+                    z + anAClass1_Sub2_1.z * 64);
+              } else {
+                final Chunk aclass1_sub1_0 = (Chunk) aclass1_0;
+                coordinates_2 = new Position(p + aclass1_sub1_0.plane,
+                    x + aclass1_sub1_0.x * 64 + aclass1_sub1_0.getBlockX() * 8,
+                    aclass1_sub1_0.z * 64 + z + aclass1_sub1_0.getBlockZ() * 8);
+              }
+
+              final Class16 class16_0 = new Class16(icon.anInt432, coordinates_2, coordinates_1,
+                  method79(icon));
+              aHashMap3.put(ground, class16_0);
+              continue label57;
             }
           }
         }
@@ -445,11 +450,11 @@ public class Class1 {
     final Iterator iterator_0 = list_0.iterator();
 
     while (iterator_0.hasNext()) {
-      final Class29 class29_0 = (Class29) iterator_0.next();
-      if (class29_0.aCoordinates6.x >> 6 == anInt16
-          && class29_0.aCoordinates6.z >> 6 == anInt19) {
-        final Class16 class16_0 = new Class16(class29_0.anInt82, class29_0.aCoordinates6,
-            class29_0.aCoordinates6, method104(class29_0.anInt82));
+      final MapIcon class29_0 = (MapIcon) iterator_0.next();
+      if (class29_0.aCoordinates6.x >> 6 == chunkX
+          && class29_0.aCoordinates6.z >> 6 == chunkY) {
+        final Class16 class16_0 = new Class16(class29_0.iconId, class29_0.aCoordinates6,
+            class29_0.aCoordinates6, method104(class29_0.iconId));
         aList2.add(class16_0);
       }
     }
@@ -467,7 +472,7 @@ public class Class1 {
       final Iterator iterator_0 = aLinkedList1.iterator();
 
       while (iterator_0.hasNext()) {
-        final AClass1_Sub1 aclass1_sub1_0 = (AClass1_Sub1) iterator_0.next();
+        final Chunk aclass1_sub1_0 = (Chunk) iterator_0.next();
         method95(aclass1_sub1_0.method589() * 8, aclass1_sub1_0.method591() * 8, 8, 8,
             aclass1_sub1_0,
             class8_0);
@@ -482,14 +487,14 @@ public class Class1 {
   void method92(final int int_0, final int int_1, final AClass1 aclass1_0) {
     aCoordinates1.method509(0, int_0, int_1);
 
-    for (int int_2 = 0; int_2 < aclass1_0.anInt42; int_2++) {
+    for (int int_2 = 0; int_2 < aclass1_0.upperPlane; int_2++) {
       final Class13[] class13s_0 = aclass1_0.aClass13ArrayArrayArrayArray1[int_2][int_0][int_1];
       if (class13s_0 != null && class13s_0.length != 0) {
         final Class13[] class13s_1 = class13s_0;
 
         for (int int_3 = 0; int_3 < class13s_1.length; int_3++) {
           final Class13 class13_0 = class13s_1[int_3];
-          final Area area_0 = method98(class13_0.anInt58);
+          final MapIconConfig area_0 = method98(class13_0.iconId);
           if (area_0 != null) {
             Class16 class16_0 = (Class16) aHashMap3.get(aCoordinates1);
             if (class16_0 != null) {
@@ -506,21 +511,21 @@ public class Class1 {
               return;
             }
 
-            final Position coordinates_0 = new Position(int_2, anInt16 * 64 + int_0,
-                anInt19 * 64 + int_1);
+            final Position coordinates_0 = new Position(int_2, chunkX * 64 + int_0,
+                chunkY * 64 + int_1);
             Position coordinates_1 = null;
             if (anAClass1_Sub2_1 != null) {
-              coordinates_1 = new Position(anAClass1_Sub2_1.anInt43 + int_2,
-                  int_0 + anAClass1_Sub2_1.anInt44 * 64, int_1 + anAClass1_Sub2_1.anInt45 * 64);
+              coordinates_1 = new Position(anAClass1_Sub2_1.plane + int_2,
+                  int_0 + anAClass1_Sub2_1.x * 64, int_1 + anAClass1_Sub2_1.z * 64);
             } else {
               final Iterator iterator_0 = aLinkedList1.iterator();
 
               while (iterator_0.hasNext()) {
-                final AClass1_Sub1 aclass1_sub1_0 = (AClass1_Sub1) iterator_0.next();
+                final Chunk aclass1_sub1_0 = (Chunk) iterator_0.next();
                 if (aclass1_sub1_0.method590(int_0, int_1)) {
-                  coordinates_1 = new Position(int_2 + aclass1_sub1_0.anInt43,
-                      aclass1_sub1_0.anInt44 * 64 + int_0 + aclass1_sub1_0.method593() * 8,
-                      int_1 + aclass1_sub1_0.anInt45 * 64 + aclass1_sub1_0.method594() * 8);
+                  coordinates_1 = new Position(int_2 + aclass1_sub1_0.plane,
+                      aclass1_sub1_0.x * 64 + int_0 + aclass1_sub1_0.getBlockX() * 8,
+                      int_1 + aclass1_sub1_0.z * 64 + aclass1_sub1_0.getBlockZ() * 8);
                   break;
                 }
               }
@@ -542,7 +547,7 @@ public class Class1 {
 
   void method93(final int int_0, final int int_1, final AClass1 aclass1_0,
       final Class14 class14_0) {
-    for (int int_2 = 1; int_2 < aclass1_0.anInt42; int_2++) {
+    for (int int_2 = 1; int_2 < aclass1_0.upperPlane; int_2++) {
       final int int_3 = aclass1_0.aShortArrayArrayArray2[int_2][int_0][int_1] - 1;
       if (int_3 > -1) {
         final int int_4 = Class23.method211(int_3, anInt18);
@@ -654,8 +659,8 @@ public class Class1 {
 
   }
 
-  Area method98(final int int_0) {
-    ObjectConfig objectcomposition_0 = Class2.getObjectDefinition(int_0);
+  MapIconConfig method98(final int int_0) {
+    ObjectConfig objectcomposition_0 = Class2.getObjectConfig(int_0);
     if (objectcomposition_0.impostorIds != null) {
       objectcomposition_0 = objectcomposition_0.getImpostor();
       if (objectcomposition_0 == null) {
@@ -663,7 +668,7 @@ public class Class1 {
       }
     }
 
-    return objectcomposition_0.mapIconId != -1 ? Area.anAreaArray1[objectcomposition_0.mapIconId]
+    return objectcomposition_0.iconId != -1 ? MapIconConfig.icons[objectcomposition_0.iconId]
         : null;
   }
 
@@ -700,11 +705,11 @@ public class Class1 {
   void method101(final Class14 class14_0, final IndexedSprite[] indexedsprites_0) {
     Iterator iterator_0 = aLinkedList1.iterator();
 
-    AClass1_Sub1 aclass1_sub1_0;
+    Chunk aclass1_sub1_0;
     int int_0;
     int int_1;
     while (iterator_0.hasNext()) {
-      aclass1_sub1_0 = (AClass1_Sub1) iterator_0.next();
+      aclass1_sub1_0 = (Chunk) iterator_0.next();
 
       for (int_0 = aclass1_sub1_0.method589() * 8; int_0 < aclass1_sub1_0.method589() * 8 + 8;
           int_0++) {
@@ -719,7 +724,7 @@ public class Class1 {
     iterator_0 = aLinkedList1.iterator();
 
     while (iterator_0.hasNext()) {
-      aclass1_sub1_0 = (AClass1_Sub1) iterator_0.next();
+      aclass1_sub1_0 = (Chunk) iterator_0.next();
 
       for (int_0 = aclass1_sub1_0.method589() * 8; int_0 < aclass1_sub1_0.method589() * 8 + 8;
           int_0++) {
@@ -739,9 +744,9 @@ public class Class1 {
     return linkedlist_0;
   }
 
-  void method103(final Area area_0, final int int_0, final int int_1, final int int_2,
+  void method103(final MapIconConfig area_0, final int int_0, final int int_1, final int int_2,
       final int int_3) {
-    final DirectSprite spritepixels_0 = area_0.method774(false);
+    final DirectSprite spritepixels_0 = area_0.getSprite(false);
     if (spritepixels_0 != null) {
       spritepixels_0
           .method938(int_0 - spritepixels_0.width / 2, int_1 - spritepixels_0.height / 2);
@@ -754,7 +759,7 @@ public class Class1 {
   }
 
   Class4 method104(final int int_0) {
-    final Area area_0 = Area.anAreaArray1[int_0];
+    final MapIconConfig area_0 = MapIconConfig.icons[int_0];
     return method79(area_0);
   }
 
@@ -770,7 +775,7 @@ public class Class1 {
       final Iterator iterator_0 = aLinkedList1.iterator();
 
       while (iterator_0.hasNext()) {
-        final AClass1_Sub1 aclass1_sub1_0 = (AClass1_Sub1) iterator_0.next();
+        final Chunk aclass1_sub1_0 = (Chunk) iterator_0.next();
 
         for (int int_2 = aclass1_sub1_0.method589() * 8; int_2 < aclass1_sub1_0.method589() * 8
             + 8; int_2++) {
@@ -785,7 +790,7 @@ public class Class1 {
   }
 
   void method106(final Class16 class16_0, final int int_0, final int int_1, final float float_0) {
-    final Area area_0 = Area.anAreaArray1[class16_0.anInt64];
+    final MapIconConfig area_0 = MapIconConfig.icons[class16_0.anInt64];
     method81(area_0, int_0, int_1);
     method85(class16_0, area_0, int_0, int_1, float_0);
   }
@@ -796,7 +801,7 @@ public class Class1 {
     while (iterator_0.hasNext()) {
       final Class16 class16_0 = (Class16) iterator_0.next();
       if (hashset_0.contains(Integer.valueOf(class16_0.anInt64))) {
-        final Area area_0 = Area.anAreaArray1[class16_0.anInt64];
+        final MapIconConfig area_0 = MapIconConfig.icons[class16_0.anInt64];
         method103(area_0, class16_0.anInt65, class16_0.anInt67, int_0, int_1);
       }
     }
@@ -875,7 +880,7 @@ public class Class1 {
       return false;
     }
     method91(class1s_0);
-    aSpritePixels1.method943();
+    aSpritePixels1.init();
     if (anAClass1_Sub2_1 != null) {
       method100(class14_0, class1s_0, indexedsprites_0);
     } else {
@@ -922,8 +927,8 @@ public class Class1 {
     final Iterator iterator_0 = hashset_0.iterator();
 
     while (iterator_0.hasNext()) {
-      final AClass1_Sub1 aclass1_sub1_0 = (AClass1_Sub1) iterator_0.next();
-      if (aclass1_sub1_0.method147() == anInt16 && aclass1_sub1_0.method148() == anInt19) {
+      final Chunk aclass1_sub1_0 = (Chunk) iterator_0.next();
+      if (aclass1_sub1_0.method147() == chunkX && aclass1_sub1_0.method148() == chunkY) {
         aLinkedList1.add(aclass1_sub1_0);
         method89(aclass1_sub1_0.method589() * 8, aclass1_sub1_0.method591() * 8, 8, 8,
             aclass1_sub1_0);

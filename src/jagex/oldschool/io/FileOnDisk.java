@@ -1,6 +1,6 @@
 package jagex.oldschool.io;
 
-import jagex.oldschool.Class102;
+import jagex.oldschool.awt.Surface;
 import jagex.oldschool.asset.AbstractPackage;
 import jagex.oldschool.graphics.Rasterizer3d;
 import jagex.oldschool.WorldMapType1;
@@ -41,7 +41,7 @@ public final class FileOnDisk {
     if (bytes_0 == null) {
       return false;
     }
-    Class102.decodeSprite(bytes_0);
+    Surface.decodeSprite(bytes_0);
     return true;
   }
 

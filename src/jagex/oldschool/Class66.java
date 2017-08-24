@@ -1,5 +1,6 @@
 package jagex.oldschool;
 
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.util.Time;
 import java.io.IOException;
@@ -21,35 +22,35 @@ public class Class66 {
 
   public static void method410() {
     try {
-      if (Class72.anInt168 == 1) {
-        int int_0 = Class72.anAClass4_Sub3_1.method802();
-        if (int_0 > 0 && Class72.anAClass4_Sub3_1.method805()) {
-          int_0 -= Class72.anInt169;
+      if (AudioSystem.anInt168 == 1) {
+        int int_0 = AudioSystem.anAClass4_Sub3_1.method802();
+        if (int_0 > 0 && AudioSystem.anAClass4_Sub3_1.method805()) {
+          int_0 -= AudioSystem.anInt169;
           if (int_0 < 0) {
             int_0 = 0;
           }
 
-          Class72.anAClass4_Sub3_1.method809(int_0);
+          AudioSystem.anAClass4_Sub3_1.method809(int_0);
         } else {
-          Class72.anAClass4_Sub3_1.method790();
-          Class72.anAClass4_Sub3_1.method807();
-          if (Class72.anIndexDataBase4 != null) {
-            Class72.anInt168 = 2;
+          AudioSystem.anAClass4_Sub3_1.method790();
+          AudioSystem.anAClass4_Sub3_1.method807();
+          if (AudioSystem.anIndexDataBase4 != null) {
+            AudioSystem.anInt168 = 2;
           } else {
-            Class72.anInt168 = 0;
+            AudioSystem.anInt168 = 0;
           }
 
-          Class72.aTrack1_1 = null;
-          Class72.aClass55_1 = null;
+          AudioSystem.aTrack1_1 = null;
+          AudioSystem.aClass55_1 = null;
         }
       }
     } catch (final Exception exception_0) {
       exception_0.printStackTrace();
-      Class72.anAClass4_Sub3_1.method790();
-      Class72.anInt168 = 0;
-      Class72.aTrack1_1 = null;
-      Class72.aClass55_1 = null;
-      Class72.anIndexDataBase4 = null;
+      AudioSystem.anAClass4_Sub3_1.method790();
+      AudioSystem.anInt168 = 0;
+      AudioSystem.aTrack1_1 = null;
+      AudioSystem.aClass55_1 = null;
+      AudioSystem.anIndexDataBase4 = null;
     }
   }
 

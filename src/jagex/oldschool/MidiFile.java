@@ -5,12 +5,12 @@ import jagex.oldschool.collections.HashTable;
 import jagex.oldschool.collections.Node;
 import jagex.oldschool.io.Buffer;
 
-public class Track1 extends Node {
+public class MidiFile extends Node {
 
   HashTable aHashTable7;
   byte[] aByteArray17;
 
-  Track1(final Buffer buffer_0) {
+  MidiFile(final Buffer buffer_0) {
     buffer_0.offset = buffer_0.bytes.length - 3;
     final int int_0 = buffer_0.getUnsignedByte();
     final int int_1 = buffer_0.getUnsignedShort();
@@ -328,10 +328,10 @@ public class Track1 extends Node {
 
   }
 
-  public static Track1 getMusicFile(final AbstractPackage indexdatabase_0, final int int_0,
+  public static MidiFile getMusicFile(final AbstractPackage indexdatabase_0, final int int_0,
       final int int_1) {
     final byte[] bytes_0 = indexdatabase_0.get(int_0, int_1);
-    return bytes_0 == null ? null : new Track1(new Buffer(bytes_0));
+    return bytes_0 == null ? null : new MidiFile(new Buffer(bytes_0));
   }
 
   void method708() {

@@ -1,18 +1,19 @@
 package jagex.oldschool;
 
 import jagex.oldschool.scene.Mobile;
+import jagex.oldschool.social.Ignore;
 import java.io.File;
 import java.io.RandomAccessFile;
 
 public class Class13 {
 
   static int[] anIntArray2;
-  final int anInt58;
+  final int iconId;
   final int anInt59;
   final int anInt60;
 
   Class13(final int int_0, final int int_1, final int int_2) {
-    anInt58 = int_0;
+    iconId = int_0;
     anInt59 = int_1;
     anInt60 = int_2;
   }

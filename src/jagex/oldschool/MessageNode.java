@@ -25,7 +25,7 @@ public class MessageNode extends Subnode {
   }
 
   static boolean method909(final int int_0, int int_1) {
-    final ObjectConfig objectcomposition_0 = Class2.getObjectDefinition(int_0);
+    final ObjectConfig objectcomposition_0 = Class2.getObjectConfig(int_0);
     if (int_1 == 11) {
       int_1 = 10;
     }

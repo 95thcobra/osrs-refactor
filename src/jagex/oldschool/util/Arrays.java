@@ -18,7 +18,7 @@ public class Arrays {
 
   }
 
-  public static void method430(final byte[] bytes_0, int int_0, final byte[] bytes_1, int int_1,
+  public static void copy(final byte[] bytes_0, int int_0, final byte[] bytes_1, int int_1,
       int int_2) {
     if (bytes_1 == bytes_0) {
       if (int_1 == int_0) {

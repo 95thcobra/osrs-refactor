@@ -1,4 +1,4 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
 import jagex.oldschool.scene.Renderable;
 

@@ -36,7 +36,7 @@ public class Class51 {
     Class26.method230(int_0 - byte_0, int_1 - byte_0, int_2 + byte_0 + byte_0,
         int_3 + byte_0 + byte_0);
     if (bool_0) {
-      FileCache.aBufferProvider1.draw(0, 0);
+      FileCache.rasterBuffer.draw(0, 0);
     } else {
       final int int_4 = int_0;
       final int int_5 = int_1;

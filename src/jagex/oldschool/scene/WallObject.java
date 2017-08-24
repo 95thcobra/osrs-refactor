@@ -1,11 +1,11 @@
-package jagex.oldschool;
+package jagex.oldschool.scene;
 
 import jagex.oldschool.scene.Renderable;
 import jagex.oldschool.task.Task;
 
 public final class WallObject {
 
-  static Task aTask2;
+  public static Task aTask2;
   public int hash;
   public Renderable renderable1;
   public Renderable renderable2;

@@ -8,8 +8,10 @@ import jagex.oldschool.graphics.BitmapFont;
 import jagex.oldschool.io.FileCache;
 import jagex.oldschool.io.FileOnDisk;
 
+/**
+ * A request for a file that exists in the local cache.
+ */
 public class LocalRequest extends Node {
-
   public int id;
   public FileCache cache;
   public byte[] bytes;

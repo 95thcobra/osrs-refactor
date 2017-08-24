@@ -1,6 +1,7 @@
 package jagex.oldschool;
 
 import jagex.oldschool.config.BitVariableConfig;
+import jagex.oldschool.scene.CollisionData;
 import java.math.BigInteger;
 
 public class Class26 {

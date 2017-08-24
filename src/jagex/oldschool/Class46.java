@@ -2,7 +2,10 @@ package jagex.oldschool;
 
 import jagex.oldschool.asset.AbstractPackage;
 import jagex.oldschool.config.ObjectConfig;
+import jagex.oldschool.scene.AreaSound;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.scene.Renderable;
+import jagex.oldschool.scene.Scene;
 
 public class Class46 {
 
@@ -16,22 +19,22 @@ public class Class46 {
 
   public static void addObject(final int int_0, final int int_1, final int int_2, final int int_3,
       final int int_4,
-      final int int_5, final Region region_0, final CollisionData collisiondata_0) {
+      final int int_5, final Scene region_0, final CollisionData collisiondata_0) {
     if (!Client.lowMemory || (Class22.flags[0][int_1][int_2] & 0x2) != 0
         || (Class22.flags[int_0][int_1][int_2] & 0x10) == 0) {
       if (int_0 < Class22.anInt70) {
         Class22.anInt70 = int_0;
       }
 
-      final ObjectConfig objectcomposition_0 = Class2.getObjectDefinition(int_3);
+      final ObjectConfig objectcomposition_0 = Class2.getObjectConfig(int_3);
       int int_6;
       int int_7;
       if (int_4 != 1 && int_4 != 3) {
-        int_6 = objectcomposition_0.sizeX;
-        int_7 = objectcomposition_0.sizeY;
+        int_6 = objectcomposition_0.width;
+        int_7 = objectcomposition_0.height;
       } else {
-        int_6 = objectcomposition_0.sizeY;
-        int_7 = objectcomposition_0.sizeX;
+        int_6 = objectcomposition_0.height;
+        int_7 = objectcomposition_0.width;
       }
 
       int int_8;
@@ -70,7 +73,7 @@ public class Class46 {
       }
 
       if (objectcomposition_0.method823()) {
-        CollisionData.method573(int_0, int_1, int_2, objectcomposition_0, int_4);
+        AreaSound.method573(int_0, int_1, int_2, objectcomposition_0, int_4);
       }
 
       Object object_0;
@@ -307,7 +310,7 @@ public class Class46 {
               int_20 = 16;
               int_17 = region_0.method372(int_0, int_1, int_2);
               if (int_17 != 0) {
-                int_20 = Class2.getObjectDefinition(int_17 >> 14 & 0x7FFF).anInt459;
+                int_20 = Class2.getObjectConfig(int_17 >> 14 & 0x7FFF).anInt459;
               }
 
               if (objectcomposition_0.animationId == -1 && objectcomposition_0.impostorIds
@@ -326,7 +329,7 @@ public class Class46 {
               int_20 = 8;
               int_17 = region_0.method372(int_0, int_1, int_2);
               if (int_17 != 0) {
-                int_20 = Class2.getObjectDefinition(int_17 >> 14 & 0x7FFF).anInt459 / 2;
+                int_20 = Class2.getObjectConfig(int_17 >> 14 & 0x7FFF).anInt459 / 2;
               }
 
               if (objectcomposition_0.animationId == -1 && objectcomposition_0.impostorIds
@@ -358,7 +361,7 @@ public class Class46 {
               int_20 = 8;
               int_17 = region_0.method372(int_0, int_1, int_2);
               if (int_17 != 0) {
-                int_20 = Class2.getObjectDefinition(int_17 >> 14 & 0x7FFF).anInt459 / 2;
+                int_20 = Class2.getObjectConfig(int_17 >> 14 & 0x7FFF).anInt459 / 2;
               }
 
               final int int_21 = int_4 + 2 & 0x3;

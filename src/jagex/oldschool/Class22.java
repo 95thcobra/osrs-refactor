@@ -4,6 +4,7 @@ import jagex.oldschool.animation.AnimationSequence;
 import jagex.oldschool.graphics.BitmapFont;
 import jagex.oldschool.scene.Renderable;
 import jagex.oldschool.script.IntegerVariable;
+import jagex.oldschool.social.Ignore;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.ui.OpenedInterface;
 import jagex.oldschool.util.Time;
@@ -119,7 +120,7 @@ public final class Class22 {
   static void method208() {
     if (Client.anInt660 != Class12.plane) {
       Client.anInt660 = Class12.plane;
-      Class37.method262(Class12.plane);
+      UrlStreamRequest.updateMap(Class12.plane);
     }
 
   }

@@ -158,7 +158,7 @@ public class MilliRegulator extends Regulator {
       sleepTime = delta;
     }
 
-    AClass3_Sub1.method725(sleepTime);
+    AClass3_Sub1.sleep(sleepTime);
 
     for (int_4 = 0; anInt387 < 256; anInt387 += anInt386) {
       ++int_4;

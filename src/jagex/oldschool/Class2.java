@@ -3,13 +3,14 @@ package jagex.oldschool;
 import jagex.oldschool.config.ItemConfig;
 import jagex.oldschool.config.ObjectConfig;
 import jagex.oldschool.io.Buffer;
+import jagex.oldschool.scene.Square;
 import jagex.oldschool.ui.InterfaceComponent;
 
 public class Class2 {
 
   static int len;
 
-  public static ObjectConfig getObjectDefinition(final int int_0) {
+  public static ObjectConfig getObjectConfig(final int int_0) {
     ObjectConfig objectcomposition_0 = (ObjectConfig) ObjectConfig.objects
         .get(int_0);
     if (objectcomposition_0 != null) {
@@ -87,7 +88,7 @@ public class Class2 {
     }
 
     if (byte_0 != -1 && string_0 != null) {
-      final String string_1 = Square.getColTags(16748608) + itemcomposition_0.name;
+      final String string_1 = Square.embedColor(16748608) + itemcomposition_0.name;
       final int int_2 = itemcomposition_0.id;
       final int int_3 = widget_0.id;
       if (!Client.isMenuOpen && Client.menuOptionCount < 500) {

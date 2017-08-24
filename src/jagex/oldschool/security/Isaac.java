@@ -2,7 +2,7 @@ package jagex.oldschool.security;
 
 import jagex.oldschool.Class52;
 import jagex.oldschool.Class98;
-import jagex.oldschool.DecorativeObject;
+import jagex.oldschool.scene.DecorativeObject;
 import jagex.oldschool.graphics.BitmapFont;
 import jagex.oldschool.io.BufferedFile;
 
@@ -67,7 +67,7 @@ public final class Isaac {
     if (DecorativeObject.method479(char_0)) {
       return true;
     }
-    char[] chars_0 = Class98.aCharArray3;
+    char[] chars_0 = Class98.SIMILAR_CHARS;
 
     int int_0;
     char char_1;

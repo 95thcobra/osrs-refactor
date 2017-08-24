@@ -7,7 +7,7 @@ public class Rasterizer3d extends Rasterizer2d {
   public static boolean rasterGouraudLowRes;
   public static int[] SINE;
   public static int[] COSINE;
-  public static int anInt530;
+  public static int scaleFactor;
   public static int[] HSL_TABLE;
   public static MaterialProvider materials;
   public static boolean clipped;
@@ -31,7 +31,7 @@ public class Rasterizer3d extends Rasterizer2d {
     small = false;
     rasterGouraudLowRes = true;
     alpha = 0;
-    anInt530 = 512;
+    scaleFactor = 512;
     index = new int[1024];
     HSL_TABLE = new int[65536];
     anIntArray113 = new int[2048];
@@ -1092,17 +1092,17 @@ public class Rasterizer3d extends Rasterizer2d {
         int_17 -= int_15;
         int int_31 = int_11 * int_12 - int_9 * int_14 << 14;
         final int int_32 = (int) (((long) (int_15 * int_14 - int_17 * int_12) << 3 << 14)
-            / anInt530);
-        final int int_33 = (int) (((long) (int_17 * int_9 - int_11 * int_15) << 14) / anInt530);
+            / scaleFactor);
+        final int int_33 = (int) (((long) (int_17 * int_9 - int_11 * int_15) << 14) / scaleFactor);
         int int_34 = int_10 * int_12 - int_13 * int_9 << 14;
         final int int_35 = (int) (((long) (int_13 * int_15 - int_16 * int_12) << 3 << 14)
-            / anInt530);
-        final int int_36 = (int) (((long) (int_16 * int_9 - int_10 * int_15) << 14) / anInt530);
+            / scaleFactor);
+        final int int_36 = (int) (((long) (int_16 * int_9 - int_10 * int_15) << 14) / scaleFactor);
         int int_37 = int_13 * int_11 - int_10 * int_14 << 14;
         final int int_38 = (int) (((long) (int_16 * int_14 - int_13 * int_17) << 3 << 14)
-            / anInt530);
+            / scaleFactor);
         final int int_39 = (int) (((long) (int_17 * int_10 - int_11 * int_16) << 14)
-            / anInt530);
+            / scaleFactor);
         int int_40;
         if (int_0 <= int_1 && int_0 <= int_2) {
           if (int_0 < height) {
@@ -1893,17 +1893,17 @@ public class Rasterizer3d extends Rasterizer2d {
         int_17 -= int_15;
         int int_31 = int_11 * int_12 - int_9 * int_14 << 14;
         final int int_32 = (int) (((long) (int_15 * int_14 - int_17 * int_12) << 14)
-            / anInt530);
-        final int int_33 = (int) (((long) (int_17 * int_9 - int_11 * int_15) << 14) / anInt530);
+            / scaleFactor);
+        final int int_33 = (int) (((long) (int_17 * int_9 - int_11 * int_15) << 14) / scaleFactor);
         int int_34 = int_10 * int_12 - int_13 * int_9 << 14;
         final int int_35 = (int) (((long) (int_13 * int_15 - int_16 * int_12) << 14)
-            / anInt530);
-        final int int_36 = (int) (((long) (int_16 * int_9 - int_10 * int_15) << 14) / anInt530);
+            / scaleFactor);
+        final int int_36 = (int) (((long) (int_16 * int_9 - int_10 * int_15) << 14) / scaleFactor);
         int int_37 = int_13 * int_11 - int_10 * int_14 << 14;
         final int int_38 = (int) (((long) (int_16 * int_14 - int_13 * int_17) << 14)
-            / anInt530);
+            / scaleFactor);
         final int int_39 = (int) (((long) (int_17 * int_10 - int_11 * int_16) << 14)
-            / anInt530);
+            / scaleFactor);
         int int_40;
         if (int_0 <= int_1 && int_0 <= int_2) {
           if (int_0 < height) {

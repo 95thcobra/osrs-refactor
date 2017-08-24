@@ -980,7 +980,7 @@ public final class DirectSprite extends Rasterizer2d {
     }
   }
 
-  public void method943() {
+  public void init() {
     Rasterizer2d.init(buffer, width, height);
   }
 

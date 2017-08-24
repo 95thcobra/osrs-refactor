@@ -2,14 +2,14 @@ package jagex.oldschool.io;
 
 import jagex.oldschool.AClass2;
 import jagex.oldschool.Class66;
-import jagex.oldschool.CollisionData;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.graphics.AbstractRasterBuffer;
 import java.io.EOFException;
 import java.io.IOException;
 
 public final class FileCache {
 
-  public static AbstractRasterBuffer aBufferProvider1;
+  public static AbstractRasterBuffer rasterBuffer;
   static byte[] aByteArray1;
   public static java.awt.Font aFont2;
 

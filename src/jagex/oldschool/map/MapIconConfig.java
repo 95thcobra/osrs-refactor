@@ -1,21 +1,27 @@
-package jagex.oldschool;
+package jagex.oldschool.map;
 
+import jagex.oldschool.CacheableNode_Sub3;
+import jagex.oldschool.Class25;
+import jagex.oldschool.Enum7;
+import jagex.oldschool.Enum8;
+import jagex.oldschool.IdentityConfig;
+import jagex.oldschool.PlayerIdentity;
 import jagex.oldschool.asset.AbstractPackage;
 import jagex.oldschool.collections.Cache;
 import jagex.oldschool.collections.Subnode;
 import jagex.oldschool.graphics.DirectSprite;
 import jagex.oldschool.io.Buffer;
 
-public class Area extends Subnode {
+public class MapIconConfig extends Subnode {
 
-  public static Area[] anAreaArray1;
+  public static MapIconConfig[] icons;
   public static AbstractPackage anIndexDataBase18;
   public static int anInt431;
   public static boolean aBool52;
-  static Cache skeletonsIndex;
+  public static Cache sprites;
 
   static {
-    skeletonsIndex = new Cache(256);
+    sprites = new Cache(256);
   }
 
   public final int anInt432;
@@ -37,7 +43,7 @@ public class Area extends Subnode {
   int[] anIntArray85;
   byte[] aByteArray19;
 
-  public Area(final int int_0) {
+  public MapIconConfig(final int int_0) {
     spriteId = -1;
     anInt433 = -1;
     anInt436 = 0;
@@ -67,25 +73,25 @@ public class Area extends Subnode {
     return kitdefinition_0;
   }
 
-  public DirectSprite method774(final boolean bool_0) {
-    final int int_0 = spriteId;
-    return method775(int_0);
+  public DirectSprite getSprite(final boolean bool_0) {
+    final int id = spriteId;
+    return getSprite(id);
   }
 
-  DirectSprite method775(final int int_0) {
-    if (int_0 < 0) {
+  DirectSprite getSprite(final int id) {
+    if (id < 0) {
       return null;
     }
-    DirectSprite spritepixels_0 = (DirectSprite) skeletonsIndex.get(int_0);
-    if (spritepixels_0 != null) {
-      return spritepixels_0;
+    DirectSprite sprite = (DirectSprite) sprites.get(id);
+    if (sprite != null) {
+      return sprite;
     }
-    spritepixels_0 = CacheableNode_Sub3.method846(anIndexDataBase18, int_0, 0);
-    if (spritepixels_0 != null) {
-      skeletonsIndex.put(spritepixels_0, int_0);
+    sprite = CacheableNode_Sub3.method846(anIndexDataBase18, id, 0);
+    if (sprite != null) {
+      sprites.put(sprite, id);
     }
 
-    return spritepixels_0;
+    return sprite;
   }
 
   void method776(final Buffer buffer_0, final int int_0) {

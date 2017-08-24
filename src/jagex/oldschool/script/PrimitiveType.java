@@ -1,6 +1,6 @@
 package jagex.oldschool.script;
 
-import jagex.oldschool.Class85;
+import jagex.oldschool.Variables;
 import jagex.oldschool.Client;
 import jagex.oldschool.Interface1;
 import jagex.oldschool.ui.InterfaceComponent;
@@ -45,8 +45,8 @@ public enum PrimitiveType implements MappedEnum {
     final int int_1 = varbit_1.mappedId;
     final int int_2 = varbit_1.lowBit;
     final int int_3 = varbit_1.highBit;
-    final int int_4 = Class85.anIntArray45[int_3 - int_2];
-    return Class85.widgetSettings[int_1] >> int_2 & int_4;
+    final int int_4 = Variables.MASKS[int_3 - int_2];
+    return Variables.widgetSettings[int_1] >> int_2 & int_4;
   }
 
   public static boolean method630(final CharSequence charsequence_0, final int int_0,

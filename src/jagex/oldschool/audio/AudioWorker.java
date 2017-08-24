@@ -2,7 +2,7 @@ package jagex.oldschool.audio;
 
 import jagex.oldschool.CacheableNode_Sub3;
 import jagex.oldschool.Class103;
-import jagex.oldschool.Class29;
+import jagex.oldschool.map.MapIcon;
 import jagex.oldschool.Class47;
 import jagex.oldschool.Boundry;
 import jagex.oldschool.Client;
@@ -99,7 +99,7 @@ public class AudioWorker implements Runnable {
     Client.world = world_0.id;
     Client.flags = world_0.mask;
     Class103.anInt201 = Client.socketType == 0 ? 43594 : world_0.id + 40000;
-    Class29.anInt81 = Client.socketType == 0 ? 443 : world_0.id + 50000;
+    MapIcon.anInt81 = Client.socketType == 0 ? 443 : world_0.id + 50000;
     OpenedInterface.myWorldPort = Class103.anInt201;
   }
 

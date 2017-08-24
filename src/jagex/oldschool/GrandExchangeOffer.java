@@ -36,14 +36,14 @@ public class GrandExchangeOffer {
     spent = buffer_0.getInt();
   }
 
-  public static Animation method174(final AbstractPackage indexdatabase_0,
+  public static Animation getAnimation(final AbstractPackage indexdatabase_0,
       final AbstractPackage indexdatabase_1,
-      final int int_0, final boolean bool_0) {
+      final int id, final boolean bool_0) {
     boolean bool_1 = true;
-    final int[] ints_0 = indexdatabase_0.getChilds(int_0);
+    final int[] ints_0 = indexdatabase_0.getChilds(id);
 
     for (int int_1 = 0; int_1 < ints_0.length; int_1++) {
-      final byte[] bytes_0 = indexdatabase_0.getChild(int_0, ints_0[int_1]);
+      final byte[] bytes_0 = indexdatabase_0.getChild(id, ints_0[int_1]);
       if (bytes_0 == null) {
         bool_1 = false;
       } else {
@@ -65,7 +65,7 @@ public class GrandExchangeOffer {
       return null;
     }
     try {
-      return new Animation(indexdatabase_0, indexdatabase_1, int_0, bool_0);
+      return new Animation(indexdatabase_0, indexdatabase_1, id, bool_0);
     } catch (final Exception exception_0) {
       return null;
     }
@@ -80,7 +80,7 @@ public class GrandExchangeOffer {
         final int int_5 = Model.sx[int_2];
         final int int_6 = Model.sx[int_3];
         final int int_7 = Model.sx[int_4];
-        Class85.method489(Model.sy[int_2], Model.sy[int_3],
+        Variables.method489(Model.sy[int_2], Model.sy[int_3],
             Model.sy[int_4],
             int_5, int_6, int_7, int_0);
       }

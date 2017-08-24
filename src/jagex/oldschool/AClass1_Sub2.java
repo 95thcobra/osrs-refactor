@@ -9,7 +9,7 @@ import jagex.oldschool.util.Base37;
 public class AClass1_Sub2 extends AClass1 {
 
   static long aLong18;
-  public static Class108 aClass108_10;
+  public static FormatConfig aClass108_10;
   static int anInt305;
   public static int anInt306;
 
@@ -101,18 +101,18 @@ public class AClass1_Sub2 extends AClass1 {
     if (int_0 != Class11.aClass11_2.anInt56) {
       throw new IllegalStateException("");
     }
-    anInt43 = buffer_1.getUnsignedByte();
-    anInt42 = buffer_1.getUnsignedByte();
-    anInt44 = buffer_1.getUnsignedShort();
-    anInt45 = buffer_1.getUnsignedShort();
+    plane = buffer_1.getUnsignedByte();
+    upperPlane = buffer_1.getUnsignedByte();
+    x = buffer_1.getUnsignedShort();
+    z = buffer_1.getUnsignedShort();
     anInt41 = buffer_1.getUnsignedShort();
     anInt40 = buffer_1.getUnsignedShort();
-    anInt42 = Math.min(anInt42, 4);
+    upperPlane = Math.min(upperPlane, 4);
     aShortArrayArrayArray1 = new short[1][64][64];
-    aShortArrayArrayArray2 = new short[anInt42][64][64];
-    aByteArrayArrayArray1 = new byte[anInt42][64][64];
-    aByteArrayArrayArray2 = new byte[anInt42][64][64];
-    aClass13ArrayArrayArrayArray1 = new Class13[anInt42][64][64][];
+    aShortArrayArrayArray2 = new short[upperPlane][64][64];
+    aByteArrayArrayArray1 = new byte[upperPlane][64][64];
+    aByteArrayArrayArray2 = new byte[upperPlane][64][64];
+    aClass13ArrayArrayArrayArray1 = new Class13[upperPlane][64][64][];
     int_0 = buffer_0.getUnsignedByte();
     if (int_0 != Class12.aClass12_1.anInt57) {
       throw new IllegalStateException("");

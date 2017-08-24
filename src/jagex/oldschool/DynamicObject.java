@@ -92,7 +92,7 @@ public class DynamicObject extends Renderable {
       anInt564 = Client.tick - int_0;
     }
 
-    ObjectConfig objectcomposition_0 = Class2.getObjectDefinition(id);
+    ObjectConfig objectcomposition_0 = Class2.getObjectConfig(id);
     if (objectcomposition_0.impostorIds != null) {
       objectcomposition_0 = objectcomposition_0.getImpostor();
     }
@@ -103,11 +103,11 @@ public class DynamicObject extends Renderable {
     int int_1;
     int int_2;
     if (orientation != 1 && orientation != 3) {
-      int_1 = objectcomposition_0.sizeX;
-      int_2 = objectcomposition_0.sizeY;
+      int_1 = objectcomposition_0.width;
+      int_2 = objectcomposition_0.height;
     } else {
-      int_1 = objectcomposition_0.sizeY;
-      int_2 = objectcomposition_0.sizeX;
+      int_1 = objectcomposition_0.height;
+      int_2 = objectcomposition_0.width;
     }
 
     final int int_3 = (int_1 >> 1) + sceneX;

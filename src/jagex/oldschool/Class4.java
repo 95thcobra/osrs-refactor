@@ -14,6 +14,7 @@ import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.FileOnDisk;
 import jagex.oldschool.io.GameBuffer;
 import jagex.oldschool.scene.Npc;
+import jagex.oldschool.scene.Occluder;
 import jagex.oldschool.scene.Player;
 import jagex.oldschool.script.LongVariable;
 import jagex.oldschool.ui.InterfaceComponent;
@@ -33,14 +34,14 @@ public class Class4 {
     aClass41_1 = class41_0;
   }
 
-  public static Animation getFrames(final int int_0) {
-    Animation frames_0 = (Animation) AnimationSequence.skeletons.get(int_0);
+  public static Animation getAnimation(final int int_0) {
+    Animation frames_0 = (Animation) AnimationSequence.animations.get(int_0);
     if (frames_0 != null) {
       return frames_0;
     }
-    frames_0 = GrandExchangeOffer.method174(Class47.skel_ref, AnimationSequence.skin_ref, int_0, false);
+    frames_0 = GrandExchangeOffer.getAnimation(Class47.skel_ref, AnimationSequence.skin_ref, int_0, false);
     if (frames_0 != null) {
-      AnimationSequence.skeletons.put(frames_0, int_0);
+      AnimationSequence.animations.put(frames_0, int_0);
     }
 
     return frames_0;
@@ -53,20 +54,20 @@ public class Class4 {
     }
 
     Client.method516();
-    Class11.region.reset();
+    Class11.scene.reset();
 
     for (int int_0 = 0; int_0 < 4; int_0++) {
       Client.collisionMaps[int_0].reset();
     }
 
     System.gc();
-    Class72.anInt168 = 1;
-    Class72.anIndexDataBase4 = null;
+    AudioSystem.anInt168 = 1;
+    AudioSystem.anIndexDataBase4 = null;
     Enum3.anInt339 = -1;
-    RuntimeException_Sub1.anInt527 = -1;
-    Class72.anInt170 = 0;
+    NestedException.anInt527 = -1;
+    AudioSystem.anInt170 = 0;
     Class36.aBool8 = false;
-    Class72.anInt169 = 2;
+    AudioSystem.anInt169 = 2;
     Client.anInt613 = -1;
     Client.aBool81 = false;
     Class25.method223();
@@ -130,10 +131,10 @@ public class Class4 {
         }
 
         String string_3 = "";
-        if (Class24.aTask1 != null) {
-          string_3 = Occluder.method403(Class24.aTask1.intOperand);
-          if (Class24.aTask1.result != null) {
-            string_3 = (String) Class24.aTask1.result;
+        if (UrlStreamWorker.aTask1 != null) {
+          string_3 = Occluder.method403(UrlStreamWorker.aTask1.intOperand);
+          if (UrlStreamWorker.aTask1.result != null) {
+            string_3 = (String) UrlStreamWorker.aTask1.result;
           }
         }
 
@@ -144,7 +145,7 @@ public class Class4 {
     return string_0;
   }
 
-  static void method127(final GameBuffer packetbuffer_0, final int int_0,
+  public static void method127(final GameBuffer packetbuffer_0, final int int_0,
       final Player player_0,
       final int int_1) {
     byte byte_0 = -1;

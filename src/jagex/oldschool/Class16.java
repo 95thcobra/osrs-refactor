@@ -6,6 +6,7 @@ import jagex.oldschool.config.ItemConfig;
 import jagex.oldschool.graphics.DirectSprite;
 import jagex.oldschool.graphics.IndexedSprite;
 import jagex.oldschool.graphics.Rasterizer2d;
+import jagex.oldschool.map.MapIconConfig;
 import jagex.oldschool.scene.Position;
 import jagex.oldschool.script.Script;
 import jagex.oldschool.script.ScriptExecutor;
@@ -30,8 +31,8 @@ public class Class16 {
     aCoordinates4 = coordinates_0;
     aCoordinates5 = coordinates_1;
     aClass4_1 = class4_0;
-    final Area area_0 = Area.anAreaArray1[anInt64];
-    final DirectSprite spritepixels_0 = area_0.method774(false);
+    final MapIconConfig area_0 = MapIconConfig.icons[anInt64];
+    final DirectSprite spritepixels_0 = area_0.getSprite(false);
     if (spritepixels_0 != null) {
       anInt66 = spritepixels_0.width;
       anInt68 = spritepixels_0.height;
@@ -111,7 +112,7 @@ public class Class16 {
           && itemcomposition_0.name.toLowerCase().indexOf(string_0) != -1) {
         if (int_0 >= 250) {
           AClass1_Sub2.anInt306 = -1;
-          Class85.aShortArray3 = null;
+          Variables.aShortArray3 = null;
           return;
         }
 
@@ -129,7 +130,7 @@ public class Class16 {
       }
     }
 
-    Class85.aShortArray3 = shorts_0;
+    Variables.aShortArray3 = shorts_0;
     Class64.anInt165 = 0;
     AClass1_Sub2.anInt306 = int_0;
     final String[] strings_0 = new String[AClass1_Sub2.anInt306];
@@ -138,7 +139,7 @@ public class Class16 {
       strings_0[int_2] = AudioWorker.getItemDefinition(shorts_0[int_2]).name;
     }
 
-    LoginScreen.method301(strings_0, Class85.aShortArray3);
+    LoginScreen.method301(strings_0, Variables.aShortArray3);
   }
 
   static boolean method200(final InterfaceComponent widget_0) {
@@ -178,7 +179,7 @@ public class Class16 {
   }
 
   boolean method193(final int int_0, final int int_1) {
-    final Area area_0 = Area.anAreaArray1[anInt64];
+    final MapIconConfig area_0 = MapIconConfig.icons[anInt64];
     switch (area_0.anEnum7_4.anInt374) {
       case 0:
         if (int_0 >= anInt65 && int_0 < anInt66 + anInt65) {

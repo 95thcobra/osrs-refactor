@@ -9,11 +9,20 @@ import jagex.oldschool.collections.Subnode;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.io.FileCache;
 
+/**
+ * A request for a file that exists on jagex's asset distribution service.
+ */
 public class RemoteRequest extends Subnode {
 
   public static Interface3 anInterface3_1;
+
+  /**
+   * The number of bytes to pad the resultant array with. This is commonly used to append two
+   * bytes at the end of the file to store the version.
+   */
   public byte padding;
-  public Package index;
+
+  public Package pack;
   public int checksum;
 
   public static IterableHashTable method780(final Buffer buffer_0,

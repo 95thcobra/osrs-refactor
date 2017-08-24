@@ -184,7 +184,7 @@ public class CacheableNode_Sub2 extends Subnode {
     if (anInt462 != -1) {
       int_0 = PrimitiveType.method629(anInt462);
     } else if (anInt468 != -1) {
-      int_0 = Class85.widgetSettings[anInt468];
+      int_0 = Variables.widgetSettings[anInt468];
     }
 
     int int_1;

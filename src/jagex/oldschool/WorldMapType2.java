@@ -183,18 +183,18 @@ public class WorldMapType2 implements WorldMapSectionBase {
     if (string_0 == null) {
       return false;
     }
-    final String string_1 = FloorUnderlayDefinition.method869(string_0, AClass1_Sub2.aClass108_10);
+    final String string_1 = FloorUnderlayDefinition.format(string_0, AClass1_Sub2.aClass108_10);
 
     for (int int_0 = 0; int_0 < Client.friendCount; int_0++) {
       if (string_1.equalsIgnoreCase(
-          FloorUnderlayDefinition.method869(Client.friends[int_0].name, AClass1_Sub2.aClass108_10))
+          FloorUnderlayDefinition.format(Client.friends[int_0].name, AClass1_Sub2.aClass108_10))
           && (!bool_0 || Client.friends[int_0].world != 0)) {
         return true;
       }
     }
 
     if (string_1
-        .equalsIgnoreCase(FloorUnderlayDefinition.method869(GrandExchangeOffer.localPlayer.name,
+        .equalsIgnoreCase(FloorUnderlayDefinition.format(GrandExchangeOffer.localPlayer.name,
             AClass1_Sub2.aClass108_10))) {
       return true;
     }

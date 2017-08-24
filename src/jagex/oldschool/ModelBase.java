@@ -379,7 +379,8 @@ public class ModelBase extends Renderable {
     return bytes == null ? null : new ModelBase(bytes);
   }
 
-  static void method1020(final ModelBase modeldata_0, final ModelBase modeldata_1, final int int_0,
+  public static void method1020(final ModelBase modeldata_0, final ModelBase modeldata_1,
+      final int int_0,
       final int int_1,
       final int int_2, final boolean bool_0) {
     modeldata_0.calculateDimensions();

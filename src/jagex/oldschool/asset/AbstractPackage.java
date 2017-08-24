@@ -2,8 +2,8 @@ package jagex.oldschool.asset;
 
 import jagex.oldschool.Class28;
 import jagex.oldschool.Class35;
-import jagex.oldschool.Class37;
-import jagex.oldschool.CollisionData;
+import jagex.oldschool.UrlStreamRequest;
+import jagex.oldschool.scene.CollisionData;
 import jagex.oldschool.collections.LinearHashTable;
 import jagex.oldschool.io.Buffer;
 import jagex.oldschool.util.GzipDecompressor;
@@ -39,7 +39,7 @@ public abstract class AbstractPackage {
     this.removeUnpacked = removeUnpacked;
   }
 
-  public static boolean method462(final char char_0) {
+  public static boolean isDelimiter(final char char_0) {
     return char_0 == 160 || char_0 == 32 || char_0 == 95 || char_0 == 45;
   }
 
@@ -390,13 +390,13 @@ public abstract class AbstractPackage {
 
       for (int i = 0; i < size; i++) {
         if (!removeUnpacked) {
-          unpackedArchive[ids[i]] = Class37.wrap(children[i]);
+          unpackedArchive[ids[i]] = UrlStreamRequest.wrap(children[i]);
         } else {
           unpackedArchive[ids[i]] = children[i];
         }
       }
     } else if (!removeUnpacked) {
-      unpackedArchive[ids[0]] = Class37.wrap(decompressed);
+      unpackedArchive[ids[0]] = UrlStreamRequest.wrap(decompressed);
     } else {
       unpackedArchive[ids[0]] = decompressed;
     }

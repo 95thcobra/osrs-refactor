@@ -8,6 +8,7 @@ import jagex.oldschool.scene.Position;
 import jagex.oldschool.script.Script;
 import jagex.oldschool.script.ScriptCall;
 import jagex.oldschool.script.ScriptExecutor;
+import jagex.oldschool.social.Friend;
 import jagex.oldschool.ui.InterfaceComponent;
 import jagex.oldschool.ui.OpenedInterface;
 import jagex.oldschool.util.Time;
@@ -71,16 +72,16 @@ public class Class23 {
   public static void method212(final AbstractPackage indexdatabase_0, final int int_0,
       final int int_1, final int int_2,
       final boolean bool_0) {
-    Class72.anInt168 = 1;
-    Class72.anIndexDataBase4 = indexdatabase_0;
+    AudioSystem.anInt168 = 1;
+    AudioSystem.anIndexDataBase4 = indexdatabase_0;
     Enum3.anInt339 = int_0;
-    RuntimeException_Sub1.anInt527 = int_1;
-    Class72.anInt170 = int_2;
+    NestedException.anInt527 = int_1;
+    AudioSystem.anInt170 = int_2;
     Class36.aBool8 = bool_0;
-    Class72.anInt169 = 10000;
+    AudioSystem.anInt169 = 10000;
   }
 
-  static void method213(final InterfaceComponent[] widgets_0, final int int_0) {
+  public static void method213(final InterfaceComponent[] widgets_0, final int int_0) {
     for (int int_1 = 0; int_1 < widgets_0.length; int_1++) {
       final InterfaceComponent widget_0 = widgets_0[int_1];
       if (widget_0 != null) {

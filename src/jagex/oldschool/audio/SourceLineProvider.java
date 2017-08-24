@@ -1,6 +1,4 @@
-package jagex.oldschool;
-
-import jagex.oldschool.audio.AbstractSourceLine;
+package jagex.oldschool.audio;
 
 public interface SourceLineProvider {
 

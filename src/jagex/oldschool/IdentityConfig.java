@@ -26,7 +26,7 @@ public class IdentityConfig extends Subnode {
   short[] recolorToReplace;
   short[] retextureToReplace;
 
-  IdentityConfig() {
+  public IdentityConfig() {
     bodyPartId = -1;
     models = new int[] {-1, -1, -1, -1, -1};
     nonSelectable = false;
@@ -142,7 +142,7 @@ public class IdentityConfig extends Subnode {
     return bool_0;
   }
 
-  void decode(final Buffer buffer_0) {
+  public void decode(final Buffer buffer_0) {
     while (true) {
       final int int_0 = buffer_0.getUnsignedByte();
       if (int_0 == 0) {
